@@ -254,7 +254,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 ### AP02 Kennzahlen TF1 und TF3 neu berechnen
 
 - **Ziel:** K1–K6, K8, K9 je Oktober, jeweils für „klassisch“ und „Score ≥ 1“.
-- **Ausgaben:** `data/processed/metrics_yearly.csv` (lang: `year, population, metric, value`), `data/processed/new_types.csv` (neue Fragetypen getrennt: Anzahl, Score, Antworten, akzeptiert, geschlossen), `data/processed/ai_tags_yearly.csv`, `data/processed/top_tags_yearly.csv` (Top 25).
+- **Ausgaben:** `results/metrics_overview.md` (lesbare Übersicht), `data/processed/metrics_yearly.csv` (lang: `year, population, metric, value`; Anteile als 0–1), `changes.csv`, `closed_reasons.csv`, `data/processed/new_types.csv` (neue Fragetypen getrennt: Anzahl, Score, Antworten, akzeptiert, geschlossen), `data/processed/ai_tags_yearly.csv`, `data/processed/top_tags_yearly.csv` (Top 25).
 - **Umsetzung:** `src/sov/metrics.py` mit einer Funktion je Kennzahl, Eingabe ist ein Polars-DataFrame. Veränderungen in Prozent und Cohens h in `data/processed/changes.csv`.
 - **Akzeptanz:** Fragenzahlen identisch zum Projektstand; KI-Anteil 2022 ≈ 0,08 %, 2026 ≈ 1,7 % (Abweichung nur durch den Ausschluss neuer Typen erklärbar); Unit-Tests mit einer Mini-Tabelle von 6 Fragen, deren Kennzahlen von Hand ausgerechnet sind.
 
@@ -565,7 +565,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 |---|---|---|---|
 | AP00 | Einrichtung | ☑ | 15.11.2026 |
 | AP01 | Datenbasis Parquet | ☑ | 15.11.2026 |
-| AP02 | Kennzahlen TF1/TF3 | ☐ | |
+| AP02 | Kennzahlen TF1/TF3 | ☑ | 15.11.2026 |
 | AP03 | Tag-Prüfung | ☐ | |
 | AP04 | Kodierbögen Tags | ☐ | |
 | AP05 | Kappa Tags, Gruppen | ☐ | |
