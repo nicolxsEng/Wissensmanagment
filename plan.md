@@ -298,6 +298,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
   - **Kodieransicht ohne Jahr, ohne Tags, ohne Score**, nur Titel und Text mit Codeblöcken (gekürzt auf 4.000 Zeichen). So sehen Menschen dasselbe wie das automatische Verfahren, und das Wissen um Jahr oder Tag beeinflusst die Einordnung nicht.
   - Kodier-App: zeigt eine Frage, Knöpfe G/U/S, Feld „unsicher“, speichert nach jedem Klick in die CSV des gewählten Kodierers, kann unterbrochen und fortgesetzt werden.
   - Aufteilung für AP10: Die 150 Doppelten sind die **Testmenge** (Konsenslabel nach Klärung), die übrigen 450 die Trainings- und Entwicklungsmenge. Die Testmenge wird in `coding/questions/split.csv` festgeschrieben.
+- **Ergebnis (15.11.2026):** `coding/questions/` enthält `stichprobe_intern.csv` (Code → Frage, Jahr; nicht öffnen), `split.csv`, `ansicht.parquet` (0,4 MB, Titel + Original-HTML, ohne Jahr/Tags/Score – damit kann Gentian ohne Rohdaten kodieren), `kalibrierung_A/B.csv`, `kodierer_A.csv` (600), `kodierer_B.csv` (150), `LIESMICH.md`. Codes F001–F630 in Zufallsreihenfolge. Doppelte je Jahr 12 oder 13. App im Browser getestet (gegen eine Kopie der Bögen).
 - **Akzeptanz:** Stichprobe reproduzierbar (zweimal erzeugen ergibt dieselben IDs); keine Überschneidung von Kalibrierung und Stichprobe; App läuft mit `uv run marimo run notebooks/kodier_app.py`.
 - **Mensch:** Kalibrierung (30 Fragen gemeinsam besprechen, Leitfaden schärfen), dann Kodierung. Danach Konsens für die 150 Doppelten (Spalte `konsens` in `coding/questions/konsens_150.csv`).
 
@@ -574,7 +575,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP03 | Tag-Prüfung (D15 angenommen) | ☑ | 15.11.2026 |
 | AP04 | Kodierbögen Tags (Leitfaden finalisieren: Team) | ☑ | 15.11.2026 |
 | AP05 | Kappa Tags, Gruppen | ☐ | |
-| AP06 | Stichproben, Kodier-App | ☐ | |
+| AP06 | Stichproben, Kodier-App | ☑ | 15.11.2026 |
 | AP07 | Gruppenvergleich | ☐ | |
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
 | AP09 | Doppelkodierung | ☐ | |
