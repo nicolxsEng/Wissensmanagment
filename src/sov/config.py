@@ -51,7 +51,8 @@ AI_TAGS = frozenset(
     if line.strip() and not line.startswith("#")
 )
 MIN_TAG_COUNT = 150  # Kandidaten-Tags: >= 150 klassische Fragen im Oktober 2022
-N_TAGS_EXPECTED = 272
+N_TAGS_EXPECTED_RAW = 272  # Exposé, rohe Tags
+N_TAGS_EXPECTED = 269  # nach Zusammenführen der Synonyme (D15)
 
 # --- Kodierung und Stichproben
 SEED = 20261116

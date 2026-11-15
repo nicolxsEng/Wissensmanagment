@@ -37,7 +37,7 @@ Dieses Dokument ist der Fahrplan für das Datenprojekt. Es legt fest, **was** be
 - **Daten:** 19 Oktober-Monate (2008–2026), 2.013.828 Fragen, 3.025.782 Antworten, bereits vollständig geladen in `../Datentest/<Jahr>/*.jsonl.gz`.
 - **Schritt 1:** Rohdaten einmal in Parquet-Tabellen umwandeln, mit allen abgeleiteten Feldern (7-Tage-Fenster, Textlänge ohne Code, neue Fragetypen). Danach laufen alle Analysen in Sekunden.
 - **TF1:** Kennzahlen je Oktober, Abweichung vom Trend 2015–2022 (unterbrochene Zeitreihe), Gegenprobe Score ≥ 1.
-- **TF2:** Blinde Einordnung der 272 Tags durch beide, Cohens Kappa, Gruppenindex (2022 = 100), Permutationstest mit 10.000 Zufallsgruppen, Weglassen einzelner Tags, Placebo-Test. Dazu 600 von Hand kodierte Fragen, ein automatisches Verfahren (Macro-F1 ≥ 0,70) und dessen Anwendung auf 2.000 Fragen je Jahr.
+- **TF2:** Blinde Einordnung der 269 Tags (272 abzüglich 3 Synonyme, D15) durch beide, Cohens Kappa, Gruppenindex (2022 = 100), Permutationstest mit 10.000 Zufallsgruppen, Weglassen einzelner Tags, Placebo-Test. Dazu 600 von Hand kodierte Fragen, ein automatisches Verfahren (Macro-F1 ≥ 0,70) und dessen Anwendung auf 2.000 Fragen je Jahr.
 - **TF3:** Textlänge, KI-Tags, Themenanalyse der Titel (BERTopic gegen NMF, Auswahl nach Probelauf).
 - **Sichtbare Antwortende (AP14):** Wie viele Personen zeigen öffentlich, dass sie sich mit Grundlagen bzw. Umgebungen auskennen? Das misst Leonardis „wer weiß was“ direkt.
 - **Nur lokale Modelle:** Alle Modelle laufen auf dem eigenen Rechner. Es gibt keine Cloud-Sprachmodelle, keine API-Kosten, und kein Fragetext verlässt den Rechner.
@@ -153,7 +153,7 @@ Wissensmanagment/                (GitHub-Repo, liegt neben ../Datentest)
    ▼
 data/interim/{questions,answers,texts}.parquet
    ├─ AP02 metrics ─────────► data/processed/metrics_yearly.csv ─┐
-   ├─ AP03 tag_audit ───────► tags_272.csv, tag_wiki.csv        │
+   ├─ AP03 tag_audit ───────► tags_candidates.csv, tag_wiki.csv │
    │     AP04 coding_sheets ► coding/tags/*.csv  (Menschen kodieren)
    │     AP05 agreement ────► groups.json, kappa ───────────────┤
    ├─ AP06 samples ─────────► coding/questions/*.csv (Menschen) │
@@ -219,7 +219,8 @@ Für jede TF1-Kennzahl und jeden Gruppenanteil, Jahre als Zeitpunkte t:
 
 ### 5.6 Gruppen (TF2)
 
-- Kandidaten: alle Tags mit ≥ 150 klassischen Fragen im Oktober 2022 (erwartet: 272).
+- **Synonyme zusammengeführt (D15):** Vor jeder Tag-Auswertung werden alle Synonym-Tags auf ihren Haupt-Tag abgebildet (`load_questions()` macht das standardmäßig).
+- Kandidaten: alle Tags mit ≥ 150 klassischen Fragen im Oktober 2022 nach dem Zusammenführen: **269** (mit rohen Tags 272, wie im Exposé).
 - Gruppe Grundlagen (G) bzw. Umgebung (U) = Tags, die **beide** Kodierenden gleich als G bzw. U einordnen. Alles andere: keine Gruppe.
 - Eine Frage zählt zu einer Gruppe, wenn sie ≥ 1 Tag der Gruppe hat. Fragen mit Tags aus beiden Gruppen zählen in beiden (Anteil wird berichtet). Gegenprobe: nur Fragen, die genau einer Gruppe angehören.
 
@@ -260,20 +261,21 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 
 ### AP03 Tag-Prüfung: Kandidaten, Synonyme, Brüche
 
-- **Ziel:** Liste der 272 Kandidaten-Tags plus Kontext für die blinde Einordnung, ohne Zahlen.
+- **Ziel:** Liste der Kandidaten-Tags (269 nach D15) plus Kontext für die blinde Einordnung, ohne Zahlen.
 - **Ausgaben:** `data/processed/tags_candidates.csv` (Tag, Fragen 2022, intern), `data/processed/tag_wiki.csv` (Tag, Auszug aus dem Tag-Wiki), `data/processed/tag_synonyms.csv`, `results/logs/tag_audit.md`.
 - **Umsetzung:**
   - Kandidaten aus `questions.parquet` (klassisch, 2022, ≥ 150).
   - Tag-Wiki-Auszüge und Synonyme über die Stack Exchange API: `/tags/{tags}/wikis` und `/tags/{tags}/synonyms`, bis zu 100 Tags je Anfrage, also wenige Anfragen. Dafür `../Datentest/scripts/se_api.py` wiederverwenden (Key bleibt in `../Datentest/.env`, wird nie ausgegeben).
   - Brüche finden: Tags, deren Anteil von einem Jahr aufs nächste auf < 10 % fällt oder auf 0 springt (Beispiel `selenium`), und Tags, die erst nach 2015 entstehen. Für jeden Fund im Protokoll eine Empfehlung (behalten, mit Nachfolger zusammenlegen, ausschließen). Die Entscheidung trifft das Team und trägt sie in `docs/entscheidungen.md` ein.
 - **Akzeptanz:** genau 272 Kandidaten (oder Abweichung begründet); jeder Kandidat hat einen Wiki-Auszug oder den Vermerk „kein Wiki“.
+- **Ergebnis (15.11.2026):** 272 Kandidaten, alle mit Wiki-Auszug; 28 API-Anfragen (die API erlaubt nur 20 Tags je Anfrage). Die 3 erkannten „Abbrüche“ sind Kandidaten, die heute Synonyme anderer Kandidaten sind. Bis 2022 tragen bis zu 1,7 % der Fragen eines Jahres ein altes Synonym, ab 2023 kaum noch → künstliche Sprünge am Schnitt. **D15 angenommen:** Synonyme werden vor jeder Tag-Auswertung zusammengeführt; danach 269 Kandidaten und keine Abbrüche mehr. 2 der 26 KI-Tags (`chatgpt`, `llm`) sind selbst Synonyme anderer KI-Tags der Liste, effektiv also 24; der KI-Anteil ändert sich dadurch nicht.
 
 ### AP04 Kodierbögen für die Tags
 
 - **Ziel:** zwei getrennte, gleich aufgebaute Bögen, **ohne Fragezahlen, ohne Jahre, ohne Trends**.
-- **Ausgaben:** `coding/tags/tags_kodierer_A.csv`, `coding/tags/tags_kodierer_B.csv` mit Spalten `nr, tag, wiki_auszug, kategorie (G/U/K), unsicher (x), notiz`. Reihenfolge je Bogen zufällig (eigener Seed je Bogen), damit keine Reihenfolgeeffekte gleich wirken.
+- **Ausgaben:** `coding/tags/tags_kodierer_A.csv`, `coding/tags/tags_kodierer_B.csv`, Übungsbogen `coding/tags/uebung_10.csv` (10 Tags knapp unter der Schwelle, nicht in der Auswahl), Anleitung `coding/tags/LIESMICH.md`; CSV mit Semikolon für Excel/Numbers; Spalten `nr, tag, wiki_auszug, kategorie (G/U/K), unsicher (x), notiz`. Reihenfolge je Bogen zufällig (eigener Seed je Bogen), damit keine Reihenfolgeeffekte gleich wirken.
 - **Umsetzung:** kleines Skript; Leitfaden `docs/kodierleitfaden_tags.md` finalisieren (Entwurf liegt bei).
-- **Akzeptanz:** keine Spalte enthält Zahlen außer `nr`; beide Bögen enthalten dieselben 272 Tags.
+- **Akzeptanz:** keine Spalte enthält Zahlen außer `nr`; beide Bögen enthalten dieselben 269 Tags.
 - **Mensch:** beide kodieren unabhängig, ohne Absprache, ohne Zahlen anzusehen. Claude Code füllt diese Bögen nicht aus und schlägt keine Kategorien vor.
 
 ### AP05 Übereinstimmung Tags und Gruppen festlegen
@@ -305,10 +307,10 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 - **Ausgaben:** `data/processed/group_index.csv`, `permutation.csv`, `leave_one_out.csv`, `placebo.csv`, `tag_shift.csv`.
 - **Umsetzung** (`src/sov/groups.py`):
   1. Anteil und Index je Gruppe und Jahr (K7), auch für die Gegenproben „Score ≥ 1“ und „nur eine Gruppe“.
-  2. **Permutationstest:** 10.000-mal zwei nicht überlappende Zufallsgruppen derselben Größe wie G und U aus denselben 272 Tags; Abstand der Indexwerte für 2023, 2024, 2025, 2026. Berichtet: Perzentil des beobachteten Abstands, p = (k + 1)/(N + 1), Median und 95-%-Quantil der Zufallsabstände. Vektorisiert über eine Matrix Tag × Jahr mit Fragezahlen, damit es in Sekunden läuft (Achtung: Fragen mit mehreren Tags einer Gruppe nur einmal zählen; dafür eine dünn besetzte Matrix Frage × Tag nutzen).
+  2. **Permutationstest:** 10.000-mal zwei nicht überlappende Zufallsgruppen derselben Größe wie G und U aus denselben 269 Tags; Abstand der Indexwerte für 2023, 2024, 2025, 2026. Berichtet: Perzentil des beobachteten Abstands, p = (k + 1)/(N + 1), Median und 95-%-Quantil der Zufallsabstände. Vektorisiert über eine Matrix Tag × Jahr mit Fragezahlen, damit es in Sekunden läuft (Achtung: Fragen mit mehreren Tags einer Gruppe nur einmal zählen; dafür eine dünn besetzte Matrix Frage × Tag nutzen).
   3. **Weglassen einzelner Tags:** Abstand 2024 ohne jeweils einen Tag.
   4. **Placebo-Test:** gleiche Rechnung mit Basis 2019 = 100 und Vergleichsjahr 2021 (beide vor ChatGPT). Erwartung: kleiner Abstand.
-  5. **Behaltensquote je Tag:** Anteil 2024 / Anteil 2022 und Vortrend Anteil 2022 / Anteil 2019, für alle 272 Tags mit Gruppe.
+  5. **Behaltensquote je Tag:** Anteil 2024 / Anteil 2022 und Vortrend Anteil 2022 / Anteil 2019, für alle 269 Tags mit Gruppe.
 - **Akzeptanz:** Mit den 20+20 Tags aus dem Projektstand reproduziert die Funktion die Werte 52,5 und 129,1 (Test); Permutation läuft < 1 Minute.
 
 ### AP08 Unterbrochene Zeitreihe (TF1, TF2)
@@ -470,7 +472,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 
 | Prüfung | AP | Wer | Umfang | Kriterium | Werkzeug |
 |---|---|---|---|---|---|
-| Einordnung der Tags | AP04/05 | beide unabhängig | 272 Tags | Kappa ≥ 0,61 | Bögen + `agreement.py` |
+| Einordnung der Tags | AP04/05 | beide unabhängig | 269 Tags | Kappa ≥ 0,61 | Bögen + `agreement.py` |
 | Kalibrierung | AP06 | beide gemeinsam | 30 Fragen außerhalb | Leitfaden geschärft | Kodier-App |
 | Doppelkodierung | AP09 | beide unabhängig | 150 der 600 | Kappa ≥ 0,61 | Kodier-App + `agreement.py` |
 | Klassifikation | AP10 | eine Person | 150 Konsensfragen | Macro-F1 ≥ 0,70 | `classify/` |
@@ -486,7 +488,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 | Zeitraum | Arbeitspakete | Menschliche Arbeit | Meilenstein (Exposé) |
 |---|---|---|---|
 | 16.11.–22.11. | AP00, AP01, AP02, AP03, AP04; Leitfäden finalisieren | Leitfäden lesen und anpassen; Entscheidungen zu Tag-Brüchen | Leitfäden stehen |
-| 23.11.–29.11. | AP05, AP06; AP08 (läuft schon ohne Gruppen für TF1) | **272 Tags einordnen (beide, ca. 2–3 h je Person)**; Kalibrierung 30 Fragen | Gruppen festgelegt |
+| 23.11.–29.11. | AP05, AP06; AP08 (läuft schon ohne Gruppen für TF1) | **269 Tags einordnen (beide, ca. 2–3 h je Person)**; Kalibrierung 30 Fragen | Gruppen festgelegt |
 | 30.11.–06.12. | AP07, AP09; Vorbereitung AP10 (Basislinie, SetFit, Hypothesensätze für Zero-Shot an den ersten kodierten Fragen) | **600 + 150 Fragen kodieren (ca. 8–10 h für A, 2–3 h für B)**; Konsens | Kodierung abgeschlossen, Kappa berechnet |
 | 07.12.–14.12. | AP10, AP11 (Probelauf + Hauptlauf), AP12, AP14 | Themenprüfung (beide), Datenprüfung 20 Fragen | Datenerhebung abgeschlossen |
 | 15.12.–21.12. | AP13, Gegenproben, ggf. AP15 | Abbildungen ansehen, erste Deutung | Erste Ergebnisse stehen |
@@ -508,7 +510,8 @@ Diese Punkte sind beim Planen aufgefallen. Sie sollten im Methodenteil stehen un
 5. **Antwortverhalten ohne neue Fragetypen:** Das Exposé nennt den Ausschluss nur für akzeptierte Antworten. Der Plan schließt sie bei allen Antwortkennzahlen aus, weil sie anders funktionieren.
 6. **Nur lokale Modelle.** Exposé 5.2 und 5.3 lassen das Verfahren offen und nennen „ein Sprachmodell ohne eigenes Training“ bzw. „Verfahren, bei denen ein Sprachmodell Themen vorschlägt“. Umgesetzt wird das mit lokalen Modellen: ein Zero-Shot-Klassifikationsmodell (AP10) und BERTopic mit lokalem Embedding-Modell gegen NMF (AP11). Themennamen vergeben die Autor:innen. Im Paper so beschreiben; Modellnamen und Revisionen kommen in den Anhang.
 7. **Sichtbare Antwortende (AP14)** kommen als Kennzahlen A1–A5 hinzu. Sie stehen nicht als eigene Teilfrage im Exposé, gehören aber zu „Antwortverhalten“ (TF1) und zur „Sichtbarkeit von Wissen im Sinne von Leonardi“ in der Forschungsfrage. Begründung siehe AP14. Im Paper: Abschnitt 3c um A1–A5 ergänzen, Ergebnisse in 4a (gesamt) und 4b (je Gruppe).
-8. **Vorwissen bei der Tag-Einordnung:** Nicolas kennt die Rückgänge der 40 Tags aus der Voruntersuchung. Das lässt sich nicht ungeschehen machen und gehört offen in die Grenzen. Gemildert wird es dadurch, dass nur übereinstimmende Tags in eine Gruppe kommen.
+8. **269 statt 272 Tags (D15, angenommen am 15.11.2026):** 3 der 272 Tags sind heute Synonyme anderer Kandidaten. Alte Fragen tragen bis 2022 oft noch das Synonym, neue werden automatisch abgebildet; ohne Zusammenführen entstünden künstliche Sprünge am Schnitt. Nach dem Zusammenführen bleiben 269 Tags. Im Paper die Zahl anpassen und den Grund nennen. Außerdem: 2 der 26 KI-Tags sind Synonyme anderer KI-Tags der Liste (effektiv 24).
+9. **Vorwissen bei der Tag-Einordnung:** Nicolas kennt die Rückgänge der 40 Tags aus der Voruntersuchung. Das lässt sich nicht ungeschehen machen und gehört offen in die Grenzen. Gemildert wird es dadurch, dass nur übereinstimmende Tags in eine Gruppe kommen.
 
 ---
 
@@ -533,7 +536,7 @@ Diese Punkte sind beim Planen aufgefallen. Sie sollten im Methodenteil stehen un
 
 1. ~~Sprachmodell für AP10/AP11~~ **entschieden (15.11.2026): nur lokale Modelle** (D10).
 2. **Format des Papers** (Word, LaTeX, Typst). Die Abbildungen gehen in jedem Fall (PDF/PNG), Tabellen werden in allen drei Formaten erzeugt.
-3. **Umgang mit Tag-Brüchen** aus AP03 (zusammenlegen oder ausschließen).
+3. ~~Umgang mit Tag-Brüchen~~ **entschieden (15.11.2026): Synonyme zusammenführen** (D15). Danach gibt es keine Brüche mehr.
 4. ~~Sichtbare Antwortende~~ **entschieden (15.11.2026): fest eingeplant als AP14** (D11). Offen bleibt nur AP15 (KI-Erwähnungen, optional).
 5. **Schwelle für „erkennbare Expert:innen“** (Voreinstellung ≥ 3 Antworten je Gruppe und Monat). Gegenprobe mit ≥ 2 und ≥ 5 einplanen.
 
@@ -566,8 +569,8 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP00 | Einrichtung | ☑ | 15.11.2026 |
 | AP01 | Datenbasis Parquet | ☑ | 15.11.2026 |
 | AP02 | Kennzahlen TF1/TF3 | ☑ | 15.11.2026 |
-| AP03 | Tag-Prüfung | ☐ | |
-| AP04 | Kodierbögen Tags | ☐ | |
+| AP03 | Tag-Prüfung (D15 angenommen) | ☑ | 15.11.2026 |
+| AP04 | Kodierbögen Tags (Leitfaden finalisieren: Team) | ☑ | 15.11.2026 |
 | AP05 | Kappa Tags, Gruppen | ☐ | |
 | AP06 | Stichproben, Kodier-App | ☐ | |
 | AP07 | Gruppenvergleich | ☐ | |

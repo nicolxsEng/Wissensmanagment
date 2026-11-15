@@ -52,6 +52,7 @@ uv run marimo edit notebooks/<datei>.py
 
 ## Bekannte Datenbesonderheiten
 
+- **Tags immer zusammengeführt (D15):** `sov.io.load_questions()` bildet Synonyme standardmäßig auf den Haupt-Tag ab. Rohe Tags nur mit `canonical_tags=False` und nur, wenn es einen Grund gibt (AP03). Kandidaten-Tags: 269.
 - `score`, `view_count`, `answer_count` sind heutige Werte; Antwortkennzahlen deshalb nur aus Antworten im 7-Tage-Fenster.
 - `advice` / `best-practices` = neue Fragetypen ab Oktober 2025 (siehe plan.md 5.1 und 11).
 - Rohdateien sind gzip mit mehreren aneinandergehängten Blöcken; Python `gzip` liest das korrekt.

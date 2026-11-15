@@ -1,6 +1,6 @@
 # Kennzahlen je Oktober (AP02)
 
-Erzeugt: 15.11.2026 22:41. Klassische Fragen (ohne neue Fragetypen), Antworten nur im 7-Tage-Fenster. Definitionen: plan.md 5.3.
+Erzeugt: 15.11.2026 22:50. Klassische Fragen (ohne neue Fragetypen), Synonym-Tags zusammengeführt (D15), Antworten nur im 7-Tage-Fenster. Definitionen: plan.md 5.3.
 
 | Okt. | Fragen (alle) | klassisch | Antw./Frage | Median | unbeantw. | Median Std. bis 1. Antw. | in 24 h | akzeptiert | Textlänge | mit Code | geschlossen | KI-Tag |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|

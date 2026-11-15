@@ -17,6 +17,7 @@ from sov.metrics import (
     new_type_summary,
     top_tags,
 )
+from sov.tags import canonical_ai_tags, load_synonym_map
 
 COLS = [
     "year", "tags", "score", "is_classic", "is_new_type", "n_answers_7d", "answered_7d",
@@ -44,6 +45,7 @@ def overview(long: pl.DataFrame, ch: pl.DataFrame, nt: pl.DataFrame) -> str:
         "# Kennzahlen je Oktober (AP02)",
         "",
         f"Erzeugt: {datetime.now():%d.%m.%Y %H:%M}. Klassische Fragen (ohne neue Fragetypen), "
+        "Synonym-Tags zusammengeführt (D15), "
         "Antworten nur im 7-Tage-Fenster. Definitionen: plan.md 5.3.",
         "",
         "| Okt. | Fragen (alle) | klassisch | Antw./Frage | Median | unbeantw. | "
@@ -126,7 +128,9 @@ def main() -> None:
     long.write_csv(out / "metrics_yearly.csv")
     ch.write_csv(out / "changes.csv")
     nt.write_csv(out / "new_types.csv")
-    ai_tag_counts(classic).write_csv(out / "ai_tags_yearly.csv")
+    ai_tag_counts(classic, canonical_ai_tags(load_synonym_map())).write_csv(
+        out / "ai_tags_yearly.csv"
+    )
     top_tags(classic, 25).write_csv(out / "top_tags_yearly.csv")
     closed_reasons(classic).write_csv(out / "closed_reasons.csv")
 

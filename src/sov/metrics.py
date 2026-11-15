@@ -150,11 +150,15 @@ def top_tags(q: pl.DataFrame, n: int = 25) -> pl.DataFrame:
     )
 
 
-def ai_tag_counts(q: pl.DataFrame) -> pl.DataFrame:
-    """Fragen je Jahr und KI-Tag (alle 26 Tags, fehlende Kombinationen = 0)."""
-    tc = tag_counts(q).filter(pl.col("tag").is_in(sorted(config.AI_TAGS)))
+def ai_tag_counts(q: pl.DataFrame, ai_tags: list[str] | None = None) -> pl.DataFrame:
+    """Fragen je Jahr und KI-Tag (fehlende Kombinationen = 0).
+
+    ai_tags: bei zusammengeführten Tags `sov.tags.canonical_ai_tags(...)` übergeben (D15).
+    """
+    ai_tags = sorted(ai_tags or config.AI_TAGS)
+    tc = tag_counts(q).filter(pl.col("tag").is_in(ai_tags))
     grid = pl.DataFrame({"year": config.YEARS}, schema={"year": pl.Int16}).join(
-        pl.DataFrame({"tag": sorted(config.AI_TAGS)}), how="cross"
+        pl.DataFrame({"tag": ai_tags}), how="cross"
     )
     return (
         grid.join(tc, on=["year", "tag"], how="left")

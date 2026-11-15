@@ -4,7 +4,7 @@
 
 ## Ziel
 
-Jeder der 272 Tags mit mindestens 150 Fragen im Oktober 2022 wird einer von drei Kategorien zugeordnet. Beide Kodierenden arbeiten **unabhängig**, ohne Absprache und **ohne Fragezahlen oder Entwicklungen anzusehen**. In eine Gruppe kommen nur Tags, die beide gleich einordnen.
+Jeder der 269 Tags mit mindestens 150 Fragen im Oktober 2022 (nach Zusammenführen der Synonyme, D15) wird einer von drei Kategorien zugeordnet. Beide Kodierenden arbeiten **unabhängig**, ohne Absprache und **ohne Fragezahlen oder Entwicklungen anzusehen**. In eine Gruppe kommen nur Tags, die beide gleich einordnen.
 
 ## Leitfrage
 
@@ -33,7 +33,7 @@ Jeder der 272 Tags mit mindestens 150 Fragen im Oktober 2022 wird einer von drei
 
 ## Ablauf
 
-1. Beide lesen diesen Leitfaden, besprechen Unklarheiten **vor** der Kodierung (nicht anhand der 272 Tags, sondern anhand von 10 Übungstags, die nicht in der Liste stehen).
+1. Beide lesen diesen Leitfaden, besprechen Unklarheiten **vor** der Kodierung (nicht anhand der 269 Tags, sondern anhand von 10 Übungstags, die nicht in der Liste stehen).
 2. Jede Person füllt ihren eigenen Bogen aus (`coding/tags/tags_kodierer_A.csv` bzw. `_B.csv`), Reihenfolge wie im Bogen.
 3. Keine Absprache, bis beide fertig sind.
 4. Danach berechnet AP05 Cohens Kappa. Strittige Tags werden **nicht** nachträglich vereinheitlicht, sie kommen in keine Gruppe. Liegt Kappa unter 0,61, wird der Leitfaden geschärft und eine zweite Runde dokumentiert (Exposé Abschnitt 6).

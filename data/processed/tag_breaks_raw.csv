@@ -1,0 +1,43 @@
+tag,kind,year,detail
+.net-6.0,entsteht,2021,erstes Jahr mit >= 10 Fragen nach 2015
+airflow,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+android-jetpack-compose,entsteht,2019,erstes Jahr mit >= 10 Fragen nach 2015
+axios,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+azure-functions,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+blazor,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+bootstrap-5,entsteht,2020,erstes Jahr mit >= 10 Fragen nach 2015
+cypress,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+databricks,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+discord,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+discord.js,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+discord.py,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+dockerfile,abbruch,2025,Anteil fällt in einem Jahr auf < 10 % des Vorjahres
+expo,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+fastapi,entsteht,2020,erstes Jahr mit >= 10 Fragen nach 2015
+flutter,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+flutter-layout,abbruch,2023,Anteil fällt in einem Jahr auf < 10 % des Vorjahres
+flutter-layout,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+github-actions,entsteht,2019,erstes Jahr mit >= 10 Fragen nach 2015
+google-cloud-firestore,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+google-cloud-functions,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+google-sheets-formula,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+keras,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+laravel-8,entsteht,2020,erstes Jahr mit >= 10 Fragen nach 2015
+maui,entsteht,2021,erstes Jahr mit >= 10 Fragen nach 2015
+microsoft-graph-api,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+nestjs,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+next.js,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+nuxt.js,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+pine-script,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+pytorch,entsteht,2017,erstes Jahr mit >= 10 Fragen nach 2015
+react-hooks,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+react-redux,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+selenium,abbruch,2023,Anteil fällt in einem Jahr auf < 10 % des Vorjahres
+snowflake-cloud-data-platform,entsteht,2018,erstes Jahr mit >= 10 Fragen nach 2015
+swiftui,entsteht,2019,erstes Jahr mit >= 10 Fragen nach 2015
+tailwind-css,entsteht,2019,erstes Jahr mit >= 10 Fragen nach 2015
+tensorflow,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+terraform,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+vite,entsteht,2021,erstes Jahr mit >= 10 Fragen nach 2015
+vuejs2,entsteht,2016,erstes Jahr mit >= 10 Fragen nach 2015
+vuejs3,entsteht,2020,erstes Jahr mit >= 10 Fragen nach 2015

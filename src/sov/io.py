@@ -27,11 +27,29 @@ def read_progress(year: int) -> dict:
     return json.loads((raw_year_dir(year) / "_progress.json").read_text(encoding="utf-8"))
 
 
-def load_questions(columns: list[str] | None = None, lazy: bool = False):
-    """questions.parquet (eine Zeile je Frage, alle Jahre)."""
+def load_questions(
+    columns: list[str] | None = None, lazy: bool = False, canonical_tags: bool = True
+):
+    """questions.parquet (eine Zeile je Frage, alle Jahre).
+
+    canonical_tags=True (Standard, D15): Synonym-Tags werden auf ihren Haupt-Tag abgebildet,
+    `n_ai_tags` wird mit den zusammengeführten Tags neu berechnet. Rohe Tags nur mit
+    canonical_tags=False (z. B. in AP03, das die Synonyme erst ermittelt).
+    """
     lf = pl.scan_parquet(config.QUESTIONS_PARQUET)
     if columns:
         lf = lf.select(columns)
+    names = lf.collect_schema().names()
+    if canonical_tags and "tags" in names:
+        from sov.tags import canonical_ai_tags, canonicalize, load_synonym_map
+
+        mapping = load_synonym_map()
+        lf = canonicalize(lf, mapping)
+        if "n_ai_tags" in names:
+            ai = canonical_ai_tags(mapping)
+            lf = lf.with_columns(
+                n_ai_tags=pl.col("tags").list.eval(pl.element().is_in(ai)).list.sum().cast(pl.Int8)
+            )
     return lf if lazy else lf.collect()
 
 

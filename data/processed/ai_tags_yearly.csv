@@ -1,7 +1,6 @@
 year,tag,n,share
 2008,anthropic,0,0.0
 2008,azure-openai,0,0.0
-2008,chatgpt,0,0.0
 2008,chatgpt-api,0,0.0
 2008,claude,0,0.0
 2008,cursor-ide,0,0.0
@@ -17,7 +16,6 @@ year,tag,n,share
 2008,langgraph,0,0.0
 2008,large-language-model,0,0.0
 2008,llama-index,0,0.0
-2008,llm,0,0.0
 2008,model-context-protocol,0,0.0
 2008,ollama,0,0.0
 2008,openai-api,0,0.0
@@ -27,7 +25,6 @@ year,tag,n,share
 2008,retrieval-augmented-generation,0,0.0
 2009,anthropic,0,0.0
 2009,azure-openai,0,0.0
-2009,chatgpt,0,0.0
 2009,chatgpt-api,0,0.0
 2009,claude,0,0.0
 2009,cursor-ide,0,0.0
@@ -43,7 +40,6 @@ year,tag,n,share
 2009,langgraph,0,0.0
 2009,large-language-model,0,0.0
 2009,llama-index,0,0.0
-2009,llm,0,0.0
 2009,model-context-protocol,0,0.0
 2009,ollama,0,0.0
 2009,openai-api,0,0.0
@@ -53,7 +49,6 @@ year,tag,n,share
 2009,retrieval-augmented-generation,0,0.0
 2010,anthropic,0,0.0
 2010,azure-openai,0,0.0
-2010,chatgpt,0,0.0
 2010,chatgpt-api,0,0.0
 2010,claude,0,0.0
 2010,cursor-ide,0,0.0
@@ -69,7 +64,6 @@ year,tag,n,share
 2010,langgraph,0,0.0
 2010,large-language-model,0,0.0
 2010,llama-index,0,0.0
-2010,llm,0,0.0
 2010,model-context-protocol,0,0.0
 2010,ollama,0,0.0
 2010,openai-api,0,0.0
@@ -79,7 +73,6 @@ year,tag,n,share
 2010,retrieval-augmented-generation,0,0.0
 2011,anthropic,0,0.0
 2011,azure-openai,0,0.0
-2011,chatgpt,0,0.0
 2011,chatgpt-api,0,0.0
 2011,claude,0,0.0
 2011,cursor-ide,0,0.0
@@ -95,7 +88,6 @@ year,tag,n,share
 2011,langgraph,0,0.0
 2011,large-language-model,0,0.0
 2011,llama-index,0,0.0
-2011,llm,0,0.0
 2011,model-context-protocol,0,0.0
 2011,ollama,0,0.0
 2011,openai-api,0,0.0
@@ -105,7 +97,6 @@ year,tag,n,share
 2011,retrieval-augmented-generation,0,0.0
 2012,anthropic,0,0.0
 2012,azure-openai,0,0.0
-2012,chatgpt,0,0.0
 2012,chatgpt-api,0,0.0
 2012,claude,0,0.0
 2012,cursor-ide,0,0.0
@@ -121,7 +112,6 @@ year,tag,n,share
 2012,langgraph,0,0.0
 2012,large-language-model,0,0.0
 2012,llama-index,0,0.0
-2012,llm,0,0.0
 2012,model-context-protocol,0,0.0
 2012,ollama,0,0.0
 2012,openai-api,0,0.0
@@ -131,7 +121,6 @@ year,tag,n,share
 2012,retrieval-augmented-generation,0,0.0
 2013,anthropic,0,0.0
 2013,azure-openai,0,0.0
-2013,chatgpt,0,0.0
 2013,chatgpt-api,0,0.0
 2013,claude,0,0.0
 2013,cursor-ide,0,0.0
@@ -147,7 +136,6 @@ year,tag,n,share
 2013,langgraph,0,0.0
 2013,large-language-model,0,0.0
 2013,llama-index,0,0.0
-2013,llm,0,0.0
 2013,model-context-protocol,0,0.0
 2013,ollama,0,0.0
 2013,openai-api,0,0.0
@@ -157,7 +145,6 @@ year,tag,n,share
 2013,retrieval-augmented-generation,0,0.0
 2014,anthropic,0,0.0
 2014,azure-openai,0,0.0
-2014,chatgpt,0,0.0
 2014,chatgpt-api,0,0.0
 2014,claude,0,0.0
 2014,cursor-ide,0,0.0
@@ -173,7 +160,6 @@ year,tag,n,share
 2014,langgraph,0,0.0
 2014,large-language-model,0,0.0
 2014,llama-index,0,0.0
-2014,llm,0,0.0
 2014,model-context-protocol,0,0.0
 2014,ollama,0,0.0
 2014,openai-api,0,0.0
@@ -183,7 +169,6 @@ year,tag,n,share
 2014,retrieval-augmented-generation,0,0.0
 2015,anthropic,0,0.0
 2015,azure-openai,0,0.0
-2015,chatgpt,0,0.0
 2015,chatgpt-api,0,0.0
 2015,claude,0,0.0
 2015,cursor-ide,0,0.0
@@ -199,7 +184,6 @@ year,tag,n,share
 2015,langgraph,0,0.0
 2015,large-language-model,0,0.0
 2015,llama-index,0,0.0
-2015,llm,0,0.0
 2015,model-context-protocol,0,0.0
 2015,ollama,0,0.0
 2015,openai-api,0,0.0
@@ -209,7 +193,6 @@ year,tag,n,share
 2015,retrieval-augmented-generation,0,0.0
 2016,anthropic,0,0.0
 2016,azure-openai,0,0.0
-2016,chatgpt,0,0.0
 2016,chatgpt-api,0,0.0
 2016,claude,0,0.0
 2016,cursor-ide,0,0.0
@@ -225,7 +208,6 @@ year,tag,n,share
 2016,langgraph,0,0.0
 2016,large-language-model,0,0.0
 2016,llama-index,0,0.0
-2016,llm,0,0.0
 2016,model-context-protocol,0,0.0
 2016,ollama,0,0.0
 2016,openai-api,0,0.0
@@ -235,7 +217,6 @@ year,tag,n,share
 2016,retrieval-augmented-generation,0,0.0
 2017,anthropic,0,0.0
 2017,azure-openai,0,0.0
-2017,chatgpt,0,0.0
 2017,chatgpt-api,0,0.0
 2017,claude,0,0.0
 2017,cursor-ide,0,0.0
@@ -251,7 +232,6 @@ year,tag,n,share
 2017,langgraph,0,0.0
 2017,large-language-model,0,0.0
 2017,llama-index,0,0.0
-2017,llm,0,0.0
 2017,model-context-protocol,0,0.0
 2017,ollama,0,0.0
 2017,openai-api,0,0.0
@@ -261,7 +241,6 @@ year,tag,n,share
 2017,retrieval-augmented-generation,0,0.0
 2018,anthropic,0,0.0
 2018,azure-openai,0,0.0
-2018,chatgpt,0,0.0
 2018,chatgpt-api,0,0.0
 2018,claude,0,0.0
 2018,cursor-ide,0,0.0
@@ -277,7 +256,6 @@ year,tag,n,share
 2018,langgraph,0,0.0
 2018,large-language-model,0,0.0
 2018,llama-index,0,0.0
-2018,llm,0,0.0
 2018,model-context-protocol,0,0.0
 2018,ollama,0,0.0
 2018,openai-api,0,0.0
@@ -287,7 +265,6 @@ year,tag,n,share
 2018,retrieval-augmented-generation,0,0.0
 2019,anthropic,0,0.0
 2019,azure-openai,0,0.0
-2019,chatgpt,0,0.0
 2019,chatgpt-api,0,0.0
 2019,claude,0,0.0
 2019,cursor-ide,0,0.0
@@ -303,7 +280,6 @@ year,tag,n,share
 2019,langgraph,0,0.0
 2019,large-language-model,0,0.0
 2019,llama-index,0,0.0
-2019,llm,0,0.0
 2019,model-context-protocol,0,0.0
 2019,ollama,0,0.0
 2019,openai-api,0,0.0
@@ -313,7 +289,6 @@ year,tag,n,share
 2019,retrieval-augmented-generation,0,0.0
 2020,anthropic,0,0.0
 2020,azure-openai,0,0.0
-2020,chatgpt,0,0.0
 2020,chatgpt-api,0,0.0
 2020,claude,0,0.0
 2020,cursor-ide,0,0.0
@@ -329,7 +304,6 @@ year,tag,n,share
 2020,langgraph,0,0.0
 2020,large-language-model,0,0.0
 2020,llama-index,0,0.0
-2020,llm,0,0.0
 2020,model-context-protocol,0,0.0
 2020,ollama,0,0.0
 2020,openai-api,1,7.054773259587437e-6
@@ -339,7 +313,6 @@ year,tag,n,share
 2020,retrieval-augmented-generation,0,0.0
 2021,anthropic,0,0.0
 2021,azure-openai,0,0.0
-2021,chatgpt,0,0.0
 2021,chatgpt-api,0,0.0
 2021,claude,0,0.0
 2021,cursor-ide,0,0.0
@@ -355,7 +328,6 @@ year,tag,n,share
 2021,langgraph,0,0.0
 2021,large-language-model,0,0.0
 2021,llama-index,0,0.0
-2021,llm,0,0.0
 2021,model-context-protocol,0,0.0
 2021,ollama,0,0.0
 2021,openai-api,5,0.00004210065424416695
@@ -365,7 +337,6 @@ year,tag,n,share
 2021,retrieval-augmented-generation,0,0.0
 2022,anthropic,0,0.0
 2022,azure-openai,0,0.0
-2022,chatgpt,0,0.0
 2022,chatgpt-api,0,0.0
 2022,claude,0,0.0
 2022,cursor-ide,0,0.0
@@ -381,7 +352,6 @@ year,tag,n,share
 2022,langgraph,0,0.0
 2022,large-language-model,0,0.0
 2022,llama-index,0,0.0
-2022,llm,0,0.0
 2022,model-context-protocol,0,0.0
 2022,ollama,0,0.0
 2022,openai-api,11,0.00010402973358930953
@@ -391,7 +361,6 @@ year,tag,n,share
 2022,retrieval-augmented-generation,0,0.0
 2023,anthropic,0,0.0
 2023,azure-openai,25,0.00047771004910859307
-2023,chatgpt,0,0.0
 2023,chatgpt-api,24,0.0004586016471442493
 2023,claude,0,0.0
 2023,cursor-ide,0,0.0
@@ -407,7 +376,6 @@ year,tag,n,share
 2023,langgraph,0,0.0
 2023,large-language-model,69,0.0013184797355397168
 2023,llama-index,9,0.0001719756176790935
-2023,llm,0,0.0
 2023,model-context-protocol,0,0.0
 2023,ollama,0,0.0
 2023,openai-api,104,0.0019872738042917473
@@ -417,7 +385,6 @@ year,tag,n,share
 2023,retrieval-augmented-generation,0,0.0
 2024,anthropic,0,0.0
 2024,azure-openai,13,0.0005612883726954795
-2024,chatgpt,0,0.0
 2024,chatgpt-api,5,0.00021588014334441517
 2024,claude,3,0.0001295280860066491
 2024,cursor-ide,0,0.0
@@ -433,7 +400,6 @@ year,tag,n,share
 2024,langgraph,6,0.0002590561720132982
 2024,large-language-model,43,0.0018565692327619705
 2024,llama-index,3,0.0001295280860066491
-2024,llm,0,0.0
 2024,model-context-protocol,0,0.0
 2024,ollama,17,0.0007339924873710116
 2024,openai-api,26,0.001122576745390959
@@ -443,7 +409,6 @@ year,tag,n,share
 2024,retrieval-augmented-generation,2,0.00008635205733776608
 2025,anthropic,0,0.0
 2025,azure-openai,5,0.000957670944263551
-2025,chatgpt,0,0.0
 2025,chatgpt-api,2,0.0003830683777054204
 2025,claude,3,0.0005746025665581306
 2025,cursor-ide,2,0.0003830683777054204
@@ -459,7 +424,6 @@ year,tag,n,share
 2025,langgraph,8,0.0015322735108216816
 2025,large-language-model,17,0.0032560812104960733
 2025,llama-index,1,0.0001915341888527102
-2025,llm,0,0.0
 2025,model-context-protocol,13,0.0024899444550852325
 2025,ollama,0,0.0
 2025,openai-api,10,0.001915341888527102
@@ -469,7 +433,6 @@ year,tag,n,share
 2025,retrieval-augmented-generation,0,0.0
 2026,anthropic,0,0.0
 2026,azure-openai,0,0.0
-2026,chatgpt,0,0.0
 2026,chatgpt-api,0,0.0
 2026,claude,0,0.0
 2026,cursor-ide,1,0.0011337868480725624
@@ -485,7 +448,6 @@ year,tag,n,share
 2026,langgraph,0,0.0
 2026,large-language-model,3,0.003401360544217687
 2026,llama-index,0,0.0
-2026,llm,0,0.0
 2026,model-context-protocol,2,0.0022675736961451248
 2026,ollama,2,0.0022675736961451248
 2026,openai-api,3,0.003401360544217687
