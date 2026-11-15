@@ -12,3 +12,4 @@ data/interim/
 data/processed/*.parquet
 results/models/
 __marimo__/
+checkpoints/

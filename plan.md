@@ -339,6 +339,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 - **Ausgaben:** `results/classify/vergleich.csv` (Macro-F1, F1 je Klasse, Genauigkeit je Kandidat, mit Bootstrap-KI), Konfusionsmatrix des Gewinners, `data/processed/classified_sample.parquet` (question_id, year, label, Verfahren), `data/processed/text_group_shares.csv` (Anteil G/U/S je Jahr mit Wilson-Intervall), Modellkarte `results/classify/modell.md` (Modellname, Revision/Commit-Hash von Hugging Face, Paketversionen, Datum, Einstellungen, Hypothesensätze, Laufzeit).
 - **Anwendung:** 2.000 zufällige klassische Fragen je Jahr 2015–2025, 2026 alle 949, ohne die 600 kodierten. Gegenprobe: Anteile mit der Konfusionsmatrix korrigieren (adjusted classify and count) und neben den Rohanteilen zeigen.
 - **Modelle:** werden einmal von Hugging Face heruntergeladen und danach offline genutzt. Name und Revision stehen in `config.py`, damit der Lauf später exakt wiederholbar ist. Keine Cloud-API.
+- **Stand 16.11.2026 (vorbereitet):** `scripts/10_classify.py` mit den Schritten `prepare` (erledigt: 630 kodierte + 22.829 Anwendungsfragen), `benchmark` (erledigt, `results/classify/laufzeit.md`), `select`, `test`, `apply`. Die Testmenge ist technisch gesperrt (`HoldoutLock`). Mit Platzhalter-Labels geprüft: Zufallsniveau ≈ 0,30, zweiter Testlauf wird abgelehnt. Laufzeit nach der Kodierung: etwa 40 min plus Anwendung (Zero-Shot groß ≈ 7 h).
 - **Akzeptanz:** Gewinner hat Macro-F1 ≥ 0,70 auf den 150. Falls kein Kandidat das erreicht: Ergebnis trotzdem berichten, Textanalyse nur als Hinweis deuten, im Paper offenlegen.
 
 ### AP11 Themenanalyse (TF3)
@@ -580,7 +581,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP07 | Gruppenvergleich | ☐ | |
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
 | AP09 | Doppelkodierung | ☐ | |
-| AP10 | Klassifikation | ☐ | |
+| AP10 | Klassifikation (vorbereitet; wartet auf AP09-Labels) | ◐ | 16.11.2026 |
 | AP11 | Themenanalyse (Probelauf fertig; wartet auf Benennen und Prüfen) | ◐ | 16.11.2026 |
 | AP12 | Datenprüfung, Literatur | ☐ | |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |

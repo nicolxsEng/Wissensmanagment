@@ -24,7 +24,7 @@ dev = ["pytest>=8", "ruff>=0.8"]
 # Themenanalyse (AP11) – zieht PyTorch nach, deshalb getrennt
 topics = ["bertopic>=0.16", "sentence-transformers>=3.3", "umap-learn>=0.5", "hdbscan>=0.8.40"]
 # Klassifikation mit wenigen Beispielen (AP10)
-ml = ["setfit>=1.1", "sentence-transformers>=3.3", "transformers>=4.45"]
+ml = ["setfit>=1.1", "sentence-transformers>=3.3", "transformers>=4.45", "sentencepiece>=0.2", "protobuf>=5"]
 
 [tool.uv]
 default-groups = ["dev"]
