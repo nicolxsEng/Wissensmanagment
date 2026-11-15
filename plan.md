@@ -158,7 +158,7 @@ data/interim/{questions,answers,texts}.parquet
    │     AP05 agreement ────► groups.json, kappa ───────────────┤
    ├─ AP06 samples ─────────► coding/questions/*.csv (Menschen) │
    ├─ AP07 group_compare ───► group_index.csv, permutation.csv ─┤
-   ├─ AP08 its ─────────────► its_results.csv ──────────────────┤
+   ├─ AP08 its ─────────────► its_fit.csv, its_segmented.csv ──┤
    ├─ AP10 classify ────────► classified_sample.parquet ────────┤
    ├─ AP11 topics ──────────► topics.parquet, topic_shares.csv ─┤
    ├─ AP12 checks ──────────► checks.md                         │
@@ -214,7 +214,7 @@ Zusätzlich für Abbildungen und Gegenproben (ohne eigene Teilfrage): Anteil Fra
 Für jede TF1-Kennzahl und jeden Gruppenanteil, Jahre als Zeitpunkte t:
 
 1. **Hauptauswertung (Fortschreibung):** lineares Modell auf 2015–2022 (8 Punkte). Für Zählungen und Wartezeiten auf der Log-Skala, für Anteile auf der Logit-Skala. Fortschreibung auf 2023–2026 mit 95-%-Vorhersageintervall. Berichtet wird die Abweichung beobachtet/erwartet je Jahr.
-2. **Ergänzung (segmentierte Regression):** `y = β0 + β1·t + β2·nach + β3·(t − 2022)·nach` über 2015–2026, berichtet werden β2 (Niveausprung) und β3 (Steigungsänderung) beschreibend mit Konfidenzintervall. Hinweis im Paper: nur 12 Punkte, Autokorrelation nicht modellierbar, deshalb nur beschreibend.
+2. **Ergänzung (segmentierte Regression):** `y = β0 + β1·t + β2·nach + β3·(Jahr − 2023)·nach` mit t = Jahr − 2022 über 2015–2026, berichtet werden β2 (Niveausprung im Jahr 2023) und β3 (Steigungsänderung) beschreibend mit Konfidenzintervall. Hinweis im Paper: nur 12 Punkte, Autokorrelation nicht modellierbar, deshalb nur beschreibend.
 3. 2024 ist Hauptvergleichsjahr; 2025/2026 werden gezeigt, aber als Bestätigung markiert.
 
 ### 5.6 Gruppen (TF2)
@@ -366,6 +366,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 
 - **Ziel:** alle Abbildungen aus Abschnitt 7 und Tabellen aus Abschnitt 8 mit einem Befehl.
 - **Umsetzung:** `src/sov/figures/<id>.py` mit je einer Funktion `make()`; `scripts/13_figures.py` ruft alle auf. Tabellen als CSV, Markdown und LaTeX. `results/kennzahlen.json` sammelt alle im Text genannten Zahlen (z. B. `tf2.abstand_2024`), damit im Paper keine Zahl von Hand abgeschrieben werden muss.
+- **Stand 15.11.2026:** F01–F06, F17 (erstes Feld) und F18 fertig und angesehen (`scripts/13_figures.py`, Bausteine in `src/sov/figures/common.py`). F21 erst nach der Tag-Kodierung (Blindheit). Gruppenabbildungen (F08–F16, F23) und das zweite Feld von F17 folgen nach AP05/AP07.
 - **Akzeptanz:** `make figures tables` läuft ohne Fehler; jede Abbildung einmal angesehen (Beschriftungen überlappen nicht, Farben nach Abschnitt 3.3); `results/ergebnisse.md` fasst die Kernaussagen je Teilfrage mit Verweis auf Abbildung und Tabelle zusammen.
 
 ### AP14 Sichtbare Antwortende: Wer zeigt, dass er sich auskennt? (fest eingeplant)
@@ -574,11 +575,11 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP05 | Kappa Tags, Gruppen | ☐ | |
 | AP06 | Stichproben, Kodier-App | ☐ | |
 | AP07 | Gruppenvergleich | ☐ | |
-| AP08 | Unterbrochene Zeitreihe | ☐ | |
+| AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
 | AP09 | Doppelkodierung | ☐ | |
 | AP10 | Klassifikation | ☐ | |
 | AP11 | Themenanalyse | ☐ | |
 | AP12 | Datenprüfung, Literatur | ☐ | |
-| AP13 | Abbildungen, Tabellen | ☐ | |
+| AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
 | AP14 | Sichtbare Antwortende | ☐ | |
 | AP15 | KI-Erwähnungen (optional) | ☐ | |

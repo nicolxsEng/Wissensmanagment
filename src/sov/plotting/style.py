@@ -83,7 +83,8 @@ def apply_style() -> None:
 
 def _de_number(x: float, decimals: int) -> str:
     s = f"{x:,.{decimals}f}"
-    return s.replace(",", " ").replace(".", ",").replace(" ", ".")
+    s = s.replace(",", "\u2009").replace(".", ",").replace("\u2009", ".")
+    return s.replace("-", "\u2212")  # typografisches Minus
 
 
 def de_formatter(decimals: int = 0, suffix: str = "") -> FuncFormatter:
