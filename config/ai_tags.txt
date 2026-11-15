@@ -1,0 +1,27 @@
+# 26 KI-Tags (Exposé 5.1, Projektstand Abschnitt 6). Eine Zeile je Tag.
+openai-api
+chatgpt-api
+chatgpt
+gpt-3
+gpt-4
+openai-assistants-api
+azure-openai
+langchain
+langchain-js
+py-langchain
+langgraph
+llama-index
+large-language-model
+llm
+retrieval-augmented-generation
+ollama
+huggingface
+huggingface-transformers
+gemini
+google-gemini
+claude
+anthropic
+github-copilot
+cursor-ide
+model-context-protocol
+openai-whisper

@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+.DS_Store
+.env
+.env.*
+
+# große oder abgeleitete Daten
+data/interim/
+data/processed/*.parquet
+results/models/
+__marimo__/
