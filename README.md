@@ -25,6 +25,8 @@ Für Themenanalyse und SetFit (erst ab AP10/AP11, lädt PyTorch):
 uv sync --group topics --group ml
 ```
 
+Achtung: Ein späteres `uv sync` ohne `--group` entfernt diese Pakete wieder. Für die Kodier-App reicht `uv sync`.
+
 ## Arbeiten mit Claude Code
 
 Ein Arbeitspaket aus `plan.md` umsetzen lassen:

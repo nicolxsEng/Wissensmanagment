@@ -350,7 +350,8 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
   - **B: NMF** (Non-negative Matrix Factorization) auf TF-IDF der Titel (scikit-learn), gleiche Themenzahl. Das ist ein etabliertes klassisches Verfahren als Vergleich und kommt mit kurzen Texten besser zurecht als LDA.
   - **Themennamen** vergeben beide Autor:innen gemeinsam aus den Schlüsselwörtern und 5 typischen Titeln je Thema. Geprüft wird danach mit **anderen**, zufällig gezogenen Titeln.
   - Beide Verfahren werden mit der Themenprüfung aus Abschnitt 9 bewertet (10 zufällige Titel je Thema, beide unabhängig). Gewählt wird das Verfahren mit dem höheren Anteil bestandener Themen (≥ 8/10 passend).
-- **Hauptlauf** mit dem gewählten Verfahren auf allen ~11.000 Titeln; danach Themenprüfung erneut.
+- **Stand Probelauf (16.11.2026):** 1.008 Titel (84 je Oktober). BERTopic: 21 Themen, 48 % Ausreißer vor der Zuordnung; NMF mit 21 Themen. Beide in `coding/topics/themen_benennen_probelauf.csv` gemischt (T01–T42), Ablauf in `coding/topics/LIESMICH.md`. Ein zweiter Lauf ergibt identische Themen. Schritte `pilot-checks` und `pilot-eval` sind mit Testdaten geprüft.
+- **Hauptlauf** mit dem gewählten Verfahren auf allen ~10.600 Titeln (882 je Oktober); danach Themenprüfung erneut.
 - **Ausgaben:** `data/processed/topics.parquet` (question_id, year, topic_id), `data/processed/topic_shares.csv`, `results/topics/themen.md` (Name, Beschreibung, 5 Beispieltitel mit Link, Anteil vor/nach), Prüfbögen `coding/topics/themen_check_{A,B}.csv`.
 - **Akzeptanz:** ≥ 80 % der Themen bestehen die Prüfung; Ergebnisse mit festem Seed und fester Modellrevision reproduzierbar (zweiter Lauf ergibt dieselben Themen); Modellkarte `results/topics/modell.md`.
 
@@ -580,7 +581,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
 | AP09 | Doppelkodierung | ☐ | |
 | AP10 | Klassifikation | ☐ | |
-| AP11 | Themenanalyse | ☐ | |
+| AP11 | Themenanalyse (Probelauf fertig; wartet auf Benennen und Prüfen) | ◐ | 16.11.2026 |
 | AP12 | Datenprüfung, Literatur | ☐ | |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
 | AP14 | Sichtbare Antwortende (A1, A3 gesamt, A4, A5, F07 fertig; A2/A3 je Gruppe nach AP05) | ◐ | 15.11.2026 |

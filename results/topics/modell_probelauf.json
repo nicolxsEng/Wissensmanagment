@@ -1,0 +1,28 @@
+{
+  "datum": "2026-11-15T23:59:55",
+  "titel": 1008,
+  "seed": 20261116,
+  "embedding_modell": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "bertopic": {
+    "min_cluster_size": 10,
+    "nr_topics": null,
+    "umap": "n_neighbors=15, n_components=5, min_dist=0, cosine",
+    "hdbscan": "eom",
+    "ausreisser": "reduce_outliers(strategy='embeddings')",
+    "darstellung": "KeyBERTInspired"
+  },
+  "nmf": {
+    "k": 21,
+    "tfidf": "sublinear, englische Stoppwörter, 1–2-Gramme, min_df=2",
+    "init": "nndsvda"
+  },
+  "pakete": {
+    "bertopic": "0.17.4",
+    "sentence-transformers": "6.3.0",
+    "umap-learn": "0.6.0",
+    "hdbscan": "0.8.44",
+    "scikit-learn": "1.9.1",
+    "torch": "2.15.0"
+  }
+}

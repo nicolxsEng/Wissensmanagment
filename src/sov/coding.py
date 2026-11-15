@@ -26,23 +26,24 @@ def build_tag_sheet(wiki: pl.DataFrame, seed: int) -> pl.DataFrame:
 
 
 def read_sheet(path: Path) -> pl.DataFrame:
-    return pl.read_csv(path, separator=";", infer_schema=False).with_columns(
-        pl.col("nr").cast(pl.Int32)
-    )
+    df = pl.read_csv(path, separator=";", infer_schema=False)
+    return df.with_columns(pl.col("nr").cast(pl.Int32)) if "nr" in df.columns else df
 
 
-def sheet_has_entries(path: Path) -> bool:
+def sheet_has_entries(path: Path, entry_cols: tuple[str, ...] = ENTRY_COLUMNS) -> bool:
     """True, wenn in einer Eingabespalte schon irgendetwas steht."""
     if not path.exists():
         return False
     df = read_sheet(path)
-    cols = [c for c in ENTRY_COLUMNS if c in df.columns]
+    cols = [c for c in entry_cols if c in df.columns]
     return any(df[c].fill_null("").str.strip_chars().str.len_chars().sum() > 0 for c in cols)
 
 
-def write_sheet(sheet: pl.DataFrame, path: Path) -> None:
+def write_sheet(
+    sheet: pl.DataFrame, path: Path, entry_cols: tuple[str, ...] = ENTRY_COLUMNS
+) -> None:
     """Schreibt einen leeren Bogen; bricht ab, falls dort schon kodiert wurde."""
-    if sheet_has_entries(path):
+    if sheet_has_entries(path, entry_cols):
         raise FileExistsError(f"{path} enthält bereits Einträge und wird nicht überschrieben.")
     path.parent.mkdir(parents=True, exist_ok=True)
     sheet.write_csv(path, separator=";", include_bom=True)
