@@ -18,7 +18,7 @@ Alle Zeitstempel in UTC. Definitionen der abgeleiteten Felder: `plan.md` Abschni
 | `accepted_answer_id` | int64, null | Rohdaten |
 | `is_closed` | bool | `closed_date` vorhanden |
 | `closed_reason` | str, null | Rohdaten |
-| `is_new_type` | bool | Tag in `config.NEW_TYPE_TAGS` |
+| `is_new_type` | bool | Tag in `config.NEW_TYPE_TAGS` und `created` ≥ `config.NEW_TYPE_START` (1.10.2025) |
 | `is_classic` | bool | `not is_new_type` |
 | `n_ai_tags` | int8 | Zahl der Tags in `config.AI_TAGS` |
 | `body_len_nocode` | int32 | Zeichen im Text ohne `<pre>`-Blöcke, Leerraum zusammengefasst |

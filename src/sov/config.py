@@ -41,7 +41,10 @@ ANSWER_WINDOW_HOURS = 7 * 24
 FAST_ANSWER_HOURS = 24
 
 # --- Fragetypen und Tags
-NEW_TYPE_TAGS = frozenset({"advice", "best-practices"})  # neue Fragetypen ab Okt. 2025
+# Neue Fragetypen: Tag UND gestellt ab Oktober 2025. Beide Tags kommen vorher vereinzelt als
+# normale Tags vor (13 Fragen 2008–2020), die bleiben klassisch (D02, Datenprotokoll AP01).
+NEW_TYPE_TAGS = frozenset({"advice", "best-practices"})
+NEW_TYPE_START = datetime(2025, 10, 1, tzinfo=UTC)
 AI_TAGS = frozenset(
     line.strip()
     for line in (CONFIG_DIR / "ai_tags.txt").read_text(encoding="utf-8").splitlines()

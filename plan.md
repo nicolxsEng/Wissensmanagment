@@ -176,7 +176,7 @@ Alle Konstanten stehen in `src/sov/config.py`. Änderungen an einer Definition w
 ### 5.1 Grundgesamtheit
 
 - **Jahr** = Oktober des Jahres, 1.10. 00:00 bis 31.10. 23:59:59 UTC, nach `creation_date` der Frage.
-- **Neue Fragetypen** (seit Oktober 2025): Frage trägt den Tag `advice` oder `best-practices`. Beide Tags kommen vor Oktober 2025 nicht vor (geprüft: 0 Fragen 2022 und 2024; 2025: 23 bzw. 18; 2026: 32 bzw. 35). Sie werden in allen TF1-Kennzahlen zum Antwortverhalten **ausgeschlossen** und getrennt berichtet. Bei der Zahl der Fragen wird beides gezeigt (gesamt und davon neue Typen).
+- **Neue Fragetypen** (seit Oktober 2025): Frage trägt den Tag `advice` oder `best-practices` **und** wurde ab 1.10.2025 gestellt. Vorher kommen beide Tags nur vereinzelt als normale Tags vor (13 Fragen 2008–2020, bleiben klassisch); 2025: 41 Fragen (alle ab 21.10.2025), 2026: 67. Sie werden in allen TF1-Kennzahlen zum Antwortverhalten **ausgeschlossen** und getrennt berichtet. Bei der Zahl der Fragen wird beides gezeigt (gesamt und davon neue Typen).
 - **Klassische Fragen** = alle anderen. Das ist die Grundgesamtheit für TF1-Antwortverhalten, TF2 und TF3.
 - **Gegenprobe Score ≥ 1:** dieselben Kennzahlen nur für Fragen mit heutigem `score ≥ 1`.
 
@@ -563,8 +563,8 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 
 | AP | Inhalt | Status | Datum |
 |---|---|---|---|
-| AP00 | Einrichtung | ☐ | |
-| AP01 | Datenbasis Parquet | ☐ | |
+| AP00 | Einrichtung | ☑ | 15.11.2026 |
+| AP01 | Datenbasis Parquet | ☑ | 15.11.2026 |
 | AP02 | Kennzahlen TF1/TF3 | ☐ | |
 | AP03 | Tag-Prüfung | ☐ | |
 | AP04 | Kodierbögen Tags | ☐ | |
