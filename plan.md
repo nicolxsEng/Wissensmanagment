@@ -395,6 +395,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 - **Vorab geprüfte Größenordnung:** 2022 gab es 30.538 Antwortende (6.695 mit ≥ 3 Antworten), 2024 8.623 (1.434), 2026 489 (78). Je Gruppe reicht das bis 2024 gut, 2025/2026 nur als Bestätigung.
 - **Ausgaben:** `data/processed/answerers_yearly.csv`, `answerers_groups.csv`, Abbildungen F07 und F23, Tabelle T10.
 - **Abhängigkeit:** A1, A4 und A5 laufen nach AP01; A2 und A3 brauchen die Gruppen aus AP05.
+- **Stand 15.11.2026:** A1, A3 (gesamt), A4, A5 mit Trendabweichung fertig (`scripts/14_answerers.py`, `results/answerers_overview.md`, F07). 2024 gegenüber Trend: Antwortende −69 %, Expert:innen (≥ 3) −75 %, Anteil der aktivsten 10 % 49 % statt 58 %, schon im Vorjahr aktiv 23 % statt 16 %. Achtung: Diese Verläufe hängen mechanisch an der Fragenzahl; belastbar ist erst der Gruppenvergleich.
 - **Akzeptanz:** Unit-Test mit Mini-Daten (bekannte Zahl Antwortender, Expert:innen, Konzentration); A1 für 2022 = 30.538 (Vorabprüfung); keine Nutzer-ID in irgendeiner Ausgabedatei (Test durchsucht `data/processed/` und `results/`).
 
 ### AP15 KI-Erwähnungen im Fragetext (optional)
@@ -581,5 +582,5 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP11 | Themenanalyse | ☐ | |
 | AP12 | Datenprüfung, Literatur | ☐ | |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
-| AP14 | Sichtbare Antwortende | ☐ | |
+| AP14 | Sichtbare Antwortende (A1, A3 gesamt, A4, A5, F07 fertig; A2/A3 je Gruppe nach AP05) | ◐ | 15.11.2026 |
 | AP15 | KI-Erwähnungen (optional) | ☐ | |

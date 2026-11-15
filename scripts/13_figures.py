@@ -19,6 +19,7 @@ from sov.figures import (  # noqa: E402
     F03_antwortverhalten,
     F04_abweichung,
     F06_wartezeit,
+    F07_antwortende,
     F17_textlaenge,
     F18_ki_bezug,
 )
@@ -30,6 +31,7 @@ FIGURES: dict[str, Callable[[], list[str]]] = {
     "F04": F04_abweichung.make,
     "F05": F03_antwortverhalten.make_f05,
     "F06": F06_wartezeit.make,
+    "F07": F07_antwortende.make,
     "F17": F17_textlaenge.make,
     "F18": F18_ki_bezug.make,
     # F21 (Top-Tags) erst nach der Tag-Kodierung (AP05), wegen der blinden Einordnung
