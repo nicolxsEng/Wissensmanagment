@@ -1,5 +1,7 @@
 # Themenprüfung – Probelauf (AP11)
 
+> **Hinweis:** Seit 16.11.2026: Benennen und Prüfen übernehmen zwei lokale Sprachmodelle (AP16, `docs/ki_einsatz.md`). Von Hand wird nur die fertige Themenliste durchgesehen. Die Anleitung unten beschreibt das ursprüngliche Design.
+
 Zwei Verfahren (BERTopic und NMF) haben je 21 Themen aus 1.008 Fragetiteln gebildet. Die 42 Themen sind **gemischt und neutral kodiert** (T01–T42). Ihr wisst also nicht, welches Verfahren welches Thema erzeugt hat.
 
 ## Schritt 1: Themen benennen (gemeinsam)

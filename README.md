@@ -2,6 +2,8 @@
 
 Forschungsprojekt im Kurs „Studien zu Wissen in Organisationen“ (TH Nürnberg, WS 2026/27), Nicolas Engelmann und Gentian Jetullahu.
 
+- **Was wir selbst machen müssen (Reihenfolge, Dateien, Aufwand):** [AUFGABEN_TEAM.md](AUFGABEN_TEAM.md)
+- **KI-Einsatz (zentral, mit Textbausteinen fürs Paper):** [docs/ki_einsatz.md](docs/ki_einsatz.md) · Modellwahl: [docs/modellwahl.md](docs/modellwahl.md)
 - **Plan und alle Definitionen:** [plan.md](plan.md)
 - **Regeln für Claude Code:** [CLAUDE.md](CLAUDE.md)
 - **Entscheidungsprotokoll:** [docs/entscheidungen.md](docs/entscheidungen.md)

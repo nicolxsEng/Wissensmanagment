@@ -84,3 +84,32 @@ def save_entry(
     tmp = path.with_suffix(".tmp")
     df.write_csv(tmp, separator=";", include_bom=True)
     tmp.replace(path)  # atomar ersetzen, damit ein Absturz den Bogen nicht beschädigt
+
+
+# ----------------------------------------------------------------------------- Prüfung (D23)
+CHECK_COLUMNS = ("stimmt", "notiz")
+
+
+def build_check_sheet(df: pl.DataFrame, id_col: str, n: int, seed: int) -> pl.DataFrame:
+    """Zufällige Stichprobe zur Prüfung durch die Autor:innen: Spalte `stimmt` (j/n), `notiz`."""
+    s = df.sort(id_col).sample(min(n, df.height), seed=seed, shuffle=True)
+    return s.with_columns(
+        nr=pl.int_range(1, s.height + 1, dtype=pl.Int32),
+        stimmt=pl.lit(None, pl.String),
+        notiz=pl.lit(None, pl.String),
+    ).select(["nr", *s.columns, "stimmt", "notiz"])
+
+
+def save_check(path: Path, id_col: str, item_id: str, stimmt: bool, notiz: str = "") -> None:
+    """Trägt das Prüfurteil ein (j/n) – überschreibt nur diese Zeile."""
+    df = read_sheet(path)
+    if item_id not in df[id_col].to_list():
+        raise KeyError(item_id)
+    hit = pl.col(id_col) == item_id
+    df = df.with_columns(
+        stimmt=pl.when(hit).then(pl.lit("j" if stimmt else "n")).otherwise("stimmt"),
+        notiz=pl.when(hit).then(pl.lit(notiz.strip() or None)).otherwise("notiz"),
+    )
+    tmp = path.with_suffix(".tmp")
+    df.write_csv(tmp, separator=";", include_bom=True)
+    tmp.replace(path)

@@ -1,5 +1,7 @@
 # Tag-Kodierung (AP04/AP05)
 
+> **Hinweis:** Seit 16.11.2026 nicht mehr nötig: Die Tags ordnen zwei lokale Sprachmodelle ein (AP16, `docs/ki_einsatz.md`). Von Hand wird nur noch eine Stichprobe geprüft (`coding/pruefung/tags_40.csv`, siehe `AUFGABEN_TEAM.md`). Die Anleitung unten bleibt als Dokumentation des ursprünglichen Designs.
+
 1. Leitfaden lesen: [docs/kodierleitfaden_tags.md](../../docs/kodierleitfaden_tags.md).
 2. **Übung gemeinsam:** `uebung_10.csv` beide getrennt ausfüllen, dann vergleichen und besprechen. Diese Tags gehören nicht zu den 269 und zählen nicht.
 3. **Kodierung getrennt:** Nicolas füllt `tags_kodierer_A.csv`, Gentian `tags_kodierer_B.csv`. Keine Absprache, bis beide fertig sind.

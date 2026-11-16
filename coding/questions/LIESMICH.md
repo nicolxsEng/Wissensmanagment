@@ -1,5 +1,7 @@
 # Kodierung der Fragetexte (AP06/AP09)
 
+> **Hinweis:** Seit 16.11.2026: Die 630 Fragen ordnen zwei lokale Sprachmodelle ein (AP16, `docs/ki_einsatz.md`). Die App wird nur noch im Prüfmodus für 100 Stichprobenfragen gebraucht (siehe `AUFGABEN_TEAM.md`). Die Anleitung unten beschreibt das ursprüngliche Design.
+
 Leitfaden: [docs/kodierleitfaden_fragen.md](../../docs/kodierleitfaden_fragen.md)
 
 ## App starten

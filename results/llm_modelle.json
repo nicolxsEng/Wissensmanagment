@@ -1,0 +1,62 @@
+{
+  "stand": "2026-11-16",
+  "ollama_version": "0.40.16",
+  "modelle": {
+    "olmo-3:7b-instruct": {
+      "digest": "ea72df8c85d75c6783ab0d00278803c53a634fc9d0fe38d3fd4ab6f35adbdbb2",
+      "groesse_bytes": 4472011552,
+      "parameter": "7.3B",
+      "quantisierung": "Q4_K_M",
+      "familie": "olmo3",
+      "rolle": "in der Kalibrierung ausgeschieden (D24)"
+    },
+    "qwen3.5:9b": {
+      "digest": "d63f830f28d515fefea546f213fca7a75e9dd5176ef51a6deabc952d1c99a911",
+      "groesse_bytes": 7639229431,
+      "parameter": "",
+      "quantisierung": "",
+      "familie": "",
+      "rolle": "Kodierinstanz 1"
+    },
+    "phi4:14b": {
+      "digest": "ac896e5b8b34a1f4efa7b14d7520725140d5512484457fab45d2a4ea14c69dba",
+      "groesse_bytes": 9053116391,
+      "parameter": "14.7B",
+      "quantisierung": "Q4_K_M",
+      "familie": "phi3",
+      "rolle": "Kodierinstanz 2 seit 16.11.2026 (D24)"
+    }
+  },
+  "einstellungen": {
+    "temperature": 0,
+    "seed": 20261116,
+    "think": false,
+    "format": "JSON-Schema",
+    "num_ctx": 4096
+  },
+  "probelauf_16_11": {
+    "daten": "10 Kalibrierungsfragen, je 2 Durchläufe, grober Test-Prompt (nicht der endgültige)",
+    "qwen3.5:9b": {
+      "s_je_frage": 8.9,
+      "ungueltig": "0/20",
+      "laeufe_identisch": true,
+      "verteilung": {
+        "U": 10
+      }
+    },
+    "olmo-3:7b-instruct": {
+      "s_je_frage": 4.7,
+      "ungueltig": "0/20",
+      "laeufe_identisch": true,
+      "verteilung": {
+        "G": 7,
+        "S": 2,
+        "U": 1
+      }
+    }
+  },
+  "kodierinstanzen": [
+    "qwen3.5:9b",
+    "phi4:14b"
+  ]
+}

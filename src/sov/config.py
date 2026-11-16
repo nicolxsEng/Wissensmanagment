@@ -92,3 +92,18 @@ TOPIC_N_RANGE = (20, 40)
 EXPERT_MIN_ANSWERS = 3  # erkennbare Expert:innen: >= 3 Antworten je Gruppe und Oktober
 EXPERT_MIN_ANSWERS_ROBUST = (2, 5)  # Gegenproben
 TOP_ANSWERER_SHARE = 0.10  # Konzentration: Anteil der Antworten der aktivsten 10 %
+
+# --- Lokale Sprachmodelle als Kodierinstanzen (AP16, D22; Begründung docs/modellwahl.md)
+OLLAMA_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+LLM_MODELS = {
+    "qwen": "qwen3.5:9b",
+    "olmo": "olmo-3:7b-instruct",  # in der Kalibrierung ausgeschieden (D24), nur dokumentiert
+    "phi": "phi4:14b",  # Kodierinstanz 2 seit 16.11.2026 (D24)
+}
+# Die zwei Kodierinstanzen (Schlüssel aus LLM_MODELS); per Umgebungsvariable überschreibbar
+LLM_CODERS = tuple(os.environ.get("SOV_LLM_CODERS", "qwen,phi").split(","))
+LLM_PARALLEL = os.environ.get("SOV_LLM_PARALLEL", "0") == "1"  # beide Modelle gleichzeitig?
+LLM_NUM_CTX = 4096
+LLM_INPUT_MAX_CHARS = 3000  # Fragetext für die Modelle (Titel, Text, Code-Auszug)
+PROMPT_DIR = CONFIG_DIR / "prompts"
+LLM_DIR = RESULTS_DIR / "llm"

@@ -1,6 +1,6 @@
 # Kodierleitfaden: Einordnung von Fragetexten (Entwurf)
 
-*Version 0.1 · 15.11.2026 · nach der Kalibrierung (30 Fragen) schärfen, danach einfrieren. Aus diesem Leitfaden werden auch die Hypothesensätze des Zero-Shot-Modells in AP10 abgeleitet.*
+*Version 0.2 · 16.11.2026 (Zusatzregeln nach der Kalibrierung) · Version 0.1 · 15.11.2026 · nach der Kalibrierung (30 Fragen) schärfen, danach einfrieren. Aus diesem Leitfaden werden auch die Hypothesensätze des Zero-Shot-Modells in AP10 abgeleitet.*
 
 ## Ziel
 
@@ -23,6 +23,13 @@ Jede Frage wird **allein anhand von Titel und Text** einer von drei Kategorien z
 3. **Hängt die Lösung an mindestens einem Umgebungsmerkmal** (Liste oben)?
    Ja → **U**.
 4. Passt nichts eindeutig: die Kategorie wählen, die auf **die Ursache des Problems** zutrifft, und `unsicher` markieren.
+
+## Zusatzregeln (Version 0.2, nach der Kalibrierung vom 16.11.2026)
+
+- **Prüfstein für U ist fehlende Information über die Umgebung:** U nur, wenn eine richtige Antwort Angaben über die Umgebung der fragenden Person braucht, die nicht in der Frage stehen und sich zwischen Umgebungen unterscheiden (installierte Version, Betriebssystem, Konfiguration, Netzwerk, Aufbau eines Servers, einer Cloud oder eines externen Dienstes, Verhalten eines Werkzeugs oder einer IDE).
+- **Ein Framework-, Bibliotheks- oder Werkzeugname macht eine Frage nicht zu U.** Dokumentiertes, versionsunabhängiges Verhalten einer Sprache, eines Frameworks oder einer Bibliothek gilt als allgemeines Programmierwissen → G.
+- **Logikfehler, falsche Verwendung einer Schnittstelle, Rekursion, Zustand, zeitliche Abläufe oder Datenverarbeitung**, die sich aus dem gezeigten Code erklären lassen → G.
+- **„Wie mache ich X?“ mit konkretem technischem Ziel** ist eine Problemlösungsfrage (G oder U), nicht S. S nur für Meinungen, Empfehlungen, Vergleiche ohne konkretes Problem, rein konzeptionelle Fragen ohne Aufgabe oder unklare Fragen.
 
 ## Grenzfälle
 
