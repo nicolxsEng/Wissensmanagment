@@ -104,6 +104,7 @@ LLM_MODELS = {
 LLM_CODERS = tuple(os.environ.get("SOV_LLM_CODERS", "qwen,phi").split(","))
 LLM_PARALLEL = os.environ.get("SOV_LLM_PARALLEL", "0") == "1"  # beide Modelle gleichzeitig?
 LLM_NUM_CTX = 4096
+LLM_NUM_PREDICT = 512  # Obergrenze der Antwortlänge (Schutz vor Endlosschleifen, 16.11.2026)
 LLM_INPUT_MAX_CHARS = 3000  # Fragetext für die Modelle (Titel, Text, Code-Auszug)
 PROMPT_DIR = CONFIG_DIR / "prompts"
 LLM_DIR = RESULTS_DIR / "llm"

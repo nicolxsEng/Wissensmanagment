@@ -1,0 +1,270 @@
+﻿tag;kategorie;begruendung
+.net;G;"Framework API usage dominates; environment-specific setup is secondary per wiki guidance."
+.net-6.0;U;Versioned tags usually imply environment-specific constraints like runtime behavior or build tools.
+.net-core;U;Tag covers entire ecosystem including setup, OS support, and configuration, not just code logic.
+airflow;K;Airflow questions mix DAG logic (G) heavily with environment setup/ops (U), fitting the mixed category.
+ajax;G;Most questions focus on API usage, JSON handling, or JavaScript logic rather than environment setup.
+algorithm;G;Algorithm questions focus on logic and data structures, solvable from the problem description alone.
+amazon-ec2;K;Tag covers both API usage (G) and cloud infrastructure setup/networking (U), fitting neither category clearly.
+amazon-s3;G;"Tag explicitly requires programming questions; API usage and data processing dominate over setup/config."
+amazon-web-services;K;"Tag covers entire cloud ecosystem; questions range from code logic to complex infrastructure setup, fitting neither G nor U exclusively."
+android;K;Android is a whole platform containing both fundamentals and environment issues, fitting rule 2.
+android-jetpack-compose;G;Fokus liegt auf API-Nutzung und Deklarativem UI-Code, nicht auf Installation oder Konfiguration.
+android-studio;U;IDE usage involves setup, configuration, and tooling specifics rather than pure code logic.
+angular;K;Angular is a major framework covering both API usage and environment setup equally.
+ansible;G;Ansible questions focus on playbooks, modules, and logic rather than installation or environment setup.
+apache;K;"Apache is a whole software system; questions mix API usage, config, and environment setup equally."
+apache-kafka;K;Kafka questions mix API usage (G) heavily with cluster setup/config (U), fitting the mixed category.
+apache-spark;G;Most questions focus on API usage, transformations, and logic rather than environment setup or configuration.
+apache-spark-sql;G;Fokus liegt auf SQL-Abfragen und Datenverarbeitung, was algorithmisch lösbar ist.
+arrays;G;"Arrays are fundamental data structures; solutions rely on logic and algorithms visible in the code."
+asp.net;K;Framework usage covers both API logic (G) and setup/config (U), fitting neither category clearly.
+asp.net-core;K;Framework covers both API usage (G) and setup/config (U), fitting neither category clearly.
+asp.net-mvc;G;Most questions involve API usage, routing, or controller logic rather than environment setup.
+assembly;K;Assembly is a low-level language where solutions depend on specific CPU architectures and instruction sets.
+async-await;G;"Async/await is a language construct for concurrency; solutions derive from code patterns, not environment."
+asynchronous;G;Asynchronous patterns like callbacks and promises are language constructs solvable from code alone.
+authentication;K;Covers both API usage and environment-specific setup like OAuth providers or server configs.
+automation;K;Der Tag ist zu allgemein und deckt sowohl Skripte (G) als auch Tool-Konfigurationen/Umgebungen (U) ab.
+aws-lambda;G;Fokus liegt auf Code-Logik und API-Nutzung, nicht auf Infrastruktur-Setup oder Konfiguration.
+axios;G;Most questions focus on API usage, error handling, and request logic rather than installation or environment setup.
+azure;K;Azure covers both API usage (G) and infrastructure/setup (U), fitting neither category clearly.
+azure-active-directory;U;Most questions involve specific API usage or configuration details requiring the concrete environment.
+azure-devops;K;Tag covers entire suite including setup, config, and cloud services, fitting neither pure fundamentals nor single environment.
+azure-functions;U;Most questions involve specific cloud configuration, deployment, or environment setup rather than pure code logic.
+azure-pipelines;K;Tag covers both setup/configuration (U) and code/CI logic (G), fitting neither category clearly.
+bash;G;Most bash questions focus on script logic, loops, and text processing, which are language fundamentals.
+beautifulsoup;G;Most questions focus on API usage and parsing logic rather than installation or environment setup.
+blazor;U;Blazor questions often involve specific setup, hosting models, and environment constraints typical of U.
+bootstrap-5;G;Most questions involve API usage, grid systems, or components, which are derivable from code snippets.
+button;U;"Buttons are UI components; questions usually involve specific frameworks, OS, or tooling configurations."
+c;K;C covers both language fundamentals (G) and system-specific environment issues like OS/compilers (U), fitting the mixed criteria.
+c#;K;"C# is a whole programming language; most questions involve API usage and logic rather than environment setup."
+c++;K;C++ covers both language fundamentals (G) and environment/setup (U), fitting neither category exclusively.
+class;G;Class questions focus on object-oriented design, inheritance, and instantiation logic derivable from code.
+cmake;U;CMake questions often involve specific configuration, tooling setup, or environment-specific issues rather than pure algorithmic logic.
+css;G;CSS questions typically involve selectors, properties, and values derivable from the code snippet provided.
+csv;G;CSV handling is primarily about parsing and generating data structures, fitting the fundamentals category.
+curl;G;Most questions involve API usage or command-line syntax for data transfer, fitting the fundamentals category.
+cypress;K;"Cypress is a testing framework; questions often mix API usage (G) with environment setup (U), fitting the mixed category."
+dart;K;"Dart is a whole programming language; questions cover both fundamentals and environment aspects equally."
+data-structures;G;Fokus auf Algorithmen und Implementierung, lösbar ohne spezifische Umgebung.
+database;G;Tag covers general design concepts and logic rather than specific system setup or configuration.
+databricks;U;"Databricks is a managed cloud platform; questions involve setup, configuration, and environment specifics."
+dataframe;G;Most questions involve API usage for data manipulation, fitting the fundamentals category.
+date;G;Date manipulation relies on language-specific libraries and logic, fitting the fundamentals category.
+datetime;G;Date/time logic usually relies on language-specific APIs and algorithms rather than environment setup.
+debugging;U;"Tag explicitly forbids specific code debugging; focuses on general methodology and tools (environment)."
+deep-learning;G;Fokus auf Implementierung und Architektur, lösbar durch Code/Logik ohne spezifische Umgebung.
+dictionary;G;"Dictionaries are fundamental data structures; usage and logic derive from code, not environment."
+discord;U;"Discord is a platform; questions often involve setup, configuration, or environment-specific issues rather than pure logic."
+discord.js;G;Most questions focus on API usage and event handling logic rather than environment setup.
+discord.py;U;Most questions involve API usage and intent configuration, which depends on specific environment setup.
+django;K;Django covers both API usage (G) and setup/configuration (U), fitting neither category exclusively.
+django-models;G;"Django models are core data structures; usage and logic typically follow from code provided in the question."
+django-rest-framework;K;Most questions involve API usage patterns (G), but significant portion covers setup/config/versions (U), making it mixed.
+django-views;G;Views primarily involve API usage and logic for rendering data, fitting category G.
+docker;U;Docker involves OS specifics, build tools, and environment configuration, fitting the 'environment' category.
+docker-compose;U;Docker Compose focuses on environment setup, configuration, and orchestration of containers.
+dplyr;G;"dplyr is a data manipulation library; usage typically involves code logic derivable from the question."
+elasticsearch;K;Elasticsearch questions mix API usage (G) with setup/config/cluster issues (U), fitting neither category clearly.
+email;K;Tag covers both API usage (G) and server config (U), fitting neither category clearly.
+entity-framework;U;Entity Framework questions often involve specific setup, configuration, and environment issues rather than pure data processing logic.
+entity-framework-core;G;Most questions focus on API usage and query logic rather than environment-specific setup or configuration.
+error-handling;G;Fokus auf Sprachkonstrukte wie Exceptions und Try-Catch, lösbar ohne Umgebungskenntnisse.
+excel;K;Tag covers both formula logic (G) and environment setup/automation (U), fitting neither category clearly.
+excel-formula;G;Excel formulas rely on logic and syntax derivable from the question itself, not environment setup.
+exception;G;Exception handling logic and patterns are language constructs derivable from code without needing specific environment details.
+expo;K;"Expo is a framework; most questions involve API usage, configuration, or tooling setup rather than pure algorithmic logic."
+express;K;Express covers both API usage (G) and setup/configuration (U), fitting neither category predominantly.
+fastapi;K;FastAPI questions mix API usage (G) heavily with setup/config issues (U), fitting the mixed category.
+file;G;"File handling is fundamental I/O; solutions derive from code logic rather than specific environments."
+filter;K;Tag covers generic data filtering logic (G) and specific tool implementations like CSS or Servlets (U), resulting in a mixed category.
+firebase;K;Firebase covers both API usage (G) and setup/configuration/cloud services (U), fitting neither category clearly.
+firebase-authentication;G;Most questions involve specific API usage or error handling in code, fitting the fundamentals category.
+firebase-realtime-database;G;Most questions involve API usage, data structures, or sync logic derivable from code snippets.
+flask;K;Flask covers both API usage (G) and setup/configuration (U), fitting neither category predominantly.
+flutter;K;Flutter covers both API usage (G) and environment setup (U), fitting neither category exclusively.
+for-loop;G;"Loops are fundamental control structures; solutions derive from code logic, not environment."
+forms;K;Tag covers both UI frameworks (U) and generic form logic/data structures (G), fitting neither category clearly.
+frontend;K;Tag covers both API usage (G) and environment/setup issues like build tools or browsers (U), fitting neither category clearly.
+function;K;Function tags cover both API usage (G) and environment-specific setup/definitions (U), fitting neither category exclusively.
+gcc;G;Most questions involve specific compilation errors or flags requiring concrete code context.
+generics;G;"Generics cover API usage across many languages; mostly data processing/computation questions fit category G."
+ggplot2;G;"ggplot2 is an R library; most questions focus on API usage and data visualization logic rather than environment setup."
+git;G;"Git is a version control system; questions focus on commands, workflows, and logic rather than specific OS or server environments."
+github;K;Tag covers both API usage (G) and platform-specific setup/config/CI (U), fitting neither category clearly.
+github-actions;G;Fokus liegt auf Workflow-Definitionen und Skriptlogik, die aus dem Code ableitbar sind.
+gitlab;G;Tag specifies API usage, which relies on code logic rather than specific environment setup.
+go;G;"Go is a programming language; most questions involve syntax, logic, or standard library usage (G)."
+google-apps-script;G;Most questions involve API usage, data processing, and code logic rather than environment setup.
+google-bigquery;K;BigQuery questions often mix SQL logic (G) with cloud setup/config (U), fitting the mixed category.
+google-chrome;G;Most questions involve API usage, debugging, or development tools rather than OS configuration.
+google-cloud-firestore;K;Firestore questions mix API usage (G) heavily with setup/config/versions (U), fitting the mixed category.
+google-cloud-functions;U;"Cloud Functions is a managed service; questions often involve setup, configuration, and environment specifics."
+google-cloud-platform;U;Cloud platform tags typically involve environment-specific setup, configuration, and service interplay rather than pure algorithmic logic.
+google-sheets;K;Tag covers both API usage (G) and environment/setup (U), fitting neither category clearly.
+google-sheets-formula;G;Formulas are logic-based computations derivable from code/data without needing specific environment details.
+gradle;K;Gradle questions mix API usage (G) with heavy setup/config/versioning (U), fitting neither category clearly.
+graph;K;Graph tags cover both data visualization (G) and environment-specific plotting libraries (U), fitting neither category exclusively.
+graphql;G;GraphQL questions typically focus on schema design and query logic rather than environment setup.
+group-by;G;Tag covers SQL queries and pandas aggregation, both primarily about data processing logic.
+haskell;G;Haskell questions typically focus on language constructs, type systems, and functional patterns derivable from the code.
+heroku;U;"Heroku is a cloud platform; questions often involve setup, config, or environment-specific issues."
+hibernate;U;Hibernate questions often involve specific configuration, environment setup, and version-specific issues rather than pure API logic.
+html;G;HTML questions typically involve syntax, structure, and data processing derivable from the code provided.
+http;G;Most questions involve API usage, request/response logic, or data processing rather than environment-specific setup.
+if-statement;G;"If-statements are fundamental control structures; solutions derive from logic and code provided in the question."
+image;G;Fokus liegt auf API-Nutzung und Bildverarbeitung in Code, nicht auf Umgebungs- oder Installationsproblemen.
+import;K;Import is a generic concept covering both code logic (G) and environment setup (U), fitting neither category clearly.
+indexing;K;Indexing covers both algorithmic concepts and specific database/system implementations, fitting neither G nor U clearly.
+input;G;Fokus auf Sanierung und Verarbeitung von Benutzerdaten, was algorithmische Logik erfordert.
+intellij-idea;U;Tag covers IDE setup, configuration, and environment-specific issues rather than pure code logic.
+ios;U;"iOS is a concrete OS; setup, permissions, and environment-specific issues dominate over pure language logic."
+java;K;Java covers both API usage (G) and environment/setup (U), fitting neither category exclusively.
+javascript;K;"JavaScript is a whole programming language; per rule 2, it contains both fundamentals and environment questions equally."
+jenkins;U;Jenkins questions often involve specific setup, configuration, and environment details rather than pure code logic.
+jestjs;U;Most questions involve specific test setup, mocking, or configuration issues unique to the user's project.
+join;G;SQL JOINs are query logic derivable from code/data, fitting fundamentals.
+jpa;K;JPA questions mix API usage (G) heavily with provider-specific setup and configuration (U), fitting neither category clearly.
+jquery;G;Most questions involve API usage, DOM traversal, or event handling derivable from provided code snippets.
+json;G;JSON questions typically involve parsing, validation, or transformation logic derivable from the data itself.
+jupyter-notebook;U;"Tag explicitly excludes pure code questions; focuses on environment setup, configuration, and tooling issues."
+jwt;G;Most questions focus on API usage, validation logic, and decoding, which are derivable from the question itself.
+keras;G;"Keras is a high-level API for neural networks; questions focus on model building and data processing logic."
+kotlin;G;"Kotlin is a language; most questions involve syntax, logic, or API usage rather than environment setup."
+kubernetes;K;Kubernetes covers both API usage (G) and cluster setup/ops (U), fitting neither category exclusively.
+lambda;K;"Lambda covers many languages; mostly API usage/computation fits G, but setup/config exists."
+laravel;K;Laravel questions mix API usage (G) with setup/config issues (U), fitting neither category clearly.
+laravel-8;U;Versioned framework tags usually imply environment-specific setup or configuration issues.
+linq;G;"LINQ is primarily a query language and data processing API; solutions derive from code logic rather than environment."
+linux;U;"Tag requires programming context; solutions depend on OS-specific APIs and environment details."
+list;G;Questions about linked lists and dynamic arrays focus on algorithms and data structures, not environment setup.
+logging;K;Tag covers both API usage (G) and environment-specific setup like loggers or servers (U), fitting neither exclusively.
+loops;G;"Loops are fundamental language constructs; solutions derive from code logic, not environment."
+machine-learning;G;"Fokus auf Implementierung und Algorithmen; Lösungen folgen meist aus Code/Daten im Fragekontext."
+macos;U;Tag covers OS-specific setup, configuration, and environment issues rather than general programming logic.
+material-ui;G;Material-UI questions typically involve API usage and component configuration, which are framework-specific but often solvable from code snippets.
+math;G;Tag covers general numeric manipulation and algorithms, solvable from code/data without specific environment.
+matlab;K;MATLAB covers both API usage (G) and environment/setup (U), fitting neither category exclusively.
+matplotlib;G;Most questions focus on API usage, data processing, and customizing plots, fitting category G.
+matrix;G;Matrix operations are mathematical algorithms derivable from the question itself without needing specific environment details.
+maui;K;MAUI questions mix API usage (G) with heavy setup/config/OS constraints (U), fitting neither category clearly.
+maven;K;Maven covers both API usage (G) and build configuration/setup (U), fitting neither category exclusively.
+microsoft-graph-api;G;Fokus liegt auf API-Nutzung und Datenabfrage, weniger auf Installation oder Konfiguration.
+mongodb;K;"MongoDB covers both queries (G) and setup/admin (U); wiki redirects admin to DBA, but general usage is mixed."
+mongoose;G;Mongoose is primarily used for data processing and query logic via its API.
+ms-access;K;Mixes query logic (G) heavily with environment-specific setup, versions, and UI configuration (U).
+multithreading;G;Most questions focus on API usage, synchronization primitives, and concurrency patterns rather than environment-specific setup.
+mysql;K;"MySQL is a specific database system; most questions involve SQL queries (G) but also setup/config (U), fitting rule 3 for mixed."
+nestjs;K;Framework tag covering both API usage (G) and setup/config (U), fitting neither category clearly.
+network-programming;G;Tag focuses on coding sockets and protocols, derivable from code without specific environment details.
+next.js;K;Next.js covers both API usage (G) and setup/configuration (U), fitting neither category predominantly.
+nginx;U;"Nginx is a server; most questions involve configuration and environment setup rather than code logic."
+node.js;G;"Node.js is a framework; most questions focus on API usage and logic rather than environment setup."
+npm;K;npm covers both API usage (G) and environment/setup issues like versions or global installs (U), fitting the mixed criteria.
+numpy;G;NumPy questions typically involve array manipulation and mathematical operations derivable from code.
+nuxt.js;K;Framework tag with mixed setup/config and API usage questions.
+oauth-2.0;G;Most questions involve specific implementation details like token flows or library usage rather than environment setup.
+object;K;"Tag covers both fundamentals and environment; no clear lean towards one category."
+oop;G;Fokus auf Paradigma und Konzepte wie Klassen, Vererbung und Polymorphismus, lösbar ohne Umgebung.
+opencv;K;OpenCV questions often involve API usage and algorithm logic, but also heavily depend on environment setup and version specifics.
+optimization;K;Tag covers both algorithmic logic (G) and environment-specific tuning like compilers or hardware (U), fitting neither exclusively.
+oracle-database;U;Fokus liegt auf Installation, Konfiguration und Umgebungsaspekten eines konkreten Systems.
+pandas;G;Most pandas questions involve API usage for data manipulation, fitting category G.
+parsing;G;Parsing is fundamentally an algorithmic and data-processing task solvable from code patterns.
+pdf;G;Most questions involve API usage or library logic for processing PDFs, fitting category G.
+performance;K;Performance optimization often requires specific code, data, or environment context to be solvable.
+php;K;PHP covers both API usage (G) and environment/setup (U), fitting neither category exclusively.
+pine-script;G;Pine Script is a DSL focused on algorithmic logic and data processing, fitting category G.
+pip;U;Most pip questions involve environment setup, installation errors, or version conflicts rather than pure data processing logic.
+plot;G;Most questions involve specific plotting libraries and API usage for data visualization logic.
+plotly;G;Most questions focus on API usage, chart configuration, and data processing logic rather than environment setup.
+pointers;G;"Pointers are fundamental language constructs; solutions derive from code logic, not environment."
+postgresql;K;"Most questions involve SQL queries (G), but many cover setup/config/admin (U); mixed usage warrants K."
+postman;U;"Postman is a specific tool; questions often involve setup, configuration, or environment variables rather than pure logic."
+powerbi;K;Power BI questions mix API usage (G) heavily with setup/config/versions (U), fitting the mixed category.
+powershell;G;"PowerShell is a scripting language; most questions involve code logic, syntax, or data processing rather than environment setup."
+pyspark;G;Most questions focus on API usage and data processing logic rather than environment setup.
+python;K;"Python is a whole programming language; per rule 2, such tags are mixed unless version-specific."
+python-3.x;K;"Python is a whole language; version tags mix API usage (G) with environment specifics like versions (U)."
+python-requests;G;Most questions involve API usage and data processing, fitting the 'fundamentals' category.
+pytorch;G;Most questions focus on API usage, model definition, and training logic rather than environment setup.
+qt;G;Fokus liegt auf API-Nutzung und Datenverarbeitung, weniger auf Umgebungs-Setup.
+r;K;"R is a whole programming language; most questions involve API usage and data processing rather than environment setup."
+random;G;Questions focus on algorithms, generation methods, and statistical properties of randomness.
+react-hooks;G;Most questions focus on API usage, logic, and data processing within the hooks themselves.
+react-native;G;Fokus liegt auf API-Nutzung und Datenverarbeitung, Setup-Fragen sind seltener.
+react-redux;G;Most questions focus on API usage, hooks, and state logic rather than environment setup.
+react-router;G;Most questions focus on API usage and navigation logic rather than environment setup.
+reactjs;G;Most questions focus on API usage, hooks, and component logic rather than environment setup.
+recursion;G;Recursion questions typically involve algorithmic logic and code patterns derivable from the question itself.
+redis;G;"Redis is a specific database; most questions involve API usage and data structures (G), not just setup."
+redux;G;Redux questions typically focus on API usage, data flow patterns, and reducer logic rather than environment setup.
+regex;G;"Regex is a pattern-matching language; solutions derive from the text and logic provided in the question."
+rest;G;"REST is an architectural style; questions usually involve API design, HTTP methods, and resource logic (G)."
+ruby;K;Ruby covers both API usage (G) and environment/setup (U), fitting neither category exclusively.
+ruby-on-rails;U;Most questions involve setup, configuration, or environment-specific issues rather than pure algorithmic logic.
+rust;G;"Rust is a programming language; most questions involve code logic, syntax, or algorithms (G)."
+rxjs;G;Most questions focus on API usage, operators, and handling async flows rather than setup or configuration.
+scala;G;Scala is a general-purpose language where most questions involve code, logic, or data processing rather than environment setup.
+scikit-learn;G;Most questions involve API usage for data processing, fitting models, or handling specific algorithms.
+security;K;Tag covers both code-level vulnerabilities (G) and environment/config issues (U), fitting neither category exclusively.
+selenium-webdriver;G;Most questions involve API usage and test logic rather than environment setup or configuration.
+shell;G;Shell scripting involves language constructs and logic derivable from the question itself.
+shiny;U;Shiny questions often involve setup, configuration, and environment-specific issues rather than pure data processing logic.
+snowflake-cloud-data-platform;K;Tag covers both SQL queries (G) and cloud setup/config (U), fitting neither category clearly.
+sockets;U;Sockets involve OS-specific APIs and network configurations, making solutions environment-dependent.
+sorting;G;"Sorting is a fundamental algorithmic concept; solutions derive from data and logic, not environment."
+split;G;Splitting strings is a fundamental data processing task solvable from code alone.
+spring;K;Spring covers both API usage (G) and setup/configuration (U), fitting neither category predominantly.
+spring-boot;K;Tag covers both API usage (G) and setup/configuration (U), fitting neither category clearly enough.
+spring-data-jpa;G;Most questions focus on API usage, repository patterns, and query logic rather than environment setup.
+sql;G;"SQL is a query language; solutions derive from logic and data, not environment."
+sql-server;U;Fokus liegt auf Installation, Konfiguration und Umgebungsproblemen des spezifischen Systems.
+sqlalchemy;K;SQLAlchemy covers both API usage (G) and setup/configuration (U), fitting neither category predominantly.
+sqlite;K;SQLite questions often mix setup issues with query logic, fitting neither G nor U exclusively.
+ssl;K;SSL/TLS covers both protocol logic (G) and server configuration/certificates (U), fitting neither category clearly.
+string;G;String manipulation relies on language constructs and algorithms, not specific environments.
+svg;G;Most questions involve creating/manipulating SVG code directly, making solutions derivable from the provided markup.
+swift;G;"Tag specifies language features; solutions derive from code/logic, not environment setup."
+swiftui;K;"Mostly API usage and UI logic, but setup/config often required; mixed lean."
+symfony;K;"Symfony is a framework; most questions involve API usage and configuration, splitting evenly between G and U."
+t-sql;G;T-SQL focuses on query logic and data processing, fitting the 'fundamentals' category per rule 5.
+tailwind-css;G;Most questions focus on API usage and utility classes for styling, fitting the G category.
+templates;K;Tag covers diverse contexts (C++ generics vs web engines) with no clear majority lean towards fundamentals or environment.
+tensorflow;G;"TensorFlow is a library; most questions focus on API usage and model logic (G), not just setup."
+terraform;K;Terraform questions mix HCL logic (G) heavily with cloud provider setup/config (U), fitting neither category clearly.
+testing;K;Der Tag deckt sowohl API-Nutzung (G) als auch Umgebungs-/Tool-Fragen (U) in gleichem Maße ab.
+tkinter;G;Most questions involve GUI code and widget usage, which are language constructs derivable from the question itself.
+types;G;Typing questions usually involve language constructs and static analysis derivable from code snippets.
+typescript;G;Most questions involve API usage, type definitions, and logic derivable from code snippets.
+ubuntu;U;"Tag explicitly excludes general support; focuses on OS-specific environment issues like packages or config."
+unit-testing;G;Fokus auf Test-Logik und Assertions, nicht auf spezifische Umgebungen oder Installation.
+unity-game-engine;G;Most questions involve specific API usage, C# code, or logic implementation within Unity.
+user-interface;K;UI tags cover both code logic (G) and environment-specific tooling like OS or IDEs (U), fitting neither category exclusively.
+validation;G;Validation typically involves logic, regex, or library usage derivable from the question itself.
+variables;G;"Variables are fundamental programming concepts; solutions derive from language constructs and logic, not environment."
+vb.net;K;As a whole programming language targeting .NET, it covers both API usage and environment setup equally.
+vba;K;VBA questions often require specific Office app context (Excel/Word) which is external to the code itself.
+visual-studio;U;Tag covers setup, configuration, IDE features, and environment-specific issues rather than pure code logic.
+vite;U;"Vite is a build tool; usage typically involves configuration and environment setup rather than pure algorithmic logic."
+vs-code;U;Most VS Code questions involve specific environment setup, extensions, or configuration rather than pure code logic.
+vue.js;K;Vue.js covers both API usage (G) and setup/configuration (U), fitting neither category exclusively.
+vuejs2;K;"Vue.js is a whole programming language/framework; questions mix API usage (G) with setup/config (U), so it fits neither purely."
+vuejs3;G;"Vue.js 3 is a library; most questions involve API usage and component logic rather than environment setup."
+web-scraping;G;Most questions involve specific code, selectors, or libraries to extract data, fitting the fundamentals category.
+webpack;U;Most webpack questions involve configuration, tooling setup, and environment-specific issues rather than pure algorithmic logic.
+websocket;U;Most questions involve specific implementation details like libraries or frameworks rather than general protocol theory.
+while-loop;G;"While loops are fundamental control structures; solutions derive from logic and code provided in the question."
+windows;U;"Windows is an OS; questions involve environment-specific APIs, behaviors, and setup rather than pure logic."
+winforms;G;"WinForms is a GUI library; questions focus on API usage, controls, and layout logic rather than environment setup."
+woocommerce;G;Most questions involve API usage, data processing, and extending logic rather than setup or configuration.
+wordpress;G;"Tag explicitly excludes admin/config; focuses on code/API usage which is derivable from question."
+wpf;K;WPF covers both API usage (G) and environment/setup issues like XAML tools or .NET versions (U), fitting neither purely.
+xamarin;K;Xamarin covers both API usage (G) and environment setup like build tools or OS specifics (U), fitting the mixed category.
+xaml;G;"XAML is a declarative markup language; questions focus on syntax, data binding, and object initialization logic."
+xcode;U;"Xcode is an IDE; questions focus on setup, configuration, and tooling rather than pure code logic."
+xml;G;"XML is a markup language; questions usually involve parsing, validation, or transformation logic derivable from the code."
+xpath;G;XPath is primarily used for querying and manipulating XML data structures via specific syntax.
+yaml;G;"YAML is a data serialization format; questions focus on parsing, syntax, and structure rather than environment setup."

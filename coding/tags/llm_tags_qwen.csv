@@ -1,0 +1,270 @@
+﻿tag;kategorie;begruendung
+.net;G;"language rule: .net is a general-purpose framework/language ecosystem; typical questions involve code logic, API usage, or syntax visible in the question."
+.net-6.0;U;language rule: tag contains a specific version number (6.0), which typically implies environment-specific issues like installation, configuration, or platform compatibility.
+.net-core;G;G~70% U~30%: Most questions involve coding against the API or framework logic, which is visible in the question.
+airflow;G;G~70% U~30%: Most questions involve DAG logic, task dependencies, or API usage visible in the code, not environment setup.
+ajax;G;G~80% U~20%: Most questions involve writing client-side code or handling data exchange logic visible in the question.
+algorithm;G;G~90% U~10%: Questions focus on logic, complexity, and code implementation visible in the post.
+amazon-ec2;G;G~65% U~35%: Most questions involve API usage, SDKs, or code logic visible in the question, fitting the 'programming-oriented' wiki definition.
+amazon-s3;G;"G~80% U~20%: Most questions involve coding against the S3 API (SDKs), which is visible in the question; config/installation is minor."
+amazon-web-services;U;G~40% U~60%: Typical questions involve specific AWS service configurations, IAM roles, or environment setup not visible in the text.
+android;K;"language rule: 'android' is a general-purpose platform tag; per guidelines, whole platform tags default to K unless versioned."
+android-jetpack-compose;G;G~85% U~15%: Most questions involve writing code against the Compose API, syntax, or logic, which is visible in the question.
+android-studio;U;G~20% U~80%: Most questions involve IDE configuration, installation, or environment setup not visible in code.
+angular;G;"language rule: Not a language; G share is high as most issues involve API usage and component logic visible in code."
+ansible;G;G~70% U~30%: Most questions involve writing playbooks, syntax errors, or logic issues visible in the code, not installation/config.
+apache;G;G~70% U~30%: Most questions involve visible code, config snippets, or error logs solvable without knowing the specific server environment.
+apache-kafka;G;G~70% U~30%: Most questions involve code, configuration logic, or API usage visible in the question text.
+apache-spark;G;G~80% U~20%: Most questions involve code, API usage, or data processing logic visible in the question.
+apache-spark-sql;G;G~85% U~15%: Most questions involve writing SQL queries or DataFrame logic visible in the text, not environment setup.
+arrays;G;"language rule: not a specific language; G share ~90% as array logic/syntax is visible in code questions."
+asp.net;G;G~70% U~30%: Most questions involve coding against the framework API (logic, syntax, configuration), not environment setup.
+asp.net-core;G;G~70% U~30%: Most questions involve coding against the framework API, logic, or configuration visible in the code, not hidden environment setup.
+asp.net-mvc;G;G~80% U~20%: Most questions involve code logic, routing, or framework usage visible in the question.
+assembly;G;"G~80% U~20%: Writing assembly code relies on visible syntax and logic; setup questions are less common than coding questions."
+async-await;G;"language rule: not a whole language; G~80% U~20%: usage of async/await syntax and logic is visible in code questions."
+asynchronous;G;G~80% U~20%: Questions typically involve code patterns like callbacks, promises, or async/await syntax rather than environment setup.
+authentication;G;G~70% U~30%: Most questions involve implementing logic, handling tokens, or fixing code errors visible in the question.
+automation;G;G~70% U~30%: Most questions involve scripting logic (Python/Bash) visible in the code, not environment-specific setup.
+aws-lambda;G;"G~70% U~30%: Most questions involve coding logic, event handling, or API usage visible in the text; setup is secondary."
+axios;G;"language rule: not a general-purpose language; G share ~80% (API usage, errors, logic) vs U share ~20% (install/config)."
+azure;U;"language rule: not a general-purpose language; estimate G~20% U~80%: typical questions involve cloud config, deployment, and environment specifics."
+azure-active-directory;G;G~70% U~30%: Most questions involve API usage, authentication logic, or protocol implementation visible in the code.
+azure-devops;G;G~70% U~30%: Most questions involve using Pipelines, Repos, or Boards features (code/config logic), not server installation.
+azure-functions;G;G~60% U~40%: While setup is possible, most questions involve coding logic, triggers, or bindings visible in the question.
+azure-pipelines;G;G~70% U~30%: Most questions involve writing YAML pipelines or fixing logic errors visible in the code, rather than server configuration.
+bash;G;G~80% U~20%: Most questions involve debugging script logic, syntax, or specific command usage visible in the code.
+beautifulsoup;G;"language rule: not a general-purpose language; G~85% U~15%: typical questions involve parsing logic and API usage visible in the code."
+blazor;G;G~70% U~30%: Most questions involve writing code against the Blazor API (syntax, logic, components), which is visible in the question.
+bootstrap-5;G;G~80% U~20%: Most questions involve using the library's API, components, or CSS, which is visible in the code.
+button;G;G~80% U~20%: Questions usually involve styling, event handling, or layout logic visible in the code snippet.
+c;K;"language rule: 'c' is a general-purpose programming language; per the guideline, such tags are classified as K."
+c#;K;"language rule: c# is a general-purpose programming language; per the guideline, such tags are classified as K."
+c++;K;language rule: c++ is a general-purpose programming language, so per the language rule it must be K.
+class;G;"language rule: not a language; G~85% U~15%: questions about class definitions, inheritance, and object instantiation are solvable from code alone."
+cmake;U;G~30% U~70%: Typical questions involve installation, configuration, cross-platform issues, or IDE integration rather than pure algorithmic logic.
+css;G;"language rule: css is a style sheet language; solutions derive from code/logic visible in the question."
+csv;G;G~85% U~15%: Most questions involve parsing, generating, or manipulating CSV data using code/logic visible in the question.
+curl;G;G~80% U~20%: Most questions involve writing commands or scripts to use the tool's API for data transfer.
+cypress;G;"language rule: not a general-purpose language; G~80% U~20%: typical questions involve writing test code, selectors, and assertions visible in the question."
+dart;K;"language rule: dart is a general-purpose programming language; per guidelines, such tags are classified as K."
+data-structures;G;G~90% U~10%: Questions focus on algorithmic logic, implementation details, and complexity analysis visible in the code.
+database;G;G~80% U~20%: Typical questions focus on schema design, query logic, and data modeling visible in the text.
+databricks;G;G~60% U~40%: While setup/config exists, most questions involve SQL/PySpark logic visible in the question.
+dataframe;G;G~85% U~15%: Most questions involve manipulating data structures or using specific libraries (pandas, R) visible in the code.
+date;G;G~85% U~15%: Most questions involve parsing, formatting, or arithmetic on dates using standard library functions visible in the code.
+datetime;G;G~85% U~15%: Most questions involve parsing, formatting, or calculating with dates using standard library APIs.
+debugging;K;"language rule: not a specific language; G~60% U~40%: mixed shares prevent clear classification per two-thirds rule."
+deep-learning;G;G~80% U~20%: Most questions involve implementing architectures or debugging code, which relies on visible logic rather than hidden environment details.
+dictionary;G;"language rule: not a specific language; G~80% U~20%: typical questions involve data structures, lookups, and algorithmic logic visible in the code."
+discord;G;G~80% U~20%: Most questions involve bot logic, event handling, or API usage visible in code snippets.
+discord.js;G;G~85% U~15%: Most questions involve coding against the library's API (events, intents, commands), which is visible in the question.
+discord.py;G;G~85% U~15%: Most questions involve API usage, intent configuration in code, or error handling visible in snippets.
+django;G;"language rule: django is a general-purpose framework; typical questions involve API usage, logic, and syntax (G), not environment setup."
+django-models;G;G~85% U~15%: Questions focus on using the ORM API, logic, and syntax, which are visible in the code provided.
+django-rest-framework;G;G~85% U~15%: Most questions involve API logic, serializers, or viewsets visible in code snippets.
+django-views;G;G~85% U~15%: Most questions involve fixing logic, syntax, or template rendering errors visible in the code snippet.
+docker;U;G~30% U~70%: Typical questions involve OS-level configuration, networking, permissions, and build tooling rather than internal code logic.
+docker-compose;U;G~30% U~70%: Typical questions involve environment setup, version conflicts, or specific host configurations not visible in the question text.
+dplyr;G;"language rule: not a language; G~90% U~10%: typical questions involve writing code against the API (filter, mutate, etc.), which is visible in the question."
+elasticsearch;G;"G~70% U~30%: Most questions involve query logic, mapping, or API usage visible in the text; setup/installation is less common."
+email;G;G~80% U~20%: Most questions involve code logic, API usage, or regex parsing visible in the text.
+entity-framework;G;G~80% U~20%: Most questions involve query logic, mapping errors, or API usage visible in the code.
+entity-framework-core;G;G~80% U~20%: Most questions involve coding against the API, queries, or logic errors visible in the question.
+error-handling;G;"G~85% U~15%: Questions typically show code/exceptions; solutions derive from logic, not environment."
+excel;G;G~80% U~20%: Most questions involve writing formulas or VBA code visible in the question, not environment setup.
+excel-formula;G;"G~90% U~10%: Solutions rely on visible logic, functions, and syntax; environment details like OS are rarely needed."
+exception;G;"G~90% U~10%: Exception handling logic is language-specific and visible in code; setup questions are rare."
+expo;G;G~70% U~30%: Most questions involve code, CLI usage, or configuration logic visible in the question text.
+express;G;G~80% U~20%: Most questions involve writing code, routing logic, or middleware usage against the API.
+fastapi;G;"language rule: not a general-purpose language but a specific framework; typical questions involve API logic and code usage visible in the question."
+file;G;G~80% U~20%: Most questions involve file I/O operations, parsing, or logic visible in the code snippet provided.
+filter;G;G~85% U~15%: Typical questions involve implementing logic or using standard library functions to filter data based on visible criteria.
+firebase;U;"language rule: Firebase is a platform, not a language; typical questions involve environment setup, configuration, and deployment."
+firebase-authentication;G;G~70% U~30%: Most questions involve API usage, token handling, or logic errors visible in code snippets.
+firebase-realtime-database;G;G~80% U~20%: Most questions involve writing queries, handling data structures, or debugging logic within the library API.
+flask;G;"language rule: not a general-purpose language; typical questions are about API usage, routing, and logic (G)."
+flutter;G;G~70% U~30%: Most Flutter questions involve UI logic, widget trees, and Dart code visible in the question.
+for-loop;G;"language rule: not a whole language; G~90% U~10%: logic and syntax are visible in code examples."
+forms;G;G~80% U~20%: Most questions involve HTML form syntax, validation logic, or API usage, which are visible in the question text.
+frontend;G;G~80% U~20%: Questions focus on UI logic, DOM manipulation, and framework usage visible in code snippets.
+function;G;"language rule: 'function' is a general programming concept, not a specific language; typical questions involve code logic visible in the question."
+gcc;G;G~70% U~30%: Most questions involve syntax, flags, or compilation errors visible in the code, not hidden environment configs.
+generics;G;"language rule: not a specific language; generics usage is code/logic visible in questions."
+ggplot2;G;"language rule: not a general-purpose language; G~85% U~15%: typical questions involve syntax, aesthetics, and data mapping visible in the code."
+git;G;G~70% U~30%: Most questions involve specific commands, workflows, or error messages visible in the text.
+github;G;G~70% U~30%: Most questions involve specific GitHub API usage, workflow features, or error messages visible in the text.
+github-actions;G;G~70% U~30%: Most questions involve writing workflow YAML logic, which is visible and solvable from the code provided.
+gitlab;G;"language rule: not a general-purpose language; estimate G~70% U~30%: typical questions involve API usage, CI configuration logic, or pipeline syntax visible in the question."
+go;K;language rule: go is a general-purpose programming language without version/platform specifics in the name.
+google-apps-script;G;G~80% U~20%: Most questions involve coding logic, API usage, or data processing within the platform.
+google-bigquery;G;G~70% U~30%: Most questions involve writing SQL queries or debugging logic visible in the question, not server configuration.
+google-chrome;G;G~80% U~20%: Most questions involve coding against the DevTools API, debugging JS/CSS, or understanding browser behavior, which is visible in the question.
+google-cloud-firestore;G;G~70% U~30%: Most questions involve query logic or API usage visible in the question, not installation/config.
+google-cloud-functions;G;G~60% U~40%: While setup is possible, most questions involve writing code against the Cloud Functions API, which is visible in the question.
+google-cloud-platform;U;G~30% U~70%: Typical questions involve installation, configuration, permissions, or specific GCP service setup not visible in the question text.
+google-sheets;G;G~80% U~20%: Most questions involve writing code or formulas to manipulate data, which is visible in the question.
+google-sheets-formula;G;G~90% U~10%: Questions involve writing or debugging formulas based on visible data and logic, independent of the user's environment.
+gradle;G;G~70% U~30%: Most questions involve writing or debugging build logic/scripts, which is visible in the question.
+graph;G;G~85% U~15%: Questions focus on generating charts/diagrams using libraries (e.g., D3, matplotlib), which is code/API usage visible in the question.
+graphql;G;"language rule: not a general-purpose language; G share ~80% (API usage/logic) vs U share ~20% (setup)."
+group-by;G;"G~90% U~10%: SQL queries and pandas aggregation logic are visible in the question; setup is rare."
+haskell;K;"language rule: 'haskell' is a general-purpose programming language; per the guideline, such tags are classified as K."
+heroku;U;G~20% U~80%: Typical questions involve platform configuration, deployment pipelines, or environment-specific issues rather than pure code logic.
+hibernate;G;G~85% U~15%: Most questions involve writing queries, mapping logic, or handling exceptions within the library's API.
+html;G;"language rule: html is a general-purpose markup language; solutions derive from code/logic visible in the question."
+http;G;"G~70% U~30%: Most questions involve HTTP logic, headers, or status codes visible in code/logs; setup/installation is less common."
+if-statement;G;"language rule: not a specific language; G~95% U~5%: fundamental control flow construct solvable from code alone."
+image;G;G~80% U~20%: Most questions involve code logic, library usage, or format handling visible in the snippet.
+import;K;"language rule: not a specific language; G~60% U~40%: mostly about code logic/syntax, but significant portion involves environment setup (e.g., Python path, Node modules)."
+indexing;G;G~85% U~15%: Typical questions involve implementing or optimizing search structures (hash maps, B-trees) using standard algorithms.
+input;G;G~85% U~15%: Most questions involve sanitizing, validating, or parsing user input logic visible in the code.
+intellij-idea;G;G~70% U~30%: Most questions involve specific code errors or IDE features visible in the question, not hidden environment configs.
+ios;K;G~60% U~40%: While setup is common, most questions involve visible code logic or API usage derivable from the question itself.
+java;K;language rule: java is a general-purpose programming language, so category K applies per guidelines.
+javascript;K;"language rule: javascript is a general-purpose language; per guidelines, such tags are classified as K."
+jenkins;U;G~20% U~80%: Typical questions involve CI/CD configuration, pipeline syntax, and environment-specific setup rather than core Java logic.
+jestjs;G;G~85% U~15%: Most questions involve writing tests, mocking, or debugging logic visible in the code snippet.
+join;G;"G~90% U~10%: SQL JOIN logic and query syntax are fully visible in the question; environment details are rare."
+jpa;G;G~85% U~15%: Most questions involve ORM usage, mapping errors, or query logic visible in code snippets.
+jquery;G;"language rule: not a standalone language but a library; typical questions involve DOM traversal, event handling, or AJAX logic visible in code."
+json;G;"language rule: JSON is a data format, not a programming language; typical questions involve parsing, validation, or syntax errors visible in the question."
+jupyter-notebook;G;G~80% U~20%: Most questions involve syntax or logic errors in code cells visible in the question, not environment setup.
+jwt;G;G~85% U~15%: Most questions involve implementing token logic, validation, or decoding, which relies on visible code and data.
+keras;G;"language rule: not a general-purpose language; G share is high as it covers API usage and model logic."
+kotlin;K;"language rule: kotlin is a general-purpose programming language; per guidelines, such tags default to K unless version/platform specifics dominate."
+kubernetes;G;"G~65% U~35%: Most questions involve code logic or API usage within pods; config/deploy/admin are off-topic."
+lambda;G;"language rule: not a single language; estimate G~90% U~10% as questions are about syntax/logic of anonymous functions."
+laravel;G;"language rule: laravel is a specific framework, not a general-purpose language; typical questions involve API usage (G) vs setup/installation (U). G~70% U~30%: most questions are about code logic and framework features."
+laravel-8;G;G~75% U~25%: Most questions involve coding against the framework API (routes, models, syntax), which is visible in the question.
+linq;G;"G~85% U~15%: LINQ is a language feature; most questions involve query syntax, logic, or API usage visible in the code."
+linux;G;G~70% U~30%: Most questions involve coding against Linux APIs or specific behaviors visible in the code, not system configuration.
+list;G;G~90% U~10%: Questions about linked lists and dynamic arrays focus on algorithms, data structures, and implementation logic visible in the code.
+logging;G;G~70% U~30%: Most questions involve implementing logging logic, parsing logs, or using library APIs, which are visible in the code.
+loops;G;"language rule: not a specific language; G~95% U~5%: loops are fundamental constructs where solutions derive directly from the provided code logic."
+machine-learning;G;G~80% U~20%: Most questions involve implementing algorithms or debugging code visible in the post.
+macos;U;"language rule: tag is a specific OS platform; typical questions depend on environment (OS behavior, APIs, config) not visible code."
+material-ui;G;G~85% U~15%: Most questions involve using React components, styling, or logic within the library API.
+math;K;language rule: 'math' is a general concept, not a specific programming language or environment tool.
+matlab;K;"language rule: matlab is a general-purpose language; per guidelines, such tags default to K unless version-specific or environment-heavy."
+matplotlib;G;"language rule: matplotlib is a library, not a language; typical questions involve code usage and API logic visible in the question."
+matrix;G;G~90% U~10%: Questions about matrix operations, linear algebra concepts, and algorithmic implementations are purely mathematical/logical.
+maui;G;"G~70% U~30%: Most questions involve UI logic, XAML syntax, or API usage visible in code; setup issues are less common."
+maven;G;G~70% U~30%: Most questions involve build logic, dependency resolution, or plugin usage visible in POM files.
+microsoft-graph-api;G;G~80% U~20%: Most questions involve API usage, query logic, or error handling visible in the code, not installation/config.
+mongodb;G;G~70% U~30%: Most questions involve query logic, aggregation pipelines, or API usage visible in the text.
+mongoose;G;G~85% U~15%: Most questions involve writing queries, schemas, or handling async logic using the library API.
+ms-access;G;G~70% U~30%: Most questions involve writing queries or VBA code visible in the question, not environment setup.
+multithreading;G;G~80% U~20%: Questions focus on concurrency logic, race conditions, and synchronization primitives visible in the code.
+mysql;G;G~80% U~20%: Most MySQL questions involve writing SQL queries or debugging logic visible in the text, despite setup questions being off-topic.
+nestjs;G;G~80% U~20%: Most questions involve code logic, decorators, or API usage visible in the question.
+network-programming;G;"G~85% U~15%: Focus is on coding logic, sockets, and protocols visible in the question; config/installation is off-topic."
+next.js;G;"language rule: not a general-purpose language; estimate G~70% U~30%: most questions involve code logic, routing, or API usage visible in the question."
+nginx;G;G~65% U~35%: Typical questions involve writing config directives or debugging logic visible in the snippet, not server installation.
+node.js;K;"language rule: node.js is a runtime environment built on V8/JavaScript; core JS logic is G, but Node-specific setup/config/installation issues are U. Estimate G~60% U~40% -> K."
+npm;U;"language rule: npm is a tool/package manager, not a general-purpose language; typical questions involve installation, configuration, or version issues."
+numpy;G;"language rule: numpy is a library, not a language; typical questions involve array operations and API usage visible in the question."
+nuxt.js;G;G~70% U~30%: Most questions involve coding against the framework's API, routing, or state management, which are visible in the question.
+oauth-2.0;G;G~70% U~30%: Most questions involve implementing flows or handling tokens via API docs, not server config.
+object;G;"language rule: 'object' is not a specific language but a general concept; typical questions involve OOP logic, classes, and instances visible in the code."
+oop;G;G~90% U~10%: Questions about OOP concepts, class design, inheritance, and polymorphism are solvable from code alone.
+opencv;G;"language rule: not a general-purpose language; typical questions are about API usage and logic visible in the question."
+optimization;G;G~80% U~20%: Questions focus on algorithmic logic, code refactoring, and mathematical approaches visible in the snippet.
+oracle-database;K;G~60% U~40%: While setup/config exists, most questions involve SQL queries or database logic visible in the text.
+pandas;G;"language rule: pandas is a library, not a language; apply standard estimation. G~90% U~10%: most questions involve code logic, syntax, or DataFrame operations visible in the text."
+parsing;G;G~85% U~15%: Most questions involve regex, ASTs, or algorithmic logic visible in the code/data.
+pdf;G;G~80% U~20%: Most questions involve code logic for parsing/generating PDFs, which is visible in the question.
+performance;G;G~70% U~30%: Most questions provide code, data, or specific bottlenecks allowing analysis without external environment details.
+php;K;"language rule: php is a general-purpose language; per guidelines, such tags are classified as K."
+pine-script;K;"language rule: pine-script is a domain-specific language; per guidelines, whole language tags are K unless they explicitly name a version or platform aspect."
+pip;U;language rule: pip is a specific tool (package manager) rather than a general-purpose language, so step 0 does not apply. Estimate G~20% U~80%: most questions involve installation, configuration, or environment issues.
+plot;G;G~80% U~20%: Most questions involve specific plotting libraries (matplotlib, ggplot) where the solution derives from code/data provided.
+plotly;G;G~85% U~15%: Most questions involve syntax, chart configuration, or data mapping visible in the code snippet.
+pointers;G;G~90% U~10%: Questions involve memory management logic and pointer arithmetic visible in code snippets.
+postgresql;G;G~70% U~30%: Most questions involve SQL queries or API usage visible in the text, fitting the fundamentals category.
+postman;G;G~70% U~30%: Most questions involve using the tool's API or debugging request logic, which is visible in the question.
+powerbi;G;G~70% U~30%: Most questions involve DAX logic, data modeling, or visual configuration visible in the question.
+powershell;K;"language rule: powershell is a general-purpose scripting language; per guidelines, such tags default to K unless they explicitly name a version or platform aspect."
+pyspark;G;"language rule: not a general-purpose language; estimate G~80% U~20%: typical questions involve code logic, transformations, and API usage visible in the question."
+python;K;"language rule: python is a general-purpose language; per guidelines, such tags are classified as K."
+python-3.x;U;language rule: Tag explicitly names a version (3.x), which typically implies environment-specific issues like installation, configuration, or platform differences.
+python-requests;G;"language rule: not a general-purpose language; library tag where API usage is visible in code."
+pytorch;G;"language rule: pytorch is a specific library/framework; code usage questions are G, setup/installation are U. Estimate G~80% U~20%."
+qt;G;G~70% U~30%: Most questions involve coding against the Qt API (GUI, signals/slots), which is visible in the question.
+r;K;"language rule: r is a general-purpose language; per guidelines, such tags are classified as K."
+random;G;G~90% U~10%: Questions about random number generation logic, algorithms, and library usage are visible in the code.
+react-hooks;G;G~90% U~10%: Most questions involve logic, syntax, or usage of the Hooks API, which is visible in the code.
+react-native;G;G~70% U~30%: Most questions involve writing code against the library API (JS/React logic), not environment setup.
+react-redux;G;G~85% U~15%: Most questions involve logic, hooks usage, or state management patterns visible in the code.
+react-router;G;G~85% U~15%: Most questions involve implementing navigation logic, handling state, or fixing route configuration code visible in the question.
+reactjs;G;"language rule: not a whole language; G~85% U~15%: typical questions involve component logic, state management, and API usage visible in the code."
+recursion;G;"language rule: not a specific language; G~90% U~10%: recursion logic and base cases are visible in code examples."
+redis;G;G~70% U~30%: Most questions involve data structures, commands, or logic visible in the question text.
+redux;G;G~85% U~15%: Most questions involve writing code against the Redux API (reducers, actions, middleware), which is visible in the question.
+regex;G;G~85% U~15%: Most regex questions involve pattern matching logic visible in the text, with few setup issues.
+rest;G;G~80% U~20%: Questions focus on API design, HTTP methods, and resource modeling, which are visible in the code.
+ruby;K;"language rule: ruby is a general-purpose programming language; per guidelines, such tags are classified as K."
+ruby-on-rails;G;"language rule: not a pure language; estimate G~80% U~20% as most questions involve code logic, API usage, or MVC patterns visible in the question."
+rust;K;"language rule: rust is a general-purpose programming language; per guidelines, such tags default to K unless version/platform specifics dominate."
+rxjs;G;"language rule: not a general-purpose language; G share is high as it covers observable usage patterns."
+scala;K;language rule: scala is a general-purpose programming language, so category K applies per the language rule.
+scikit-learn;G;G~85% U~15%: Most questions involve using the library's API, algorithms, or data processing logic visible in the code.
+security;G;G~70% U~30%: Most questions involve analyzing code logic or attack vectors visible in the snippet, not hidden environment configs.
+selenium-webdriver;G;G~80% U~20%: Most questions involve coding against the API (selectors, waits, actions), which is visible in the question.
+shell;G;G~70% U~30%: Most questions involve writing scripts or parsing commands visible in the text, not environment-specific setup.
+shiny;G;G~70% U~30%: Most questions involve coding logic, UI components, or data handling within the framework API.
+snowflake-cloud-data-platform;G;"G~70% U~30%: Most questions involve SQL queries or platform API usage visible in the text; setup/installation is less common."
+sockets;G;G~80% U~20%: Socket programming logic, API usage, and error handling are visible in the question code.
+sorting;G;"language rule: not a specific language; G~90% U~10%: sorting logic and algorithms are visible in code/data questions."
+split;G;G~90% U~10%: Splitting strings/arrays is a standard algorithmic task solvable from code/data alone.
+spring;G;G~80% U~20%: Most questions involve coding against the framework API, dependency injection, or configuration logic visible in the question.
+spring-boot;G;"G~70% U~30%: Most questions involve using Spring Boot features (config, embedding servers) visible in code; setup/installation is less common."
+spring-data-jpa;G;G~85% U~15%: Most questions involve writing repository interfaces, query methods, or entity mappings using the API.
+sql;G;"G~85% U~15%: Query logic and data processing are visible in the question; specific DBMS tags handle environment issues."
+sql-server;G;G~70% U~30%: Most questions involve writing queries or fixing logic visible in the text, while setup/config issues are less common.
+sqlalchemy;G;"language rule: not a pure language tag; G share ~80% (code/API usage) vs U share ~20% (setup/config)."
+sqlite;G;"language rule: not a general-purpose language; estimate G~80% U~20%: typical questions are about SQL queries and logic, which are visible in the question."
+ssl;G;G~70% U~30%: Most questions involve configuring code or certificates visible in the question, not hidden server environments.
+string;G;"language rule: not a specific language; G~90% U~10%: String manipulation logic is visible in the question and solvable without environment details."
+svg;G;G~85% U~15%: Questions focus on SVG syntax, rendering logic, and API usage rather than environment setup.
+swift;K;"language rule: Swift is a general-purpose programming language; per guidelines, such tags default to K unless version/platform specifics dominate."
+swiftui;G;"language rule: not a general-purpose language; estimate G~85% U~15%: most questions involve UI logic, syntax, and declarative API usage visible in code."
+symfony;G;G~80% U~20%: Most questions involve coding against the framework API, logic, or configuration visible in the question.
+t-sql;G;language rule: T-SQL is a specific query language (SQL dialect), so it falls under fundamentals where code and logic are visible in the question.
+tailwind-css;G;G~85% U~15%: Most questions involve styling logic, utility classes, or component behavior visible in the code snippet.
+templates;G;G~70% U~30%: Most questions involve syntax, logic, or usage of template engines (e.g., Jinja2, Handlebars), which are solvable from code alone.
+tensorflow;G;G~80% U~20%: Most questions involve using the library's API for ML tasks, which is visible in the code/data.
+terraform;G;"G~70% U~30%: Most questions involve writing HCL code or logic; setup/installation is less common."
+testing;G;G~70% U~30%: Most questions involve writing test code, mocking, or debugging logic visible in the snippet.
+tkinter;G;G~85% U~15%: Most questions involve writing GUI code, handling events, or fixing logic errors visible in the snippet.
+types;K;"language rule: 'types' is a general concept, not a specific language or environment tool; shares are balanced between theory (G) and implementation details (U)."
+typescript;K;language rule: TypeScript is a whole general-purpose programming language, so category K applies per the decision procedure.
+ubuntu;U;G~20% U~80%: Typical questions involve OS configuration, permissions, or environment setup invisible to outsiders.
+unit-testing;G;G~80% U~20%: Most questions involve writing test logic, mocking, or framework usage visible in the code.
+unity-game-engine;G;G~80% U~20%: Most questions involve coding logic, API usage, or script errors visible in the question text.
+user-interface;G;G~80% U~20%: Most questions involve specific UI library usage or widget logic visible in code, not environment setup.
+validation;G;G~85% U~15%: Most questions involve implementing validation logic or handling specific error cases visible in the code/data.
+variables;G;"language rule: 'variables' is not a specific language but a general programming concept; typical questions involve logic/data structures visible in the code."
+vb.net;K;"language rule: vb.net is a general-purpose language; per guidelines, such tags are classified as K."
+vba;G;G~80% U~20%: VBA questions typically involve writing macros, handling objects, and logic within Office apps, which is visible in the code.
+visual-studio;G;G~70% U~30%: Most questions involve specific IDE features or errors visible in the text, not hidden environment configs.
+vite;G;G~70% U~30%: Most questions involve code configuration or usage logic visible in the question, not hidden environment details.
+vs-code;G;"G~70% U~30%: Most questions involve code logic, debugging, or API usage visible in the question; setup issues are less common."
+vue.js;K;"language rule: not a general-purpose language; framework usage is G, but wiki notes high version specificity implying U."
+vuejs2;G;"language rule: not a general-purpose language; estimate G~85% U~15%: specific version usage questions dominate over installation/config."
+vuejs3;G;"language rule: not a general-purpose language; estimate G~85% U~15%: most questions involve code usage, syntax, and API logic visible in the question."
+web-scraping;G;G~80% U~20%: Most questions involve specific code logic, selectors, or error handling visible in the snippet.
+webpack;G;G~70% U~30%: Most questions involve code configuration, syntax errors, or logic issues visible in the question text.
+websocket;G;G~70% U~30%: Most questions involve implementing the protocol logic or handling specific message events, which is derivable from code snippets.
+while-loop;G;"language rule: not a whole language; G~95% U~5%: typical questions involve logic, conditions, or syntax visible in the code."
+windows;U;G~20% U~80%: Typical questions involve OS-specific behaviors, APIs, and environment constraints not visible in the code alone.
+winforms;G;G~70% U~30%: Most questions involve coding against the WinForms API (controls, events, layout), which is visible in the question.
+woocommerce;G;G~70% U~30%: Most questions involve coding logic, API usage, or extending functionality, which are visible in the question.
+wordpress;G;G~70% U~30%: Most questions involve coding against the WP API or theme/plugin logic visible in the post.
+wpf;G;G~70% U~30%: Most questions involve UI logic, XAML syntax, and binding issues visible in the code.
+xamarin;G;G~70% U~30%: Most questions involve writing code against the API or fixing logic errors in cross-platform apps.
+xaml;G;G~70% U~30%: Most questions involve syntax, binding logic, or data conversion visible in the code snippet.
+xcode;U;G~20% U~80%: Typical questions involve IDE configuration, build errors, tooling, and environment setup specific to Xcode.
+xml;G;G~80% U~20%: Most questions involve parsing, validation, or transformation logic visible in the code/data.
+xpath;G;"G~90% U~10%: Query logic and pattern matching are visible in questions; setup is rare."
+yaml;G;"language rule: yaml is a data serialization format, not a programming language; typical questions involve parsing, validation, or schema logic visible in the question."

@@ -32,7 +32,9 @@
     "seed": 20261116,
     "think": false,
     "format": "JSON-Schema",
-    "num_ctx": 4096
+    "num_ctx": 4096,
+    "num_predict": 512,
+    "timeout_s": 300
   },
   "probelauf_16_11": {
     "daten": "10 Kalibrierungsfragen, je 2 Durchläufe, grober Test-Prompt (nicht der endgültige)",

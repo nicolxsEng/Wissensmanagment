@@ -5,6 +5,8 @@ uv run python scripts/04_tag_sheets.py
 Erzeugt in coding/tags/:
   tags_kodierer_A.csv, tags_kodierer_B.csv  alle Kandidaten-Tags, je eigene Zufallsreihenfolge
   uebung_10.csv                              10 Übungstags, die NICHT zu den Kandidaten gehören
+  kalibrierung_30.csv                        30 weitere Nicht-Kandidaten für die Kalibrierung der
+                                             Modelle (AP16, D25), ohne Überschneidung mit uebung_10
 Bögen mit Einträgen werden nie überschrieben.
 """
 
@@ -18,7 +20,7 @@ from sov.se_client import fetch_wikis
 OUT = config.CODING_DIR / "tags"
 
 
-def practice_tags(n: int = 10) -> list[str]:
+def practice_tags(n: int = 10, seed: int = config.SEED + 3, exclude=()) -> list[str]:
     """Zufällige Tags knapp unter der Schwelle (100–149 Fragen 2022), also keine Kandidaten."""
     q = load_questions(["year", "tags", "is_classic"])
     counts = (
@@ -28,9 +30,10 @@ def practice_tags(n: int = 10) -> list[str]:
         .group_by("tag")
         .agg(n=pl.len())
         .filter(pl.col("n").is_between(100, config.MIN_TAG_COUNT - 1))
+        .filter(~pl.col("tag").is_in(list(exclude)))
         .sort("tag")
     )
-    return counts.sample(n, seed=config.SEED + 3)["tag"].sort().to_list()
+    return counts.sample(n, seed=seed)["tag"].sort().to_list()
 
 
 def main() -> None:
@@ -47,6 +50,12 @@ def main() -> None:
     path = OUT / "uebung_10.csv"
     write_sheet(build_tag_sheet(pwiki, config.SEED + 4), path)
     print(f"Übungsbogen: {path} ({len(ptags)} Tags)")
+
+    ktags = [t for t in practice_tags(30, config.SEED + 5, exclude=ptags) if t not in cand]
+    kwiki = fetch_wikis(ktags, cache_name="tag_wikis_kalibrierung")
+    path = OUT / "kalibrierung_30.csv"
+    write_sheet(build_tag_sheet(kwiki, config.SEED + 6), path)
+    print(f"Kalibrierungsbogen: {path} ({len(ktags)} Tags)")
 
 
 if __name__ == "__main__":

@@ -53,3 +53,11 @@ def test_run_task_caches(tmp_path, monkeypatch):
     assert len(calls) == 4  # anderes Modell-Digest -> neu
     rec = json.loads((tmp_path / "t_qwen.jsonl").read_text().splitlines()[0])
     assert rec["prompt_hash"] == prompt_hash("Anweisung")
+
+
+def test_timeout_counts_as_invalid():
+    def post(path, body):
+        raise TimeoutError("timed out")
+
+    res = classify_one("m", "s", "q", ["G", "U"], post=post, retries=1)
+    assert res["kategorie"] is None and res["versuche"] == 2

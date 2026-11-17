@@ -42,7 +42,7 @@ def label_schema(categories: Iterable[str]) -> dict:
     }
 
 
-def _post(path: str, body: dict, timeout: int = 600) -> dict:
+def _post(path: str, body: dict, timeout: int = 300) -> dict:
     req = urllib.request.Request(
         f"{config.OLLAMA_URL}{path}",
         json.dumps(body).encode("utf-8"),
@@ -73,13 +73,18 @@ def classify_one(
         "stream": False,
         "think": False,
         "format": label_schema(cats),
-        "options": {"temperature": 0, "seed": config.SEED, "num_ctx": config.LLM_NUM_CTX},
+        "options": {"temperature": 0, "seed": config.SEED, "num_ctx": config.LLM_NUM_CTX,
+                    "num_predict": config.LLM_NUM_PREDICT},
         "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
     }
     last = ""
     for attempt in range(retries + 1):
         t0 = time.perf_counter()
-        resp = post("/api/chat", body)
+        try:
+            resp = post("/api/chat", body)
+        except (TimeoutError, OSError) as e:  # Zeitüberschreitung: als ungültig werten
+            last = f"Fehler: {e}"
+            continue
         last = resp.get("message", {}).get("content", "")
         try:
             data = json.loads(last)

@@ -1,0 +1,270 @@
+﻿tag;kategorie;begruendung
+.net;K;The .NET tag covers both fundamentals and environment aspects.
+.net-6.0;U;Version-specific tag implies environment dependency.
+.net-core;U;Questions often involve setup, configuration, and environment specifics.
+airflow;K;Airflow involves both DAG logic (G) and environment setup (U).
+ajax;K;Ajax involves both API usage and environment-specific issues.
+algorithm;G;Algorithm design questions typically involve language constructs and logic.
+amazon-ec2;U;Typical questions involve interfacing with EC2 API, setup, and configuration.
+amazon-s3;U;Amazon S3 involves setup, configuration, and environment-specific issues.
+amazon-web-services;U;AWS questions often depend on specific configurations and environments.
+android;K;Android involves both programming constructs and environment-specific issues.
+android-jetpack-compose;K;Jetpack Compose involves both API usage and environment setup.
+android-studio;U;Questions typically involve IDE setup, configuration, and tooling.
+angular;K;Angular involves both API usage and environment setup.
+ansible;U;Ansible involves setup, configuration, and environment-specific issues.
+apache;U;Apache HTTP Server involves setup, configuration, and environment specifics.
+apache-kafka;U;Apache Kafka involves setup, configuration, and environment specifics.
+apache-spark;K;Apache Spark involves both API usage and environment setup.
+apache-spark-sql;K;Apache Spark SQL involves both API usage and environment setup.
+arrays;G;Arrays are fundamental data structures, typically involving language constructs and algorithms.
+asp.net;K;ASP.NET covers both fundamentals and environment aspects.
+asp.net-core;K;ASP.NET Core involves both API usage and environment setup.
+asp.net-mvc;K;ASP.NET MVC involves both API usage and environment setup.
+assembly;K;Assembly involves both language constructs and environment specifics.
+async-await;G;Async-await is about language constructs for asynchronous programming.
+asynchronous;G;Asynchronous programming involves language constructs and patterns.
+authentication;K;Authentication involves both fundamental concepts and environment-specific implementations.
+automation;K;Automation covers both code logic and environment setup.
+aws-lambda;U;AWS Lambda involves environment-specific configurations and interactions.
+axios;G;Axios questions often involve API usage and data processing.
+azure;U;Azure involves setup, configuration, and cloud services.
+azure-active-directory;U;Questions often involve environment-specific configurations and setups.
+azure-devops;U;Azure DevOps involves setup, configuration, and environment-specific issues.
+azure-functions;U;Azure Functions involves setup, configuration, and environment-specific issues.
+azure-pipelines;U;Azure Pipelines involves CI/CD setup, configuration, and environment specifics.
+bash;U;Bash questions often involve environment-specific issues.
+beautifulsoup;G;BeautifulSoup is used for parsing HTML/XML, typically involving data processing.
+blazor;K;Blazor involves both API usage and environment setup.
+bootstrap-5;K;Bootstrap 5 involves both API usage and environment setup.
+button;K;Buttons involve both UI logic and environment specifics.
+c;G;C is a general-purpose language with questions on language constructs and algorithms.
+c#;K;C# covers both fundamentals and environment aspects.
+c++;K;C++ covers both fundamentals and environment.
+class;G;Class-related questions typically involve language constructs and data structures.
+cmake;U;CMake involves setup, configuration, and environment-specific issues.
+css;G;CSS questions often involve language constructs and styling logic.
+csv;G;Typical questions involve data processing, parsing, or manipulation.
+curl;U;cURL questions often involve environment-specific issues like network settings or permissions.
+cypress;U;Cypress involves setup, configuration, and environment specifics.
+dart;K;Dart covers both fundamentals and environment aspects.
+data-structures;G;Data structures involve language constructs and algorithms.
+database;G;General database design questions are about fundamentals.
+databricks;U;Databricks involves setup, configuration, and cloud integration.
+dataframe;K;DataFrames involve both data processing and environment-specific issues.
+date;G;Typical questions involve language constructs for date manipulation.
+datetime;G;Typical questions involve language constructs and data processing.
+debugging;G;Debugging techniques are generally applicable across environments.
+deep-learning;K;Deep learning involves both API usage and environment setup.
+dictionary;G;Typical questions involve language constructs and data structures.
+discord;K;Discord API involves both API usage and environment setup.
+discord.js;K;discord.js involves API usage and environment setup.
+discord.py;K;Discord.py involves API usage and setup/configuration.
+django;K;Django involves both API usage and environment setup.
+django-models;G;Typical questions involve API usage for data processing.
+django-rest-framework;K;Questions often involve API usage and data processing, but also setup and configuration.
+django-views;K;Django views involve both API usage and environment setup.
+docker;U;Docker involves setup, configuration, and environment specifics.
+docker-compose;U;Typical questions involve setup, configuration, and environment specifics.
+dplyr;G;dplyr is a data manipulation library, typically used for API questions.
+elasticsearch;K;Elasticsearch involves both API usage and environment setup.
+email;K;Email involves both code and environment setup.
+entity-framework;K;Entity Framework involves both API usage and environment setup.
+entity-framework-core;K;Entity Framework Core involves both API usage and environment setup.
+error-handling;G;Error handling often involves language constructs and patterns.
+excel;K;Excel programming involves both code/data and environment specifics.
+excel-formula;G;Excel formulas are about syntax and logic, derivable from the question.
+exception;G;Exception handling is a language construct, typically derivable from the question.
+expo;U;Expo involves setup, configuration, and environment-specific issues.
+express;K;Express.js involves both API usage and environment setup.
+fastapi;K;FastAPI involves both API usage and environment setup.
+file;K;File handling involves both code and environment specifics.
+filter;K;Filter usage spans data processing and environment-specific configurations.
+firebase;U;Firebase involves setup, configuration, and environment-specific issues.
+firebase-authentication;U;Firebase Authentication involves setup, configuration, and environment-specific issues.
+firebase-realtime-database;U;Firebase Realtime Database involves setup, configuration, and environment-specific issues.
+flask;K;Flask involves both API usage and environment setup.
+flutter;K;Flutter involves both API usage and environment-specific issues.
+for-loop;G;Typical questions involve language constructs and iteration logic.
+forms;K;Forms cover both web (HTML) and desktop (VB, C#) environments.
+frontend;K;Frontend covers both code (HTML, JS) and environment (browsers, frameworks).
+function;G;Typical questions involve language constructs and logic.
+gcc;U;GCC involves setup, configuration, and environment-specific issues.
+generics;G;Generics involve language constructs and data structures.
+ggplot2;G;ggplot2 is a data visualization library in R, typically involving API usage for plotting.
+git;U;Git involves setup, configuration, and environment-specific issues.
+github;U;GitHub involves setup, configuration, and collaboration features.
+github-actions;U;Typical questions involve setup, configuration, and environment specifics.
+gitlab;U;GitLab involves setup, configuration, and environment specifics.
+go;K;Go is a whole programming language with both G and U questions.
+google-apps-script;K;Google Apps Script involves both API usage and environment-specific configurations.
+google-bigquery;K;BigQuery involves both SQL queries (G) and cloud-specific setup (U).
+google-chrome;U;Questions often involve environment-specific issues like extensions, settings, or OS interactions.
+google-cloud-firestore;U;Firestore involves setup, configuration, and environment-specific issues.
+google-cloud-functions;U;Typical questions involve setup, configuration, and environment specifics.
+google-cloud-platform;U;Typical questions involve setup, configuration, and environment-specific issues.
+google-sheets;U;Involves API usage, scripting, and configuration.
+google-sheets-formula;G;Typical questions involve spreadsheet formulas, which are derivable from the question itself.
+gradle;U;Gradle involves setup, configuration, and environment specifics.
+graph;U;Graphical data presentation typically involves environment-specific libraries and tools.
+graphql;K;GraphQL involves both API usage and environment setup.
+group-by;G;GROUP BY is used in SQL and pandas for data aggregation.
+haskell;K;Haskell covers both fundamentals and environment questions.
+heroku;U;Heroku involves environment-specific configurations and services.
+hibernate;K;Hibernate involves both API usage and environment setup.
+html;G;HTML questions typically involve language constructs and markup logic.
+http;K;HTTP involves both fundamental concepts and environment-specific configurations.
+if-statement;G;If-statements are fundamental language constructs.
+image;K;Image processing often involves both code logic and environment specifics.
+import;K;Import involves both data processing and environment-specific configurations.
+indexing;K;Indexing involves both data structures (G) and environment-specific implementations (U).
+input;G;Input questions often involve data processing and validation, which are fundamental.
+intellij-idea;U;IntelliJ IDEA involves setup, configuration, and environment-specific issues.
+ios;U;iOS involves environment-specific issues like OS versions, device configurations.
+java;K;Java covers both fundamentals and environment aspects.
+javascript;K;JavaScript covers both fundamentals and environment-specific questions.
+jenkins;U;Jenkins questions often involve setup, configuration, and environment specifics.
+jestjs;K;Jest involves both API usage and environment setup.
+join;G;JOIN operations are typically about SQL queries, which are derivable from the question.
+jpa;K;JPA involves both API usage and environment setup.
+jquery;G;jQuery usage typically involves API usage for DOM manipulation and event handling.
+json;G;JSON questions typically involve data structures and parsing, which are derivable from the question.
+jupyter-notebook;U;Jupyter Notebook involves environment setup, configuration, and interplay with tools.
+jwt;G;JWT questions often involve API usage and data processing.
+keras;K;Keras questions often involve API usage, but also setup and environment.
+kotlin;K;Kotlin covers both fundamentals and environment topics.
+kubernetes;U;Kubernetes involves setup, configuration, and environment specifics.
+lambda;K;Lambda covers both fundamentals and environment aspects.
+laravel;K;Laravel involves both API usage and environment setup.
+laravel-8;K;Laravel 8 involves both API usage and environment setup.
+linq;G;LINQ questions often involve API usage for data processing.
+linux;U;Linux questions often involve environment-specific issues.
+list;G;Lists involve data structures and algorithms, typically solvable from the question.
+logging;K;Logging involves both code constructs and environment-specific configurations.
+loops;G;Loops are fundamental programming constructs.
+machine-learning;K;Machine learning covers both fundamentals and environment-specific questions.
+macos;U;macOS questions often involve environment-specific issues.
+material-ui;K;Material-UI involves both API usage and environment setup.
+math;G;Math questions often involve language constructs and algorithms.
+matlab;K;MATLAB covers both fundamentals and environment aspects.
+matplotlib;G;Matplotlib questions often involve API usage for plotting, fitting G.
+matrix;G;Matrix operations are typically about language constructs and algorithms.
+maui;K;MAUI involves both API usage and environment setup.
+maven;U;Maven questions often involve setup, configuration, and environment specifics.
+microsoft-graph-api;K;Typical questions involve API usage and configuration.
+mongodb;K;MongoDB questions cover both data processing and environment setup.
+mongoose;K;Mongoose involves both API usage and environment setup.
+ms-access;K;Access involves both data processing and environment setup.
+multithreading;K;Multithreading involves both code constructs and environment specifics.
+mysql;K;MySQL involves both SQL queries (G) and setup/config (U).
+nestjs;K;NestJS involves both API usage and environment setup.
+network-programming;G;Typically involves coding constructs and logic.
+next.js;K;Next.js involves both API usage and environment setup.
+nginx;U;Nginx involves setup, configuration, and environment specifics.
+node.js;K;Node.js involves both API usage and environment setup.
+npm;U;npm involves setup, configuration, and environment-specific issues.
+numpy;G;Typical questions involve API usage for data processing.
+nuxt.js;K;Nuxt.js involves both API usage and environment setup.
+oauth-2.0;K;OAuth 2.0 involves both API usage and environment-specific configurations.
+object;G;Object-related questions often involve language constructs and data structures.
+oop;G;OOP involves language constructs and design patterns.
+opencv;K;OpenCV involves both API usage and environment setup.
+optimization;K;Optimization covers both code/data and environment aspects.
+oracle-database;U;Oracle Database involves setup, configuration, and version-specific issues.
+pandas;G;Pandas questions often involve data manipulation and API usage.
+parsing;G;Parsing involves language constructs and data structures.
+pdf;K;PDF involves both data processing and environment-specific tools.
+performance;K;Performance questions often depend on specific environments and contexts.
+php;K;PHP covers both fundamentals and environment questions.
+pine-script;G;Pine Script is a domain-specific language for coding technical indicators.
+pip;U;Typically involves setup, configuration, and environment issues.
+plot;G;Plotting typically involves data structures and algorithms for visualization.
+plotly;K;Plotly involves both API usage and environment setup.
+pointers;G;Pointers involve language constructs and memory management.
+postgresql;K;PostgreSQL covers both data processing (queries) and environment (installation, configuration).
+postman;U;Postman questions often involve setup, configuration, and environment specifics.
+powerbi;U;Power BI involves setup, configuration, and integration with environments.
+powershell;K;PowerShell involves both scripting (G) and environment-specific issues (U).
+pyspark;K;PySpark involves both API usage and environment setup.
+python;K;Python covers both fundamentals and environment questions.
+python-3.x;K;Python 3.x covers both fundamentals and environment.
+python-requests;G;Requests is used for API usage and data processing.
+pytorch;K;PyTorch involves both API usage and environment setup.
+qt;K;Qt involves both API usage and environment setup.
+r;K;R involves both data processing and environment-specific issues.
+random;G;Typically involves algorithms and data structures.
+react-hooks;G;Typical questions involve API usage and data processing.
+react-native;K;React Native involves both API usage and environment setup.
+react-redux;K;Questions often involve API usage and setup/configuration.
+react-router;K;React Router involves both API usage and environment setup.
+reactjs;K;ReactJS involves both API usage and environment setup.
+recursion;G;Recursion involves language constructs and algorithms.
+redis;K;Redis involves both data processing and environment setup.
+redux;G;Typical questions involve API usage and state management logic.
+regex;G;Regex questions typically involve language constructs and string patterns.
+rest;K;REST involves both API usage (G) and environment setup (U).
+ruby;K;Ruby is a whole programming language with both G and U questions.
+ruby-on-rails;K;Questions often involve both API usage and environment setup.
+rust;K;Rust covers both fundamentals and environment aspects.
+rxjs;G;Typical questions involve API usage for data processing.
+scala;K;Scala covers both programming constructs and environment aspects.
+scikit-learn;G;Scikit-learn questions often involve API usage for data processing or computation.
+security;K;Security covers both fundamentals and environment-specific issues.
+selenium-webdriver;K;Selenium WebDriver involves both API usage and environment setup.
+shell;U;Shell scripting often involves environment-specific issues.
+shiny;K;Shiny involves both API usage and environment setup.
+snowflake-cloud-data-platform;U;Questions often involve setup, configuration, and environment-specific issues.
+sockets;K;Sockets involve both fundamental concepts and environment-specific details.
+sorting;G;Sorting questions typically involve language constructs or algorithms.
+split;G;Typically involves language constructs or data processing.
+spring;K;Spring involves both API usage and environment setup.
+spring-boot;K;Spring Boot involves both API usage and environment setup.
+spring-data-jpa;K;Spring Data JPA involves both API usage and environment setup.
+sql;G;SQL questions often involve standard language constructs and queries.
+sql-server;K;SQL Server involves both query logic and environment-specific issues.
+sqlalchemy;K;SQLAlchemy involves both API usage and environment setup.
+sqlite;K;SQLite involves both SQL queries (G) and environment setup (U).
+ssl;U;SSL/TLS involves setup, configuration, and environment specifics.
+string;G;Typical questions involve language constructs, data structures, or algorithms.
+svg;G;SVG questions often involve language constructs and data structures.
+swift;K;Swift covers both language features and environment-specific questions.
+swiftui;K;SwiftUI involves both API usage and environment-specific issues.
+symfony;K;Symfony involves both API usage and environment setup.
+t-sql;G;T-SQL questions typically involve SQL queries and logic.
+tailwind-css;U;Tailwind CSS involves setup, configuration, and environment-specific issues.
+templates;K;Templates cover both generic programming and environment-specific implementations.
+tensorflow;K;TensorFlow involves both API usage and environment setup.
+terraform;U;Terraform involves setup, configuration, and cloud service interplay.
+testing;K;Testing involves both fundamental concepts and environment-specific setups.
+tkinter;U;Tkinter involves GUI setup and environment specifics.
+types;G;Types and type systems are fundamental programming concepts.
+typescript;K;TypeScript involves both language constructs and environment setup.
+ubuntu;U;Questions typically depend on OS, configuration, and environment.
+unit-testing;K;Unit testing involves API usage and setup, both G and U aspects.
+unity-game-engine;K;Unity involves both programming and environment-specific issues.
+user-interface;U;UI questions often involve environment specifics like OS, libraries, and frameworks.
+validation;K;Validation involves both data processing and environment-specific checks.
+variables;K;Variables are fundamental across all languages, but specifics depend on language.
+vb.net;K;VB.NET covers both fundamentals and environment aspects.
+vba;K;VBA involves both code logic and environment-specific issues.
+visual-studio;U;Visual Studio questions often involve setup, configuration, and environment specifics.
+vite;K;Vite involves both API usage and environment setup.
+vs-code;U;VS Code questions often involve setup, extensions, and configuration.
+vue.js;K;Vue.js involves both API usage and environment setup.
+vuejs2;K;Vue.js 2 involves both API usage and environment setup.
+vuejs3;K;Vue.js 3 involves both API usage and environment setup.
+web-scraping;K;Web scraping involves both code logic and environment-specific issues.
+webpack;U;Typical questions involve setup, configuration, and environment specifics.
+websocket;K;WebSocket involves both API usage and environment setup.
+while-loop;G;Typical questions involve language constructs and logic.
+windows;U;Typically depends on OS, configuration, and environment specifics.
+winforms;U;WinForms involves setup, configuration, and environment specifics.
+woocommerce;U;WooCommerce involves setup, configuration, and extensions.
+wordpress;K;WordPress involves both programming and environment setup.
+wpf;K;WPF involves both UI design (G) and environment setup (U).
+xamarin;K;Xamarin involves both API usage and environment-specific configurations.
+xaml;U;XAML usage depends on specific frameworks and environments.
+xcode;U;Xcode questions often involve IDE setup, configuration, and environment-specific issues.
+xml;K;XML involves both data processing and environment-specific configurations.
+xpath;G;XPath questions typically involve language constructs and data structures.
+yaml;G;YAML questions often involve data structures and serialization logic.

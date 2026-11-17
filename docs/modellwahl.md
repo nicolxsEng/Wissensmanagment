@@ -58,6 +58,7 @@ Verfügbarkeit geprüft am 16.11.2026: `qwen3.5:9b` und `olmo-3:7b-instruct` in 
 | Seed | 20261116 |
 | „Denkmodus“ | aus (kurze, direkte Antwort; schneller und stabiler) |
 | Ausgabe | JSON nach festem Schema, z. B. `{"kategorie": "G" \| "U" \| "S", "begruendung": "…"}` |
+| Kontext / Antwortlänge | 4096 Token Kontext; Antwort höchstens 512 Token (seit 16.11.2026: Qwen erzeugte bei einer Frage, F306, Endlostext; alle gültigen Antworten sind < 100 Token, daher ändert die Grenze keine gültige Einordnung). Zeitüberschreitung (300 s) gilt als ungültige Antwort |
 | Eingabe Fragen | wie bei den Klassifikatoren (Titel, Text, Code-Auszug; ohne Tags, Jahr, Score) |
 
 ## Literatur (vor dem Zitieren im Original prüfen)
@@ -97,8 +98,14 @@ Vorab festgelegt: Die Prompts werden höchstens zweimal an den Kalibrierungsdate
 | 3 | 30 Kalibrierungsfragen | Fragen v2 | Qwen ↔ OLMo | 0,18 [0,03; 0,40] | 50 % |
 | 4 | 30 Kalibrierungsfragen | Fragen v2 | Qwen ↔ Phi-4 | 0,50 [0,21; 0,78] | 80 % |
 | 5 | 10 Übungstags | Tags v1 | Qwen ↔ Phi-4 | 0,62 [0,17; 1,00] | 80 % |
+| – | *voller Lauf Runde 1: 269 Tags* | *Tags v1* | *Qwen ↔ Phi-4* | *0,37 [0,28; 0,45]* | *58 %* |
+| 6 | 40 Nicht-Kandidaten-Tags (D25) | Tags v1 | Qwen ↔ Phi-4 | 0,40 [0,21; 0,61] | 60 % |
+| 7 | 40 Nicht-Kandidaten-Tags | Tags v2 | Qwen ↔ Phi-4 | 0,52 [0,14; 0,79] | 85 % (Regeln verletzt) |
+| 8 | 40 Nicht-Kandidaten-Tags | Tags v3 | Qwen ↔ Phi-4 | 0,31 [0,05; 0,56] | 70 % |
+| – | *voller Lauf Runde 2: 269 Tags (endgültig)* | *Tags v3* | *Qwen ↔ Phi-4* | *0,22 [0,11; 0,33]* | *66 %* |
 
 - **Fragen v2** (nach Lauf 2): allgemeine Regeln ergänzt (Prüfstein für U = fehlende Information über die Umgebung; dokumentiertes Verhalten von Frameworks = G; konkretes „Wie mache ich X?“ ≠ S; Begründung soll die Ursache nennen). Dieselben Regeln stehen im Leitfaden (Version 0.2).
 - **OLMo schied aus** (nach Lauf 3): In Lauf 3 ordnete es 18 von 30 Fragen als U ein, oft mit Begründungen, die dem widersprechen (z. B. „not specific environment“ bei U). Ersatz nach den Kriterien oben: Phi-4 14B (anderer Entwickler, MIT-Lizenz). Genau **ein** Ersatzversuch (Lauf 4), danach keine weiteren Wechsel oder Prompt-Runden.
+- **Zweite Runde Tags (D25):** Weil Runde 1 über alle 269 Tags nur κ = 0,37 erreichte, wurde – wie im Exposé vorgesehen – der Leitfaden geschärft (v0.2) und eine zweite Runde gerechnet. Die 10 Übungstags reichten als Kalibrierungsdaten nicht, deshalb wurden 30 weitere Tags außerhalb der 269 gezogen (100–149 Fragen im Oktober 2022, Seed + 5). Die Kalibrierungsmenge bildet Runde 1 gut ab (v1: κ 0,40 gegenüber 0,37). v2 erhöhte die Übereinstimmung, weil beide Modelle fast alles als G einordneten, auch ganze Programmiersprachen, entgegen Regel 2 und der Zwei-Drittel-Regel; v3 hält beide Regeln ein. v3 wurde vor dem vollen Lauf als endgültig festgelegt. Die Modelle ordnen die Tags nach dem geschätzten G-Anteil fast gleich (Spearman 0,79 bis 0,88), Phi-4 schätzt aber im Mittel etwa 10 Punkte weniger G – die Abweichungen sind vor allem Schwellenfälle.
 - **Stand nach der Kalibrierung:** Kappa 0,50 bei 30 Fragen liegt unter 0,61, das Intervall ist aber sehr breit, und die ungleiche Verteilung (fast nur G) drückt Kappa bei hoher Übereinstimmung (80 %). Maßgeblich ist das Kappa über alle 600 Fragen; wird 0,61 dort nicht erreicht, wird das offen berichtet (Exposé Abschnitt 6).
 - Berichte je Lauf: `results/llm/bericht_kal-*.md`.

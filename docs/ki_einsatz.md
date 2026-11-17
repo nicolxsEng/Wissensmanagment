@@ -25,15 +25,15 @@ In Absprache mit der Betreuerin (Gespräch vom 16.11.2026) werden die im Exposé
 | Datenprüfung (20 Fragen gegen die Website) | Skript (erneute API-Abfrage) | Python | Durchsicht der Abweichungen |
 | Schreiben der Ausarbeitung | Autor:innen | *bitte selbst ergänzen, falls KI-Werkzeuge genutzt werden* | – |
 
-Alle Sprachmodelle laufen lokal (Ollama), keine Texte wurden an externe KI-Dienste gegeben. Ursprünglich war OLMo-3-7B-Instruct als zweite Kodierinstanz vorgesehen; es schied in der Kalibrierung aus, weil seine Begründungen seinen Einordnungen widersprachen, und wurde durch Phi-4 ersetzt (D24, `docs/modellwahl.md`). Modellversionen, Einstellungen und Rohantworten: `results/llm_modelle.json`, `results/llm/`.
+Alle Sprachmodelle laufen lokal (Ollama), keine Texte wurden an externe KI-Dienste gegeben. Ursprünglich war OLMo-3-7B-Instruct als zweite Kodierinstanz vorgesehen; es schied in der Kalibrierung aus, weil seine Begründungen seinen Einordnungen widersprachen, und wurde durch Phi-4 ersetzt (D24, `docs/modellwahl.md`). Modellversionen, Einstellungen und Rohantworten: `results/llm_modelle.json`, `results/llm/`. Im vollen Lauf erzeugte Qwen bei einer Frage (F306) Endlostext; danach wurde die Antwortlänge auf 512 Token begrenzt (gültige Antworten sind kürzer als 100 Token), F306 bleibt ohne gültige Einordnung.
 
 ## Ergebnisse der Prüfung (werden automatisch bzw. nach der Prüfung eingetragen)
 
 | Prüfung | Wert |
 |---|---|
-| Kappa Tags (Qwen ↔ Phi-4) | *folgt (AP05)* |
+| Kappa Tags (Qwen ↔ Phi-4) | Runde 1 (Prompt v1): **0,37** [0,28; 0,45], 58 % – Runde 2 (Leitfaden v0.2, Prompt v3, vorab als endgültig festgelegt, D25): **0,22** [0,11; 0,33], 66 %. Kriterium 0,61 in beiden Runden nicht erfüllt. Gruppen (Runde 2, nur übereinstimmende Tags): G 155, U 14, beide K 9. Hauptgrund: Phi-4 hält die Sprachregel oft nicht ein (z. B. javascript, c#, php → G statt K); die geschätzten G-Anteile beider Modelle korrelieren hoch (Spearman 0,81), Phi-4 liegt im Mittel 11 Punkte tiefer. `results/agreement_tags.md`, Runde 1: `results/agreement_tags_v1.md` |
 | Zustimmung der Autor:innen, 40 Tags | *folgt* |
-| Kappa Fragen (Qwen ↔ Phi-4) | *folgt (AP09)* |
+| Kappa Fragen (Qwen ↔ Phi-4) | **0,55** [0,49; 0,61], Übereinstimmung 76 % (599 Fragen; F306 ohne gültige Antwort von Qwen) – Kriterium 0,61 knapp nicht erfüllt. Konsens: 456 Fragen (G 272, U 168, S 16). `results/agreement_questions.md` |
 | Zustimmung der Autor:innen, 100 Fragen | *folgt* |
 | Themen bestanden (beide Modelle ≥ 8/10) | *folgt (AP11)* |
 | Macro-F1 bestes Klassifikationsverfahren | *folgt (AP10)* |

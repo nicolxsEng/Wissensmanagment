@@ -25,6 +25,8 @@ def main() -> None:
     df = a.join(b, on="code", suffix="_b")
     split = pl.read_csv(config.CODING_DIR / "questions" / "split.csv")
     df = df.join(split, on="code")
+    invalid = df.filter(pl.col("kategorie").is_null() | pl.col("kategorie_b").is_null())
+    df = df.filter(pl.col("kategorie").is_not_null() & pl.col("kategorie_b").is_not_null())
     cats = list(config.QUESTION_CATEGORIES)
     ka = kappa_ci(df["kategorie"].to_list(), df["kategorie_b"].to_list(), cats)
     agree = df.filter(pl.col("kategorie") == pl.col("kategorie_b"))
@@ -41,7 +43,8 @@ def main() -> None:
         f"Erzeugt: {datetime.now():%d.%m.%Y %H:%M}. Kodierinstanzen: "
         f"{config.LLM_MODELS[k1]} und {config.LLM_MODELS[k2]} (AP16).",
         "",
-        f"- Fragen: {df.height}",
+        f"- Fragen: {df.height + invalid.height}, davon ohne gültige Antwort eines Modells: "
+        f"{invalid.height} ({', '.join(invalid['code']) or '–'}; nicht in Kappa und Konsens)",
         f"- Cohens Kappa: **{ka['kappa']:.2f}** [{ka['ci_low']:.2f}; {ka['ci_high']:.2f}] "
         f"({landis_koch(ka['kappa'])}), Übereinstimmung {ka['uebereinstimmung']:.0%}",
         f"- Kriterium ≥ {config.KAPPA_MIN}: {crit}",

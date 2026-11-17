@@ -5,6 +5,8 @@ uv run python scripts/05_tag_agreement.py
 Eingabe: coding/tags/llm_tags_<modell>.csv (AP16) für die zwei Modelle aus config.LLM_CODERS
 Ausgaben: results/agreement_tags.md, data/processed/groups.json,
           coding/pruefung/tags_40.csv (Prüfung durch die Autor:innen, Spalte `stimmt` j/n)
+Runde 1 (Prompt v1) ist gesichert in data/processed/groups_v1.json und coding/tags/llm_tags_*_v1.csv;
+AP07 nutzt sie als Gegenprobe (D25, D26).
 """
 
 import json

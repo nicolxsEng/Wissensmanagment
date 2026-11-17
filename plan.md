@@ -327,6 +327,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
   3. **Weglassen einzelner Tags:** Abstand 2024 ohne jeweils einen Tag.
   4. **Placebo-Test:** gleiche Rechnung mit Basis 2019 = 100 und Vergleichsjahr 2021 (beide vor ChatGPT). Erwartung: kleiner Abstand.
   5. **Behaltensquote je Tag:** Anteil 2024 / Anteil 2022 und Vortrend Anteil 2022 / Anteil 2019, für alle 269 Tags mit Gruppe.
+  6. **Gegenprobe Tag-Einordnung (D26):** Hauptauswertung mit den Gruppen der zweiten Runde (`data/processed/groups.json`: G 155, U 14). Schritte 1–4 zusätzlich mit den Gruppen der ersten Runde (`data/processed/groups_v1.json`: G 63, U 28) und mit dem Kern beider Runden (Tags, die in beiden Runden in derselben Gruppe sind: G 59, U 12). Berichtet wird, ob Richtung und Größenordnung des Abstands gleich bleiben (Tabelle im Anhang, ein Satz im Ergebnisteil).
 - **Akzeptanz:** Mit den 20+20 Tags aus dem Projektstand reproduziert die Funktion die Werte 52,5 und 129,1 (Test); Permutation läuft < 1 Minute.
 
 ### AP08 Unterbrochene Zeitreihe (TF1, TF2)
@@ -596,15 +597,15 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP02 | Kennzahlen TF1/TF3 | ☑ | 15.11.2026 |
 | AP03 | Tag-Prüfung (D15 angenommen) | ☑ | 15.11.2026 |
 | AP04 | Kodierbögen Tags (Leitfaden finalisieren: Team) | ☑ | 15.11.2026 |
-| AP05 | Kappa Tags, Gruppen | ☐ | |
+| AP05 | Kappa Tags, Gruppen (Runde 1 κ 0,37; Runde 2 endgültig κ 0,22; G 155, U 14 aus Konsens, D25; Prüfung 40 Tags offen) | ◐ | 16.11.2026 |
 | AP06 | Stichproben, Kodier-App | ☑ | 15.11.2026 |
 | AP07 | Gruppenvergleich | ☐ | |
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
-| AP09 | Doppelkodierung | ☐ | |
+| AP09 | Doppelkodierung (κ 0,55 < 0,61; Konsens 456 Fragen; Prüfung 100 Fragen offen) | ◐ | 16.11.2026 |
 | AP10 | Klassifikation (vorbereitet; wartet auf AP09-Labels) | ◐ | 16.11.2026 |
 | AP11 | Themenanalyse (Probelauf fertig; wartet auf Benennen und Prüfen) | ◐ | 16.11.2026 |
 | AP12 | Datenprüfung, Literatur | ☐ | |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
 | AP14 | Sichtbare Antwortende (A1, A3 gesamt, A4, A5, F07 fertig; A2/A3 je Gruppe nach AP05) | ◐ | 15.11.2026 |
 | AP15 | KI-Erwähnungen (optional) | ☐ | |
-| AP16 | Kodierung durch lokale Sprachmodelle (Modelle gewählt, geladen, Probelauf: reproduzierbar, ≈ 9 bzw. 5 s je Frage; nächster Schritt: Prompts aus den Leitfäden) | ◐ | 16.11.2026 |
+| AP16 | Kodierung durch lokale Sprachmodelle (Kalibrierung, Läufe 269 Tags und 600 Fragen abgeschlossen; offen: Themen benennen/prüfen in AP11) | ◐ | 16.11.2026 |

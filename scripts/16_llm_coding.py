@@ -1,12 +1,12 @@
-"""AP16: Einordnung durch zwei lokale Sprachmodelle (Qwen3.5-9B, OLMo-3-7B-Instruct).
+"""AP16: Einordnung durch zwei lokale Sprachmodelle (Qwen3.5-9B, Phi-4 14B; D22, D24).
 
-uv run python scripts/16_llm_coding.py kal-tags     # Kalibrierung: 10 Übungstags
+uv run python scripts/16_llm_coding.py kal-tags     # Kalibrierung: 40 Nicht-Kandidaten-Tags
 uv run python scripts/16_llm_coding.py kal-fragen   # Kalibrierung: 30 Kalibrierungsfragen
 uv run python scripts/16_llm_coding.py tags         # alle Kandidaten-Tags (269)
 uv run python scripts/16_llm_coding.py fragen       # 600 Stichprobenfragen
 
-Beide Modelle laufen parallel. Antworten werden gespeichert (results/llm/*.jsonl) und bei
-einem erneuten Lauf mit gleichem Prompt und Modell wiederverwendet.
+Die Modelle laufen nacheinander (SOV_LLM_PARALLEL=1: parallel). Antworten werden gespeichert
+(results/llm/*.jsonl) und bei einem erneuten Lauf mit gleichem Prompt und Modell wiederverwendet.
 """
 
 import sys
@@ -94,7 +94,10 @@ def main() -> None:
     if step in ("kal-tags", "tags"):
         cats = config.TAG_CATEGORIES
         if step == "kal-tags":
-            df = read_sheet(config.CODING_DIR / "tags" / "uebung_10.csv")
+            df = pl.concat([read_sheet(config.CODING_DIR / "tags" / f).select("tag", "wiki_auszug")
+                            for f in ("uebung_10.csv", "kalibrierung_30.csv")])  # fmt: skip
+            cand = set(pl.read_csv(config.PROCESSED_DIR / "tag_wiki.csv")["tag"])
+            assert not set(df["tag"]) & cand, "Kalibrierungstags dürfen keine Kandidaten sein"
         else:
             df = pl.read_csv(config.PROCESSED_DIR / "tag_wiki.csv")
         res = run_both(step, tag_items(df), "tags", cats)
