@@ -39,6 +39,7 @@ FIGURES: dict[str, Callable[[], list[str]]] = {
     "F11": gruppen.make_f11,
     "F12": gruppen.make_f12,
     "F13": gruppen.make_f13,
+    "F23": gruppen.make_f23,
     "F17": F17_textlaenge.make,
     "F18": F18_ki_bezug.make,
     # F21 (Top-Tags) erst nach der Tag-Kodierung (AP05), wegen der blinden Einordnung

@@ -93,3 +93,62 @@ def answerer_metrics(
         .sort("metric", "year")
         .select(OUTPUT_COLUMNS)
     )
+
+
+GROUP_METRICS = ("answerers", "experts", "experts_ge2", "experts_ge5", "answerers_per_100q")
+
+
+def group_answerer_metrics(
+    q: pl.DataFrame,
+    a: pl.DataFrame,
+    groups: dict[str, list[str]],
+    expert_min: int = config.EXPERT_MIN_ANSWERS,
+    base_year: int = config.BASE_YEAR,
+) -> pl.DataFrame:
+    """A2 und A3 je Gruppe: Antwortende und erkennbare Expert:innen auf Fragen der Gruppe.
+
+    Eine Frage gehört zur Gruppe, wenn sie ≥ 1 Tag der Gruppe trägt (wie K7, D07); Fragen mit
+    Tags beider Gruppen zählen in beiden. Expert:in = ≥ expert_min Antworten auf Fragen derselben
+    Gruppe im selben Oktober. Ausgabe: year, gruppe, metric, value, index (base_year = 100);
+    nur Aggregate.
+    """
+    lo, hi = config.EXPERT_MIN_ANSWERS_ROBUST
+    classic = q.filter(pl.col("is_classic"))
+    wa = window_answers(q, a).drop_nulls("owner_user_id")
+    out = []
+    for g, tags in groups.items():
+        member = classic.filter(
+            pl.col("tags").list.eval(pl.element().is_in(list(tags))).list.any()
+        ).select("question_id", "year")
+        n_q = member.group_by("year").agg(n_q=pl.len())
+        per_user = (
+            wa.join(member.select("question_id"), on="question_id", how="semi")
+            .group_by("year", "owner_user_id")
+            .agg(n=pl.len())
+        )
+        agg = (
+            per_user.group_by("year")
+            .agg(
+                answerers=pl.len(),
+                experts=(pl.col("n") >= expert_min).sum(),
+                experts_ge2=(pl.col("n") >= lo).sum(),
+                experts_ge5=(pl.col("n") >= hi).sum(),
+            )
+            .join(n_q, on="year", how="right")
+            .fill_null(0)
+            .with_columns(answerers_per_100q=pl.col("answerers") / pl.col("n_q") * 100)
+            .drop("n_q")
+        )
+        out.append(
+            agg.with_columns(pl.exclude("year").cast(pl.Float64))
+            .unpivot(index="year", variable_name="metric", value_name="value")
+            .with_columns(gruppe=pl.lit(g))
+        )
+    long = pl.concat(out)
+    base = long.filter(pl.col("year") == base_year).select("gruppe", "metric", base="value")
+    return (
+        long.join(base, on=["gruppe", "metric"], how="left")
+        .with_columns(index=pl.col("value") / pl.col("base") * 100)
+        .select("year", "gruppe", "metric", "value", "index")
+        .sort("gruppe", "metric", "year")
+    )

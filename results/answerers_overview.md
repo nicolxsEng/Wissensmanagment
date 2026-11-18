@@ -1,6 +1,6 @@
 # Sichtbare Antwortende (AP14, Teil ohne Gruppen)
 
-Erzeugt: 15.11.2026 23:14. Antworten im 7-Tage-Fenster auf klassische Fragen, nur Antworten mit Nutzerkonto. Nur Aggregate; keine Nutzer-IDs.
+Erzeugt: 18.11.2026 08:32. Antworten im 7-Tage-Fenster auf klassische Fragen, nur Antworten mit Nutzerkonto. Nur Aggregate; keine Nutzer-IDs.
 
 | Okt. | Antwortende | je 100 Fragen | Expert:innen (≥ 3) | Anteil Top 10 % | Vorjahr aktiv | ohne Konto |
 |---|---|---|---|---|---|---|

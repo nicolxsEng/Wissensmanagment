@@ -415,6 +415,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 - **Ausgaben:** `data/processed/answerers_yearly.csv`, `answerers_groups.csv`, Abbildungen F07 und F23, Tabelle T10.
 - **Abhängigkeit:** A1, A4 und A5 laufen nach AP01; A2 und A3 brauchen die Gruppen aus AP05.
 - **Stand 15.11.2026:** A1, A3 (gesamt), A4, A5 mit Trendabweichung fertig (`scripts/14_answerers.py`, `results/answerers_overview.md`, F07). 2024 gegenüber Trend: Antwortende −69 %, Expert:innen (≥ 3) −75 %, Anteil der aktivsten 10 % 49 % statt 58 %, schon im Vorjahr aktiv 23 % statt 16 %. Achtung: Diese Verläufe hängen mechanisch an der Fragenzahl; belastbar ist erst der Gruppenvergleich.
+- **Stand 18.11.2026:** A2/A3 je Gruppe für Runde 2 (Hauptauswertung), Runde 1 und Kern (D26) fertig (`group_answerer_metrics`, `data/processed/answerers_groups.csv`, `its_answerers_groups.csv`, F23). Beide Gruppen verlieren 2024 rund 70–80 % ihrer Antwortenden; bei Umgebung bleiben anteilig etwas mehr sichtbar (Index 2024: Antwortende G 24 / U 30, Expert:innen G 19 / U 30). Der Abstand ist viel kleiner als bei den Fragen (AP07), weil die Antwortenden je Frage bei Grundlagen stärker steigen; 2025/2026 kein Abstand mehr (kleine Fallzahlen).
 - **Akzeptanz:** Unit-Test mit Mini-Daten (bekannte Zahl Antwortender, Expert:innen, Konzentration); A1 für 2022 = 30.538 (Vorabprüfung); keine Nutzer-ID in irgendeiner Ausgabedatei (Test durchsucht `data/processed/` und `results/`).
 
 ### AP15 KI-Erwähnungen im Fragetext (optional)
@@ -606,6 +607,6 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP11 | Themenanalyse (Probelauf fertig; wartet auf Benennen und Prüfen) | ◐ | 16.11.2026 |
 | AP12 | Datenprüfung, Literatur | ☐ | |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
-| AP14 | Sichtbare Antwortende (A1, A3 gesamt, A4, A5, F07 fertig; A2/A3 je Gruppe nach AP05) | ◐ | 15.11.2026 |
+| AP14 | Sichtbare Antwortende (A1–A5 und je Gruppe A2/A3 fertig, `results/answerers_groups.md`, F07, F23; 2024 Index U − G: Antwortende +6, Expert:innen +11, als Anteil an allen Antwortenden +21; Tabelle T10 offen) | ☑ | 18.11.2026 |
 | AP15 | KI-Erwähnungen (optional) | ☐ | |
 | AP16 | Kodierung durch lokale Sprachmodelle (Kalibrierung, Läufe 269 Tags und 600 Fragen abgeschlossen; offen: Themen benennen/prüfen in AP11) | ◐ | 16.11.2026 |

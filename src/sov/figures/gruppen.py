@@ -354,3 +354,54 @@ def make_f13() -> list[str]:
                bbox_to_anchor=(0.5, -0.02))  # fmt: skip
     fig.tight_layout(w_pad=2, rect=(0, 0.07, 1, 1))
     return save_fig(fig, "F13_robustheit")
+
+
+# ----------------------------------------------------------------------------- F23
+def make_f23() -> list[str]:
+    """Antwortende (A2) und erkennbare Expert:innen (A3) je Gruppe, Index 2022 = 100 (AP14)."""
+    apply_style()
+    ag = pl.read_csv(P / "answerers_groups.csv").filter(
+        (pl.col("variante") == "runde2")
+        & (pl.col("year") >= config.TREND_START)
+        & (pl.col("value") > 0)  # Log-Skala: Jahre ohne Expert:innen (2026) weglassen
+    )
+    panels = [
+        ("answerers", "Sichtbare Antwortende (A2)"),
+        ("experts", f"Erkennbare Expert:innen, ≥ {config.EXPERT_MIN_ANSWERS} Antworten (A3)"),
+    ]
+    fig, axes = plt.subplots(1, 2, figsize=FULL, sharey=True)
+    for i, (ax, (metric, title)) in enumerate(zip(axes, panels, strict=True)):
+        ax.axhline(100, color=COLORS["axis"], lw=0.8, zorder=1)
+        for g in ("G", "U"):
+            s = ag.filter((pl.col("gruppe") == g) & (pl.col("metric") == metric)).sort("year")
+            plot_observed(ax, s["year"].to_list(), s["index"].to_list(), GROUP_COLOR[g],
+                          ms=2.8, lw=1.5)  # fmt: skip
+            r24 = s.filter(pl.col("year") == config.MAIN_POST_YEAR).row(0, named=True)
+            ax.annotate(
+                _de(r24["index"], 0),
+                (r24["year"], r24["index"]),
+                xytext=(5, 6 if g == "U" else -9),
+                textcoords="offset points",
+                ha="left",
+                fontsize=7,
+                color=GROUP_COLOR[g],
+            )
+            if i == 0:
+                r = s.filter(pl.col("year") == 2019).row(0, named=True)
+                ax.annotate(
+                    GROUP_NAME[g],
+                    (2019, r["index"]),
+                    xytext=(0, 8 if g == "G" else -11),
+                    textcoords="offset points",
+                    ha="center",
+                    fontsize=7.5,
+                    color=GROUP_COLOR[g],
+                )
+        ax.set_title(title, loc="left", fontsize=8.5, color=COLORS["gesamt"])
+        log_axis(ax, [1, 3, 10, 30, 100, 300])
+        ax.set_ylim(0.4, 300)
+        year_axis(ax, config.TREND_START, 2026, 2)
+        add_chatgpt_marker(ax, label=(i == 0), where="bottom")
+    axes[0].set_ylabel(f"Index ({config.BASE_YEAR} = 100, Log-Skala)")
+    fig.tight_layout(w_pad=2)
+    return save_fig(fig, "F23_antwortende_gruppen")
