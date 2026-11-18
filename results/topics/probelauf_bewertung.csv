@@ -1,0 +1,43 @@
+code,n,passt_A,passt_B,bestanden,method,name
+T01,10,0,0,false,NMF,unclear
+T02,10,2,4,false,BERTopic,Class type definitions and generics
+T03,10,0,0,false,NMF,unclear
+T04,10,8,8,true,BERTopic,UI control manipulation
+T05,10,3,2,false,BERTopic,Python loops and lists
+T06,10,3,3,false,NMF,File import and loading
+T07,10,4,2,false,BERTopic,Laravel development errors
+T08,10,1,1,false,NMF,Function return value handling
+T09,10,1,3,false,BERTopic,JSON value extraction
+T10,10,0,0,false,BERTopic,Global variables and function parameters
+T11,10,4,5,false,BERTopic,CSS layout and positioning
+T12,10,0,0,false,NMF,unclear
+T13,10,1,2,false,NMF,List and element manipulation
+T14,10,0,0,false,NMF,unclear
+T15,10,1,0,false,NMF,SQL and PySpark column operations
+T16,10,1,1,false,BERTopic,R ggplot2 plotting
+T17,10,1,2,false,BERTopic,API integration and communication errors
+T18,10,5,6,false,NMF,Features not working properly
+T19,10,0,0,false,NMF,unclear
+T20,10,0,0,false,NMF,Xamarin iOS development
+T21,10,2,3,false,BERTopic,Component loading and rendering errors
+T22,10,2,4,false,BERTopic,SQL query debugging and execution
+T23,10,2,2,false,BERTopic,SQL table joining and merging
+T24,10,0,2,false,BERTopic,C++ build and debug errors
+T25,10,4,3,false,BERTopic,JavaScript DOM manipulation
+T26,10,2,3,false,NMF,Android Studio troubleshooting
+T27,10,9,10,true,NMF,Software error debugging
+T28,10,1,1,false,NMF,HTML CSS page layout
+T29,10,0,0,false,NMF,Project class setup and installation
+T30,10,0,0,false,BERTopic,Date format conversion
+T31,10,1,3,false,NMF,Scala string manipulation
+T32,10,0,0,false,BERTopic,iOS data persistence with cross-platform frameworks
+T33,10,6,2,false,BERTopic,Android Studio development issues
+T34,7,2,4,false,NMF,Type definition and conversion
+T35,10,0,0,false,BERTopic,unclear
+T36,10,1,5,false,NMF,Array manipulation and filtering
+T37,10,6,7,false,BERTopic,Array manipulation and transformation
+T38,10,0,0,false,NMF,JavaScript object API submission
+T39,10,2,2,false,NMF,Loop control and execution
+T40,10,0,0,false,NMF,Angular component creation
+T41,10,0,0,false,BERTopic,NPM integration in Azure DevOps
+T42,10,6,6,false,BERTopic,Pandas DataFrame manipulation

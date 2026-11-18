@@ -35,7 +35,7 @@ Alle Sprachmodelle laufen lokal (Ollama), keine Texte wurden an externe KI-Diens
 | Zustimmung der Autor:innen, 40 Tags | *folgt* |
 | Kappa Fragen (Qwen ↔ Phi-4) | **0,55** [0,49; 0,61], Übereinstimmung 76 % (599 Fragen; F306 ohne gültige Antwort von Qwen) – Kriterium 0,61 knapp nicht erfüllt. Konsens: 456 Fragen (G 272, U 168, S 16). `results/agreement_questions.md` |
 | Zustimmung der Autor:innen, 100 Fragen | *folgt* |
-| Themen bestanden (beide Modelle ≥ 8/10) | *folgt (AP11)* |
+| Themen bestanden (beide Modelle ≥ 8/10) | Probelauf (1.008 Titel): BERTopic 1/21, NMF 1/21, unentschieden (κ Prüfung 0,69). Hauptlauf (10.584 Titel, je 30 Themen, Regel D28 vorab): **BERTopic 1/30 (3 %)**, NMF 0/30; mittlere Passung je 22 %; κ der Prüfung 0,60 bzw. 0,50. Gewinner BERTopic; Kriterium ≥ 80 % **nicht erfüllt** → Themenanalyse nur als Hinweis. Ursache laut Prüftiteln: Die Themen sind breit gemischt (typische Titel einheitlich, Zufallstitel nicht); die Urteile der Modelle sind nachvollziehbar. `results/topics/themen.md`, `results/topics/probelauf_bewertung.md` |
 | Macro-F1 bestes Klassifikationsverfahren | **SetFit 0,76** [0,56; 0,94], Genauigkeit 88 % (121 Testfragen, je Kandidat einmal ausgewertet); TF-IDF 0,58, Zero-Shot 0,51. Kriterium 0,70 erfüllt, die untere Intervallgrenze liegt aber darunter, weil nur 3 S-Testfragen vorliegen (F1 S 0,50). Nur G/U: 0,89. Angewendet auf 22.829 Fragen. `results/classify/bericht.md`, `results/classify/modell.md` |
 
 ## Textbausteine für die Ausarbeitung
@@ -49,7 +49,7 @@ Alle Sprachmodelle laufen lokal (Ollama), keine Texte wurden an externe KI-Diens
 > Für den Gruppenvergleich ohne Tags wurden 600 Fragen (50 je Oktober 2015–2026) und 30 weitere Fragen nach einem zweiten Leitfaden (Anhang B) von denselben beiden Modellen eingeordnet (κ = 0,55). Übereinstimmend eingeordnete Fragen dienten als Referenz für drei Klassifikationsverfahren. Das Verfahren mit dem besten Macro-F1 (SetFit, 0,76) ordnete anschließend 22.829 Fragen ein. Die Autor:innen prüften 100 zufällige Fragen (Zustimmung [x] %).
 
 **Methode – Themen (3d):**
-> Die Themen der Fragetitel wurden mit [BERTopic/NMF] gebildet. Ein lokales Sprachmodell benannte jedes Thema anhand der Schlüsselwörter und fünf typischer Titel; beide Modelle prüften je Thema zehn weitere, zufällig gezogene Titel auf Passung. Ein Thema galt als bestätigt, wenn beide Modelle mindestens acht von zehn Titeln als passend einstuften ([x] von [y] Themen). Die Autor:innen sahen die Themenliste durch.
+> Die Themen der Fragetitel wurden mit BERTopic und NMF gebildet; ausgewählt wurde nach einer vorab festgelegten Regel BERTopic. Ein lokales Sprachmodell benannte jedes Thema anhand der Schlüsselwörter und fünf typischer Titel; beide Modelle prüften je Thema zehn weitere, zufällig gezogene Titel auf Passung. Ein Thema galt als bestätigt, wenn beide Modelle mindestens acht von zehn Titeln als passend einstuften (1 von 30 Themen). Die Themenanalyse wird deshalb nur als Hinweis gedeutet. Die Autor:innen sahen die Themenliste durch.
 
 **Evaluation (3e), ein Satz:**
 > Weil die Einordnung automatisiert erfolgte, wurde die Übereinstimmung zweier unabhängiger Modelle (Cohens κ) gemessen und die Einordnung zusätzlich stichprobenartig durch die Autor:innen geprüft (Pangakis et al. 2023).

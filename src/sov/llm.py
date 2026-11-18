@@ -58,25 +58,29 @@ def model_digests() -> dict[str, str]:
     return {m["name"]: m["digest"] for m in tags["models"]}
 
 
-def classify_one(
+def ask(
     model: str,
     system: str,
     user: str,
-    categories: Iterable[str],
+    schema: dict,
+    accept: Callable[[dict], str | None],
     post: Callable[[str, dict], dict] = _post,
     retries: int = 2,
 ) -> dict:
-    """Eine Einordnung; bei ungültiger Antwort bis zu `retries` Wiederholungen."""
-    cats = list(categories)
+    """Eine Anfrage mit JSON-Schema; `accept` prüft die Antwort und liefert den Wert (oder None).
+
+    Bei ungültiger Antwort bis zu `retries` Wiederholungen. Der Wert steht unter "kategorie"
+    (bei der Benennung: der Name), damit Speicher und Auswertung für alle Aufgaben gleich sind.
+    """
     body = {
         "model": model,
         "stream": False,
         "think": False,
-        "format": label_schema(cats),
+        "format": schema,
         "options": {"temperature": 0, "seed": config.SEED, "num_ctx": config.LLM_NUM_CTX,
                     "num_predict": config.LLM_NUM_PREDICT},
         "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
-    }
+    }  # fmt: skip
     last = ""
     for attempt in range(retries + 1):
         t0 = time.perf_counter()
@@ -88,17 +92,57 @@ def classify_one(
         last = resp.get("message", {}).get("content", "")
         try:
             data = json.loads(last)
-            if data.get("kategorie") in cats:
-                return {
-                    "kategorie": data["kategorie"],
-                    "begruendung": str(data.get("begruendung", "")).strip(),
-                    "dauer_s": round(time.perf_counter() - t0, 2),
-                    "versuche": attempt + 1,
-                }
         except json.JSONDecodeError:
-            pass
+            continue
+        value = accept(data) if isinstance(data, dict) else None
+        if value:
+            return {
+                "kategorie": value,
+                "begruendung": str(data.get("begruendung", "")).strip(),
+                "dauer_s": round(time.perf_counter() - t0, 2),
+                "versuche": attempt + 1,
+            }
     return {"kategorie": None, "begruendung": f"UNGÜLTIG: {last[:200]}", "dauer_s": None,
             "versuche": retries + 1}  # fmt: skip
+
+
+def classify_one(
+    model: str,
+    system: str,
+    user: str,
+    categories: Iterable[str],
+    post: Callable[[str, dict], dict] = _post,
+    retries: int = 2,
+) -> dict:
+    """Eine Einordnung in eine der Kategorien."""
+    cats = list(categories)
+    return ask(model, system, user, label_schema(cats),
+               lambda d: d.get("kategorie") if d.get("kategorie") in cats else None,
+               post=post, retries=retries)  # fmt: skip
+
+
+NAME_SCHEMA = {
+    "type": "object",
+    "properties": {"begruendung": {"type": "string"}, "name": {"type": "string"}},
+    "required": ["begruendung", "name"],
+}
+NAME_MAX_CHARS = 60
+
+
+def _accept_name(d: dict) -> str | None:
+    name = " ".join(str(d.get("name", "")).split()).strip(" .\"'")
+    return name if 0 < len(name) <= NAME_MAX_CHARS else None
+
+
+def name_one(
+    model: str,
+    system: str,
+    user: str,
+    post: Callable[[str, dict], dict] = _post,
+    retries: int = 2,
+) -> dict:
+    """Ein kurzer Name (Themenbenennung, AP11); Wert unter "kategorie"."""
+    return ask(model, system, user, NAME_SCHEMA, _accept_name, post=post, retries=retries)
 
 
 def run_task(
@@ -111,8 +155,12 @@ def run_task(
     post: Callable[[str, dict], dict] = _post,
     digest: str | None = None,
     progress: bool = True,
+    call: Callable[..., dict] | None = None,
 ) -> pl.DataFrame:
-    """Ordnet alle (id, text) ein; bereits gespeicherte Antworten werden wiederverwendet."""
+    """Ordnet alle (id, text) ein; bereits gespeicherte Antworten werden wiederverwendet.
+
+    `call(model, system, text, post=...)` ersetzt die Einordnung (z. B. `name_one`).
+    """
     out_dir = out_dir or config.LLM_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     model = config.LLM_MODELS[model_key]
@@ -129,7 +177,11 @@ def run_task(
     t0 = time.perf_counter()
     with path.open("a", encoding="utf-8") as f:
         for n, (item_id, text) in enumerate(todo, 1):
-            res = classify_one(model, system, text, categories, post=post)
+            res = (
+                call(model, system, text, post=post)
+                if call
+                else classify_one(model, system, text, categories, post=post)
+            )
             rec = {"id": item_id, "task": task, "model": model, "digest": digest,
                    "prompt": prompt_name, "prompt_hash": phash,
                    "zeit": datetime.now().isoformat(timespec="seconds"), **res}  # fmt: skip

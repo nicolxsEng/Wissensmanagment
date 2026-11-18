@@ -1,0 +1,360 @@
+year,code,n,n_year,share,name
+2015,T01,38,882,0.04308390022675737,React component and state issues
+2016,T01,63,882,0.07142857142857142,React component and state issues
+2017,T01,54,882,0.061224489795918366,React component and state issues
+2018,T01,77,882,0.0873015873015873,React component and state issues
+2019,T01,52,882,0.05895691609977324,React component and state issues
+2020,T01,61,882,0.0691609977324263,React component and state issues
+2021,T01,70,882,0.07936507936507936,React component and state issues
+2022,T01,63,882,0.07142857142857142,React component and state issues
+2023,T01,65,882,0.07369614512471655,React component and state issues
+2024,T01,58,882,0.06575963718820861,React component and state issues
+2025,T01,40,882,0.045351473922902494,React component and state issues
+2026,T01,24,882,0.027210884353741496,React component and state issues
+2015,T02,41,882,0.046485260770975055,Azure DevOps CI/CD pipelines
+2016,T02,36,882,0.04081632653061224,Azure DevOps CI/CD pipelines
+2017,T02,55,882,0.06235827664399093,Azure DevOps CI/CD pipelines
+2018,T02,51,882,0.05782312925170068,Azure DevOps CI/CD pipelines
+2019,T02,46,882,0.05215419501133787,Azure DevOps CI/CD pipelines
+2020,T02,51,882,0.05782312925170068,Azure DevOps CI/CD pipelines
+2021,T02,60,882,0.06802721088435375,Azure DevOps CI/CD pipelines
+2022,T02,66,882,0.07482993197278912,Azure DevOps CI/CD pipelines
+2023,T02,62,882,0.07029478458049887,Azure DevOps CI/CD pipelines
+2024,T02,69,882,0.0782312925170068,Azure DevOps CI/CD pipelines
+2025,T02,68,882,0.07709750566893424,Azure DevOps CI/CD pipelines
+2026,T02,44,882,0.049886621315192746,Azure DevOps CI/CD pipelines
+2015,T03,41,882,0.046485260770975055,Python import and attribute errors
+2016,T03,31,882,0.035147392290249435,Python import and attribute errors
+2017,T03,49,882,0.05555555555555555,Python import and attribute errors
+2018,T03,49,882,0.05555555555555555,Python import and attribute errors
+2019,T03,55,882,0.06235827664399093,Python import and attribute errors
+2020,T03,53,882,0.060090702947845805,Python import and attribute errors
+2021,T03,63,882,0.07142857142857142,Python import and attribute errors
+2022,T03,40,882,0.045351473922902494,Python import and attribute errors
+2023,T03,61,882,0.0691609977324263,Python import and attribute errors
+2024,T03,47,882,0.05328798185941043,Python import and attribute errors
+2025,T03,53,882,0.060090702947845805,Python import and attribute errors
+2026,T03,63,882,0.07142857142857142,Python import and attribute errors
+2015,T04,65,882,0.07369614512471655,Array iteration and indexing
+2016,T04,65,882,0.07369614512471655,Array iteration and indexing
+2017,T04,64,882,0.07256235827664399,Array iteration and indexing
+2018,T04,69,882,0.0782312925170068,Array iteration and indexing
+2019,T04,79,882,0.08956916099773243,Array iteration and indexing
+2020,T04,74,882,0.08390022675736962,Array iteration and indexing
+2021,T04,87,882,0.09863945578231292,Array iteration and indexing
+2022,T04,67,882,0.07596371882086168,Array iteration and indexing
+2023,T04,47,882,0.05328798185941043,Array iteration and indexing
+2024,T04,32,882,0.036281179138321996,Array iteration and indexing
+2025,T04,35,882,0.03968253968253968,Array iteration and indexing
+2026,T04,50,882,0.05668934240362812,Array iteration and indexing
+2015,T05,43,882,0.048752834467120185,C++ compilation and linking errors
+2016,T05,46,882,0.05215419501133787,C++ compilation and linking errors
+2017,T05,41,882,0.046485260770975055,C++ compilation and linking errors
+2018,T05,36,882,0.04081632653061224,C++ compilation and linking errors
+2019,T05,33,882,0.03741496598639456,C++ compilation and linking errors
+2020,T05,40,882,0.045351473922902494,C++ compilation and linking errors
+2021,T05,41,882,0.046485260770975055,C++ compilation and linking errors
+2022,T05,39,882,0.04421768707482993,C++ compilation and linking errors
+2023,T05,47,882,0.05328798185941043,C++ compilation and linking errors
+2024,T05,68,882,0.07709750566893424,C++ compilation and linking errors
+2025,T05,70,882,0.07936507936507936,C++ compilation and linking errors
+2026,T05,114,882,0.1292517006802721,C++ compilation and linking errors
+2015,T06,54,882,0.061224489795918366,iOS app development
+2016,T06,48,882,0.05442176870748299,iOS app development
+2017,T06,58,882,0.06575963718820861,iOS app development
+2018,T06,42,882,0.047619047619047616,iOS app development
+2019,T06,38,882,0.04308390022675737,iOS app development
+2020,T06,45,882,0.05102040816326531,iOS app development
+2021,T06,48,882,0.05442176870748299,iOS app development
+2022,T06,59,882,0.06689342403628118,iOS app development
+2023,T06,46,882,0.05215419501133787,iOS app development
+2024,T06,47,882,0.05328798185941043,iOS app development
+2025,T06,59,882,0.06689342403628118,iOS app development
+2026,T06,48,882,0.05442176870748299,iOS app development
+2015,T07,52,882,0.05895691609977324,String pattern extraction and replacement
+2016,T07,40,882,0.045351473922902494,String pattern extraction and replacement
+2017,T07,54,882,0.061224489795918366,String pattern extraction and replacement
+2018,T07,43,882,0.048752834467120185,String pattern extraction and replacement
+2019,T07,53,882,0.060090702947845805,String pattern extraction and replacement
+2020,T07,39,882,0.04421768707482993,String pattern extraction and replacement
+2021,T07,46,882,0.05215419501133787,String pattern extraction and replacement
+2022,T07,51,882,0.05782312925170068,String pattern extraction and replacement
+2023,T07,30,882,0.034013605442176874,String pattern extraction and replacement
+2024,T07,32,882,0.036281179138321996,String pattern extraction and replacement
+2025,T07,43,882,0.048752834467120185,String pattern extraction and replacement
+2026,T07,35,882,0.03968253968253968,String pattern extraction and replacement
+2015,T08,56,882,0.06349206349206349,CSS layout and positioning
+2016,T08,38,882,0.04308390022675737,CSS layout and positioning
+2017,T08,41,882,0.046485260770975055,CSS layout and positioning
+2018,T08,51,882,0.05782312925170068,CSS layout and positioning
+2019,T08,39,882,0.04421768707482993,CSS layout and positioning
+2020,T08,39,882,0.04421768707482993,CSS layout and positioning
+2021,T08,43,882,0.048752834467120185,CSS layout and positioning
+2022,T08,43,882,0.048752834467120185,CSS layout and positioning
+2023,T08,42,882,0.047619047619047616,CSS layout and positioning
+2024,T08,34,882,0.03854875283446712,CSS layout and positioning
+2025,T08,50,882,0.05668934240362812,CSS layout and positioning
+2026,T08,53,882,0.060090702947845805,CSS layout and positioning
+2015,T09,37,882,0.04195011337868481,Pandas DataFrame column manipulation
+2016,T09,46,882,0.05215419501133787,Pandas DataFrame column manipulation
+2017,T09,44,882,0.049886621315192746,Pandas DataFrame column manipulation
+2018,T09,48,882,0.05442176870748299,Pandas DataFrame column manipulation
+2019,T09,54,882,0.061224489795918366,Pandas DataFrame column manipulation
+2020,T09,70,882,0.07936507936507936,Pandas DataFrame column manipulation
+2021,T09,72,882,0.08163265306122448,Pandas DataFrame column manipulation
+2022,T09,63,882,0.07142857142857142,Pandas DataFrame column manipulation
+2023,T09,45,882,0.05102040816326531,Pandas DataFrame column manipulation
+2024,T09,45,882,0.05102040816326531,Pandas DataFrame column manipulation
+2025,T09,22,882,0.024943310657596373,Pandas DataFrame column manipulation
+2026,T09,32,882,0.036281179138321996,Pandas DataFrame column manipulation
+2015,T10,40,882,0.045351473922902494,OAuth2 API authentication
+2016,T10,45,882,0.05102040816326531,OAuth2 API authentication
+2017,T10,49,882,0.05555555555555555,OAuth2 API authentication
+2018,T10,46,882,0.05215419501133787,OAuth2 API authentication
+2019,T10,44,882,0.049886621315192746,OAuth2 API authentication
+2020,T10,46,882,0.05215419501133787,OAuth2 API authentication
+2021,T10,41,882,0.046485260770975055,OAuth2 API authentication
+2022,T10,36,882,0.04081632653061224,OAuth2 API authentication
+2023,T10,46,882,0.05215419501133787,OAuth2 API authentication
+2024,T10,52,882,0.05895691609977324,OAuth2 API authentication
+2025,T10,58,882,0.06575963718820861,OAuth2 API authentication
+2026,T10,43,882,0.048752834467120185,OAuth2 API authentication
+2015,T11,47,882,0.05328798185941043,Hibernate database exceptions
+2016,T11,50,882,0.05668934240362812,Hibernate database exceptions
+2017,T11,36,882,0.04081632653061224,Hibernate database exceptions
+2018,T11,53,882,0.060090702947845805,Hibernate database exceptions
+2019,T11,38,882,0.04308390022675737,Hibernate database exceptions
+2020,T11,29,882,0.032879818594104306,Hibernate database exceptions
+2021,T11,35,882,0.03968253968253968,Hibernate database exceptions
+2022,T11,39,882,0.04421768707482993,Hibernate database exceptions
+2023,T11,40,882,0.045351473922902494,Hibernate database exceptions
+2024,T11,47,882,0.05328798185941043,Hibernate database exceptions
+2025,T11,38,882,0.04308390022675737,Hibernate database exceptions
+2026,T11,35,882,0.03968253968253968,Hibernate database exceptions
+2015,T12,23,882,0.026077097505668934,MongoDB aggregation queries
+2016,T12,30,882,0.034013605442176874,MongoDB aggregation queries
+2017,T12,25,882,0.02834467120181406,MongoDB aggregation queries
+2018,T12,32,882,0.036281179138321996,MongoDB aggregation queries
+2019,T12,24,882,0.027210884353741496,MongoDB aggregation queries
+2020,T12,31,882,0.035147392290249435,MongoDB aggregation queries
+2021,T12,31,882,0.035147392290249435,MongoDB aggregation queries
+2022,T12,25,882,0.02834467120181406,MongoDB aggregation queries
+2023,T12,26,882,0.02947845804988662,MongoDB aggregation queries
+2024,T12,23,882,0.026077097505668934,MongoDB aggregation queries
+2025,T12,23,882,0.026077097505668934,MongoDB aggregation queries
+2026,T12,16,882,0.018140589569160998,MongoDB aggregation queries
+2015,T13,36,882,0.04081632653061224,JSON parsing and manipulation
+2016,T13,34,882,0.03854875283446712,JSON parsing and manipulation
+2017,T13,30,882,0.034013605442176874,JSON parsing and manipulation
+2018,T13,26,882,0.02947845804988662,JSON parsing and manipulation
+2019,T13,33,882,0.03741496598639456,JSON parsing and manipulation
+2020,T13,28,882,0.031746031746031744,JSON parsing and manipulation
+2021,T13,21,882,0.023809523809523808,JSON parsing and manipulation
+2022,T13,29,882,0.032879818594104306,JSON parsing and manipulation
+2023,T13,14,882,0.015873015873015872,JSON parsing and manipulation
+2024,T13,24,882,0.027210884353741496,JSON parsing and manipulation
+2025,T13,7,882,0.007936507936507936,JSON parsing and manipulation
+2026,T13,16,882,0.018140589569160998,JSON parsing and manipulation
+2015,T14,40,882,0.045351473922902494,Android Studio build errors
+2016,T14,41,882,0.046485260770975055,Android Studio build errors
+2017,T14,32,882,0.036281179138321996,Android Studio build errors
+2018,T14,33,882,0.03741496598639456,Android Studio build errors
+2019,T14,39,882,0.04421768707482993,Android Studio build errors
+2020,T14,29,882,0.032879818594104306,Android Studio build errors
+2021,T14,13,882,0.01473922902494331,Android Studio build errors
+2022,T14,30,882,0.034013605442176874,Android Studio build errors
+2023,T14,35,882,0.03968253968253968,Android Studio build errors
+2024,T14,42,882,0.047619047619047616,Android Studio build errors
+2025,T14,51,882,0.05782312925170068,Android Studio build errors
+2026,T14,41,882,0.046485260770975055,Android Studio build errors
+2015,T15,24,882,0.027210884353741496,Asynchronous concurrency patterns
+2016,T15,28,882,0.031746031746031744,Asynchronous concurrency patterns
+2017,T15,26,882,0.02947845804988662,Asynchronous concurrency patterns
+2018,T15,27,882,0.030612244897959183,Asynchronous concurrency patterns
+2019,T15,29,882,0.032879818594104306,Asynchronous concurrency patterns
+2020,T15,27,882,0.030612244897959183,Asynchronous concurrency patterns
+2021,T15,21,882,0.023809523809523808,Asynchronous concurrency patterns
+2022,T15,28,882,0.031746031746031744,Asynchronous concurrency patterns
+2023,T15,41,882,0.046485260770975055,Asynchronous concurrency patterns
+2024,T15,45,882,0.05102040816326531,Asynchronous concurrency patterns
+2025,T15,54,882,0.061224489795918366,Asynchronous concurrency patterns
+2026,T15,54,882,0.061224489795918366,Asynchronous concurrency patterns
+2015,T16,46,882,0.05215419501133787,Button click event handling
+2016,T16,51,882,0.05782312925170068,Button click event handling
+2017,T16,37,882,0.04195011337868481,Button click event handling
+2018,T16,36,882,0.04081632653061224,Button click event handling
+2019,T16,35,882,0.03968253968253968,Button click event handling
+2020,T16,29,882,0.032879818594104306,Button click event handling
+2021,T16,25,882,0.02834467120181406,Button click event handling
+2022,T16,25,882,0.02834467120181406,Button click event handling
+2023,T16,27,882,0.030612244897959183,Button click event handling
+2024,T16,21,882,0.023809523809523808,Button click event handling
+2025,T16,29,882,0.032879818594104306,Button click event handling
+2026,T16,32,882,0.036281179138321996,Button click event handling
+2015,T17,26,882,0.02947845804988662,TypeScript and Java generics
+2016,T17,31,882,0.035147392290249435,TypeScript and Java generics
+2017,T17,27,882,0.030612244897959183,TypeScript and Java generics
+2018,T17,21,882,0.023809523809523808,TypeScript and Java generics
+2019,T17,29,882,0.032879818594104306,TypeScript and Java generics
+2020,T17,23,882,0.026077097505668934,TypeScript and Java generics
+2021,T17,24,882,0.027210884353741496,TypeScript and Java generics
+2022,T17,25,882,0.02834467120181406,TypeScript and Java generics
+2023,T17,25,882,0.02834467120181406,TypeScript and Java generics
+2024,T17,28,882,0.031746031746031744,TypeScript and Java generics
+2025,T17,15,882,0.017006802721088437,TypeScript and Java generics
+2026,T17,33,882,0.03741496598639456,TypeScript and Java generics
+2015,T18,21,882,0.023809523809523808,Date and time formatting
+2016,T18,20,882,0.022675736961451247,Date and time formatting
+2017,T18,20,882,0.022675736961451247,Date and time formatting
+2018,T18,17,882,0.01927437641723356,Date and time formatting
+2019,T18,21,882,0.023809523809523808,Date and time formatting
+2020,T18,17,882,0.01927437641723356,Date and time formatting
+2021,T18,16,882,0.018140589569160998,Date and time formatting
+2022,T18,24,882,0.027210884353741496,Date and time formatting
+2023,T18,25,882,0.02834467120181406,Date and time formatting
+2024,T18,20,882,0.022675736961451247,Date and time formatting
+2025,T18,11,882,0.012471655328798186,Date and time formatting
+2026,T18,16,882,0.018140589569160998,Date and time formatting
+2015,T19,23,882,0.026077097505668934,Laravel framework errors
+2016,T19,23,882,0.026077097505668934,Laravel framework errors
+2017,T19,24,882,0.027210884353741496,Laravel framework errors
+2018,T19,29,882,0.032879818594104306,Laravel framework errors
+2019,T19,18,882,0.02040816326530612,Laravel framework errors
+2020,T19,30,882,0.034013605442176874,Laravel framework errors
+2021,T19,15,882,0.017006802721088437,Laravel framework errors
+2022,T19,12,882,0.013605442176870748,Laravel framework errors
+2023,T19,15,882,0.017006802721088437,Laravel framework errors
+2024,T19,12,882,0.013605442176870748,Laravel framework errors
+2025,T19,14,882,0.015873015873015872,Laravel framework errors
+2026,T19,21,882,0.023809523809523808,Laravel framework errors
+2015,T20,14,882,0.015873015873015872,Real-time messaging and reconnection
+2016,T20,13,882,0.01473922902494331,Real-time messaging and reconnection
+2017,T20,15,882,0.017006802721088437,Real-time messaging and reconnection
+2018,T20,15,882,0.017006802721088437,Real-time messaging and reconnection
+2019,T20,23,882,0.026077097505668934,Real-time messaging and reconnection
+2020,T20,29,882,0.032879818594104306,Real-time messaging and reconnection
+2021,T20,19,882,0.021541950113378686,Real-time messaging and reconnection
+2022,T20,22,882,0.024943310657596373,Real-time messaging and reconnection
+2023,T20,30,882,0.034013605442176874,Real-time messaging and reconnection
+2024,T20,28,882,0.031746031746031744,Real-time messaging and reconnection
+2025,T20,29,882,0.032879818594104306,Real-time messaging and reconnection
+2026,T20,30,882,0.034013605442176874,Real-time messaging and reconnection
+2015,T21,15,882,0.017006802721088437,Plot customization and formatting
+2016,T21,9,882,0.01020408163265306,Plot customization and formatting
+2017,T21,17,882,0.01927437641723356,Plot customization and formatting
+2018,T21,8,882,0.009070294784580499,Plot customization and formatting
+2019,T21,22,882,0.024943310657596373,Plot customization and formatting
+2020,T21,17,882,0.01927437641723356,Plot customization and formatting
+2021,T21,19,882,0.021541950113378686,Plot customization and formatting
+2022,T21,28,882,0.031746031746031744,Plot customization and formatting
+2023,T21,22,882,0.024943310657596373,Plot customization and formatting
+2024,T21,21,882,0.023809523809523808,Plot customization and formatting
+2025,T21,26,882,0.02947845804988662,Plot customization and formatting
+2026,T21,15,882,0.017006802721088437,Plot customization and formatting
+2015,T22,21,882,0.023809523809523808,File upload implementation
+2016,T22,20,882,0.022675736961451247,File upload implementation
+2017,T22,18,882,0.02040816326530612,File upload implementation
+2018,T22,24,882,0.027210884353741496,File upload implementation
+2019,T22,21,882,0.023809523809523808,File upload implementation
+2020,T22,18,882,0.02040816326530612,File upload implementation
+2021,T22,19,882,0.021541950113378686,File upload implementation
+2022,T22,23,882,0.026077097505668934,File upload implementation
+2023,T22,31,882,0.035147392290249435,File upload implementation
+2024,T22,19,882,0.021541950113378686,File upload implementation
+2025,T22,23,882,0.026077097505668934,File upload implementation
+2026,T22,14,882,0.015873015873015872,File upload implementation
+2015,T23,13,882,0.01473922902494331,Unicode encoding and text display
+2016,T23,13,882,0.01473922902494331,Unicode encoding and text display
+2017,T23,14,882,0.015873015873015872,Unicode encoding and text display
+2018,T23,6,882,0.006802721088435374,Unicode encoding and text display
+2019,T23,16,882,0.018140589569160998,Unicode encoding and text display
+2020,T23,14,882,0.015873015873015872,Unicode encoding and text display
+2021,T23,13,882,0.01473922902494331,Unicode encoding and text display
+2022,T23,5,882,0.005668934240362812,Unicode encoding and text display
+2023,T23,14,882,0.015873015873015872,Unicode encoding and text display
+2024,T23,20,882,0.022675736961451247,Unicode encoding and text display
+2025,T23,18,882,0.02040816326530612,Unicode encoding and text display
+2026,T23,17,882,0.01927437641723356,Unicode encoding and text display
+2015,T24,21,882,0.023809523809523808,Ruby on Rails development
+2016,T24,15,882,0.017006802721088437,Ruby on Rails development
+2017,T24,16,882,0.018140589569160998,Ruby on Rails development
+2018,T24,7,882,0.007936507936507936,Ruby on Rails development
+2019,T24,9,882,0.01020408163265306,Ruby on Rails development
+2020,T24,4,882,0.0045351473922902496,Ruby on Rails development
+2021,T24,6,882,0.006802721088435374,Ruby on Rails development
+2022,T24,3,882,0.003401360544217687,Ruby on Rails development
+2023,T24,6,882,0.006802721088435374,Ruby on Rails development
+2024,T24,8,882,0.009070294784580499,Ruby on Rails development
+2025,T24,8,882,0.009070294784580499,Ruby on Rails development
+2026,T24,3,882,0.003401360544217687,Ruby on Rails development
+2015,T25,16,882,0.018140589569160998,URL path manipulation
+2016,T25,21,882,0.023809523809523808,URL path manipulation
+2017,T25,11,882,0.012471655328798186,URL path manipulation
+2018,T25,11,882,0.012471655328798186,URL path manipulation
+2019,T25,13,882,0.01473922902494331,URL path manipulation
+2020,T25,15,882,0.017006802721088437,URL path manipulation
+2021,T25,11,882,0.012471655328798186,URL path manipulation
+2022,T25,14,882,0.015873015873015872,URL path manipulation
+2023,T25,11,882,0.012471655328798186,URL path manipulation
+2024,T25,15,882,0.017006802721088437,URL path manipulation
+2025,T25,5,882,0.005668934240362812,URL path manipulation
+2026,T25,9,882,0.01020408163265306,URL path manipulation
+2015,T26,3,882,0.003401360544217687,Enum identifiers and hashing
+2016,T26,4,882,0.0045351473922902496,Enum identifiers and hashing
+2017,T26,5,882,0.005668934240362812,Enum identifiers and hashing
+2018,T26,5,882,0.005668934240362812,Enum identifiers and hashing
+2019,T26,3,882,0.003401360544217687,Enum identifiers and hashing
+2020,T26,6,882,0.006802721088435374,Enum identifiers and hashing
+2021,T26,3,882,0.003401360544217687,Enum identifiers and hashing
+2022,T26,1,882,0.0011337868480725624,Enum identifiers and hashing
+2023,T26,4,882,0.0045351473922902496,Enum identifiers and hashing
+2024,T26,6,882,0.006802721088435374,Enum identifiers and hashing
+2025,T26,7,882,0.007936507936507936,Enum identifiers and hashing
+2026,T26,5,882,0.005668934240362812,Enum identifiers and hashing
+2015,T27,4,882,0.0045351473922902496,Java logging configuration
+2016,T27,10,882,0.011337868480725623,Java logging configuration
+2017,T27,7,882,0.007936507936507936,Java logging configuration
+2018,T27,3,882,0.003401360544217687,Java logging configuration
+2019,T27,3,882,0.003401360544217687,Java logging configuration
+2020,T27,1,882,0.0011337868480725624,Java logging configuration
+2021,T27,6,882,0.006802721088435374,Java logging configuration
+2022,T27,6,882,0.006802721088435374,Java logging configuration
+2023,T27,4,882,0.0045351473922902496,Java logging configuration
+2024,T27,4,882,0.0045351473922902496,Java logging configuration
+2025,T27,9,882,0.01020408163265306,Java logging configuration
+2026,T27,5,882,0.005668934240362812,Java logging configuration
+2015,T28,9,882,0.01020408163265306,WooCommerce product data retrieval
+2016,T28,2,882,0.0022675736961451248,WooCommerce product data retrieval
+2017,T28,5,882,0.005668934240362812,WooCommerce product data retrieval
+2018,T28,5,882,0.005668934240362812,WooCommerce product data retrieval
+2019,T28,8,882,0.009070294784580499,WooCommerce product data retrieval
+2020,T28,6,882,0.006802721088435374,WooCommerce product data retrieval
+2021,T28,2,882,0.0022675736961451248,WooCommerce product data retrieval
+2022,T28,9,882,0.01020408163265306,WooCommerce product data retrieval
+2023,T28,9,882,0.01020408163265306,WooCommerce product data retrieval
+2024,T28,5,882,0.005668934240362812,WooCommerce product data retrieval
+2025,T28,2,882,0.0022675736961451248,WooCommerce product data retrieval
+2026,T28,5,882,0.005668934240362812,WooCommerce product data retrieval
+2015,T29,8,882,0.009070294784580499,Angle and coordinate calculation
+2016,T29,2,882,0.0022675736961451248,Angle and coordinate calculation
+2017,T29,7,882,0.007936507936507936,Angle and coordinate calculation
+2018,T29,9,882,0.01020408163265306,Angle and coordinate calculation
+2019,T29,3,882,0.003401360544217687,Angle and coordinate calculation
+2020,T29,7,882,0.007936507936507936,Angle and coordinate calculation
+2021,T29,4,882,0.0045351473922902496,Angle and coordinate calculation
+2022,T29,7,882,0.007936507936507936,Angle and coordinate calculation
+2023,T29,9,882,0.01020408163265306,Angle and coordinate calculation
+2024,T29,7,882,0.007936507936507936,Angle and coordinate calculation
+2025,T29,9,882,0.01020408163265306,Angle and coordinate calculation
+2026,T29,6,882,0.006802721088435374,Angle and coordinate calculation
+2015,T30,5,882,0.005668934240362812,Email sending with SMTP
+2016,T30,7,882,0.007936507936507936,Email sending with SMTP
+2017,T30,1,882,0.0011337868480725624,Email sending with SMTP
+2018,T30,3,882,0.003401360544217687,Email sending with SMTP
+2019,T30,2,882,0.0022675736961451248,Email sending with SMTP
+2020,T30,4,882,0.0045351473922902496,Email sending with SMTP
+2021,T30,8,882,0.009070294784580499,Email sending with SMTP
+2023,T30,3,882,0.003401360544217687,Email sending with SMTP
+2024,T30,3,882,0.003401360544217687,Email sending with SMTP
+2025,T30,6,882,0.006802721088435374,Email sending with SMTP
+2026,T30,3,882,0.003401360544217687,Email sending with SMTP

@@ -1,0 +1,36 @@
+{
+  "datum": "2026-11-18T15:04:42",
+  "titel": 10584,
+  "titel_je_jahr": [
+    882,
+    882,
+    882,
+    882,
+    882,
+    882,
+    882,
+    882,
+    882,
+    882,
+    882,
+    882
+  ],
+  "themen": 30,
+  "seed": 20261116,
+  "labels_hash": "808716237cdf",
+  "wie_vorheriger_lauf": true,
+  "embedding_modell": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "verfahren": "NMF",
+  "k": 30,
+  "ohne_thema": 17,
+  "pakete": {
+    "bertopic": "0.17.4",
+    "sentence-transformers": "6.3.0",
+    "umap-learn": "0.6.0",
+    "hdbscan": "0.8.44",
+    "scikit-learn": "1.9.1",
+    "torch": "2.15.0"
+  },
+  "laufzeit_s": 1.1
+}

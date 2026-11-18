@@ -61,3 +61,19 @@ def test_timeout_counts_as_invalid():
 
     res = classify_one("m", "s", "q", ["G", "U"], post=post, retries=1)
     assert res["kategorie"] is None and res["versuche"] == 2
+
+
+def test_name_one_and_run_task_with_call(tmp_path, monkeypatch):
+    from sov.llm import name_one
+
+    answers = ['{"begruendung": "b", "name": ""}', '{"begruendung": "b", "name": " Pandas. "}']
+    post, calls = fake_post_factory(answers)
+    res = name_one("m", "s", "q", post=post)
+    assert res["kategorie"] == "Pandas" and res["versuche"] == 2
+    assert list(calls[0]["format"]["properties"]) == ["begruendung", "name"]
+    monkeypatch.setattr(config, "PROMPT_DIR", tmp_path)
+    (tmp_path / "p.md").write_text("Anweisung", encoding="utf-8")
+    post, calls = fake_post_factory(['{"begruendung": "b", "name": "Git"}'])
+    df = run_task("n", "qwen", [("T01", "x")], "p", [], out_dir=tmp_path, post=post,
+                  digest="d", progress=False, call=name_one)  # fmt: skip
+    assert df["kategorie"].to_list() == ["Git"]
