@@ -1,0 +1,21 @@
+﻿nr;link;jahr;typ;erstellzeit_utc;tags;antworten_fenster;erste_antwort_h;akzeptiert_fenster;api_antworten_fenster;api_erste_antwort_h;api_akzeptiert_fenster;abweichende_felder
+1;https://stackoverflow.com/q/185740;2008;klassisch;09.10.2008 02:41:22;ipc rest robotics rpc;2;0,26;nein;2;0,26;nein;""
+2;https://stackoverflow.com/q/1612528;2009;klassisch;23.10.2009 10:15:50;javascript jquery menu user-interface;3;0,03;ja;3;0,03;ja;""
+3;https://stackoverflow.com/q/3905955;2010;klassisch;11.10.2010 11:58:55;iphone itunes;2;0,70;nein;2;0,70;nein;""
+4;https://stackoverflow.com/q/7637742;2011;klassisch;03.10.2011 16:22:10;facebook facebook-apps facebook-page;1;0,11;ja;1;0,11;ja;""
+5;https://stackoverflow.com/q/12844595;2012;klassisch;11.10.2012 16:48:48;c# logging vsto word-2007 word-2010;0;3696,88;nein;0;3696,88;nein;""
+6;https://stackoverflow.com/q/19395782;2013;klassisch;16.10.2013 05:20:48;android android-custom-view java;1;0,26;ja;1;0,26;ja;""
+7;https://stackoverflow.com/q/26442201;2014;klassisch;18.10.2014 16:49:54;c# linq windows-phone-8 xml;2;2,68;ja;2;2,68;ja;""
+8;https://stackoverflow.com/q/33201797;2015;klassisch;18.10.2015 18:41:48;c# data-retrieval database sql;1;0,04;ja;1;0,04;ja;""
+9;https://stackoverflow.com/q/39969270;2016;klassisch;11.10.2016 01:41:51;c;2;0,05;nein;2;0,05;nein;""
+10;https://stackoverflow.com/q/46957250;2017;klassisch;26.10.2017 14:39:58;python rx-py;1;0,24;nein;1;0,24;nein;""
+11;https://stackoverflow.com/q/53080689;2018;klassisch;31.10.2018 09:58:30;codeigniter php;2;0,74;nein;2;0,74;nein;""
+12;https://stackoverflow.com/q/58272450;2019;klassisch;07.10.2019 15:14:33;asp.net-core c# rest;1;0,15;ja;1;0,15;ja;""
+13;https://stackoverflow.com/q/64405322;2020;klassisch;17.10.2020 17:27:26;counting for-loop indexing;1;4,25;nein;1;4,25;nein;""
+14;https://stackoverflow.com/q/69722997;2021;klassisch;26.10.2021 12:19:16;material-ui reactjs;1;0,38;nein;1;0,38;nein;""
+15;https://stackoverflow.com/q/74045891;2022;klassisch;12.10.2022 17:31:54;objective-c;1;1,39;ja;1;1,39;ja;""
+16;https://stackoverflow.com/q/77219317;2023;klassisch;03.10.2023 02:16:22;jackson jackson-databind java json;0;–;nein;0;–;nein;""
+17;https://stackoverflow.com/q/79121666;2024;klassisch;24.10.2024 11:24:27;c++ php php-extension;2;0,53;nein;2;0,53;nein;""
+18;https://stackoverflow.com/q/79786132;2025;klassisch;09.10.2025 07:27:28;amazon-web-services aws-dms postgresql postgresql-9.6;0;2702,86;nein;0;2702,86;nein;""
+19;https://stackoverflow.com/q/80013008;2026;klassisch;28.10.2026 05:13:56;google-cloud-platform google-oauth youtube-api;0;–;nein;–;–;–;Erstellzeit, Tags, Antworten im Fenster, Zeit bis zur ersten Antwort (h), akzeptiert im Fenster, Antworten heute (answer_count)
+20;https://stackoverflow.com/q/79802131;2025;neuer Fragetyp;27.10.2025 18:18:23;advice c# html javascript maui;3;1,62;nein;1;13,21;nein;Tags, Antworten im Fenster, Zeit bis zur ersten Antwort (h), Antworten heute (answer_count)

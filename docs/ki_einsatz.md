@@ -22,7 +22,8 @@ In Absprache mit der Betreuerin (Gespräch vom 16.11.2026) werden die im Exposé
 | Themen bilden | Themenmodell | BERTopic bzw. NMF (lokal) | – |
 | Themen benennen | lokales Sprachmodell | Qwen3.5-9B | Prüfung durch zwei Modelle (nächste Zeile); keine menschliche Durchsicht |
 | Themen prüfen (10 Titel je Thema) | zwei lokale Sprachmodelle | Qwen3.5-9B, Phi-4 14B | – |
-| Datenprüfung (20 Fragen gegen die Website) | Skript (erneute API-Abfrage) | Python | Durchsicht der Abweichungen |
+| Datenprüfung (20 Fragen und 10 Antworten gegen die Website) | Skript (erneute API-Abfrage) | Python | Abweichungen automatisch erklärt; Durchsicht `results/checks.md` |
+| Literaturabgleich (Zahlen aus Burtch et al. 2024; del Rio-Chanona et al. 2024) | KI-Assistenz | Claude Code (liest die frei zugänglichen Originalartikel und entnimmt Zahlen mit Fundstelle; Burtch et al. über PubMed Central) | Zitate vor der Verwendung im Paper an den Originalen prüfen |
 | Schreiben der Ausarbeitung | Autor:innen | *bitte selbst ergänzen, falls KI-Werkzeuge genutzt werden* | – |
 
 Alle Sprachmodelle laufen lokal (Ollama), keine Texte wurden an externe KI-Dienste gegeben. Ursprünglich war OLMo-3-7B-Instruct als zweite Kodierinstanz vorgesehen; es schied in der Kalibrierung aus, weil seine Begründungen seinen Einordnungen widersprachen, und wurde durch Phi-4 ersetzt (D24, `docs/modellwahl.md`). Modellversionen, Einstellungen und Rohantworten: `results/llm_modelle.json`, `results/llm/`. Im vollen Lauf erzeugte Qwen bei einer Frage (F306) Endlostext; danach wurde die Antwortlänge auf 512 Token begrenzt (gültige Antworten sind kürzer als 100 Token), F306 bleibt ohne gültige Einordnung.

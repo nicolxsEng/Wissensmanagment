@@ -382,7 +382,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
   - 20 zufällige Fragen (Seed) mit Link, Erstellzeit, Tags, Zahl der Antworten im Fenster, Zeit bis zur ersten Antwort, akzeptiert ja/nein in `coding/checks/datenpruefung_20.csv`. **Automatisch (seit 16.11.2026):** Das Skript fragt die 20 Fragen erneut über die API ab und vergleicht Antwortzahl, Zeitpunkte und akzeptierte Antwort; Abweichungen werden erklärt (z. B. seitdem gelöschte Antworten). Die Autor:innen sehen das Ergebnis durch.
   - Literaturabgleich: Rückgang der Fragen 2022 → 2023 (bisher −50,5 %) neben Burtch et al. (2024) und del Rio-Chanona et al. (2024) stellen. Beachten: andere Zeiträume und Vergleichsdesigns, deshalb nur Richtung und Größenordnung vergleichen.
   - Neue Fragetypen: aus den Daten belegt (2025 kaum Votes, keine Akzeptanz; 2026 mit Votes und Akzeptanz, AP02/T9). Optional: 5 + 5 Fragen auf der Website ansehen (5 Minuten).
-- **Ausgaben:** `results/checks.md`.
+- **Ausgaben:** `results/checks.md`, `coding/checks/datenpruefung_20.csv`, `coding/checks/antworten_10.csv` (`scripts/12_checks.py`, D31).
 
 ### AP13 Abbildungen, Tabellen, Kennzahlen fürs Paper
 
@@ -505,8 +505,8 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 | Klassifikation | AP10 | Skript | 150 Konsensfragen | Macro-F1 ≥ 0,70 | `classify/` |
 | Themen | AP11/16 | zwei Modelle unabhängig | 10 Titel je Thema | ≥ 8/10 passen | `llm.py` |
 | Datenabfrage | AP12 | Skript (API) | 20 Fragen | stimmt mit Website | `scripts/12_checks.py` |
-| Literatur | AP12 | eine Person | Rückgang 2022 → 2023 | Richtung und Größenordnung | `checks.md` |
-| Antwortende | AP14 | eine Person | 10 zufällige Antworten | Antwort und Konto stimmen mit Website; Anteil ohne Konto berichtet | `checks.md` |
+| Literatur | AP12 | Claude Code (Originalartikel gelesen); Autor:innen prüfen die Zitate | Rückgang 2022 → 2023 | Richtung und Größenordnung | `checks.md` |
+| Antwortende | AP14 | Skript (API, D31) | 10 zufällige Antworten | Antwort und Konto stimmen mit Website; Anteil ohne Konto berichtet | `checks.md` |
 
 ---
 
@@ -608,7 +608,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP09 | Doppelkodierung (κ 0,55 < 0,61; Konsens 456 Fragen; Prüfung 100 Fragen durch drittes Modell bestanden, κ 0,82, D30) | ☑ | 18.11.2026 |
 | AP10 | Klassifikation (Gewinner SetFit, Macro-F1 0,76 [0,56; 0,94] auf 121 Testfragen, nur G/U 0,89; 22.829 Fragen eingeordnet; U-Anteil 2021 29 % → 2024 49 %, korrigiert 23 % → 49 %; `results/classify/bericht.md`) | ☑ | 18.11.2026 |
 | AP11 | Themenanalyse (Probelauf unentschieden 1:1; Hauptlauf nach D28: BERTopic 1/30 bestanden, NMF 0/30 → Kriterium 80 % verfehlt, nur als Hinweis; `results/topics/themen.md`; offen: F19/F20; keine Durchsicht durch die Autor:innen, D30) | ☑ | 18.11.2026 |
-| AP12 | Datenprüfung, Literatur | ☐ | |
+| AP12 | Datenprüfung, Literatur (20 Fragen: 2 mit Abweichungen, alle erklärt – 1 Frage gelöscht, 1 neue Frage mit gelöschten Antworten; 10/10 Antworten gleich; Literatur: Richtung gleich, Rückgang hier größer als die Schätzungen mit Vergleichsplattform; `results/checks.md`, D31) | ☑ | 18.11.2026 |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
 | AP14 | Sichtbare Antwortende (A1–A5 und je Gruppe A2/A3 fertig, `results/answerers_groups.md`, F07, F23; 2024 Index U − G: Antwortende +6, Expert:innen +11, als Anteil an allen Antwortenden +21; Tabelle T10 offen) | ☑ | 18.11.2026 |
 | AP15 | KI-Erwähnungen (optional) | ☐ | |

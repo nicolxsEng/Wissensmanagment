@@ -17,7 +17,8 @@ Abhaken mit `[x]`.
 ## 3 Ergebnisse durchsehen (beide, ca. 15 min)
 
 - [ ] `docs/ki_einsatz.md`: Tabelle „Ergebnisse der Prüfung“ ansehen (Prüfung durch Ministral bestanden: Tags κ 0,85, Fragen κ 0,82; `results/pruefung.md`)
-- [ ] `results/checks.md`: automatischer Abgleich von 20 Fragen mit der API
+- [ ] `results/checks.md`: automatischer Abgleich von 20 Fragen und 10 Antworten mit der API (alle Abweichungen erklärt)
+- [ ] Literaturabgleich in `results/checks.md`: die Zahlen aus Burtch et al. (2024) und del Rio-Chanona et al. (2024) hat Claude Code aus den Originalen entnommen. Vor dem Zitieren im Paper kurz an den Originalen prüfen (ca. 10 min).
 
 ## 4 Offene Entscheidungen
 
