@@ -385,7 +385,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 
 - **Ziel:** alle Abbildungen aus Abschnitt 7 und Tabellen aus Abschnitt 8 mit einem Befehl.
 - **Umsetzung:** `src/sov/figures/<id>.py` mit je einer Funktion `make()`; `scripts/13_figures.py` ruft alle auf. Tabellen als CSV, Markdown und LaTeX. `results/kennzahlen.json` sammelt alle im Text genannten Zahlen (z. B. `tf2.abstand_2024`), damit im Paper keine Zahl von Hand abgeschrieben werden muss.
-- **Stand 15.11.2026:** F01–F06, F17 (erstes Feld) und F18 fertig und angesehen (`scripts/13_figures.py`, Bausteine in `src/sov/figures/common.py`). F21 erst nach der Tag-Kodierung (Blindheit). Gruppenabbildungen (F08–F16, F23) und das zweite Feld von F17 folgen nach AP05/AP07.
+- **Stand 15.11.2026:** F01–F06, F17 (erstes Feld) und F18 fertig und angesehen (`scripts/13_figures.py`, Bausteine in `src/sov/figures/common.py`). F21 erst nach der Tag-Kodierung (Blindheit). Gruppenabbildungen (F08–F16, F23) und das zweite Feld von F17 folgen nach AP05/AP07. **Stand 18.11.2026:** F08–F13 fertig und angesehen (`src/sov/figures/gruppen.py`); offen F14–F16, F23, F17 (zweites Feld), F21.
 - **Akzeptanz:** `make figures tables` läuft ohne Fehler; jede Abbildung einmal angesehen (Beschriftungen überlappen nicht, Farben nach Abschnitt 3.3); `results/ergebnisse.md` fasst die Kernaussagen je Teilfrage mit Verweis auf Abbildung und Tabelle zusammen.
 
 ### AP14 Sichtbare Antwortende: Wer zeigt, dass er sich auskennt? (fest eingeplant)
@@ -599,7 +599,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP04 | Kodierbögen Tags (Leitfaden finalisieren: Team) | ☑ | 15.11.2026 |
 | AP05 | Kappa Tags, Gruppen (Runde 1 κ 0,37; Runde 2 endgültig κ 0,22; G 155, U 14 aus Konsens, D25; Prüfung 40 Tags offen) | ◐ | 16.11.2026 |
 | AP06 | Stichproben, Kodier-App | ☑ | 15.11.2026 |
-| AP07 | Gruppenvergleich (`scripts/07_groups.py`, `results/groups.md`; Abstand 2024: Runde 2 +44,4, Runde 1 +59,5, Kern +55,1; Permutation p < 0,01 für 2023/2024 in allen Varianten; Placebo ≈ 0; Abbildungen F08–F13 offen) | ☑ | 18.11.2026 |
+| AP07 | Gruppenvergleich (`scripts/07_groups.py`, `results/groups.md`; Abstand 2024: Runde 2 +44,4, Runde 1 +59,5, Kern +55,1; Permutation p < 0,01 für 2023/2024 in allen Varianten; Placebo ≈ 0; Abbildungen F08–F13 fertig) | ☑ | 18.11.2026 |
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
 | AP09 | Doppelkodierung (κ 0,55 < 0,61; Konsens 456 Fragen; Prüfung 100 Fragen offen) | ◐ | 16.11.2026 |
 | AP10 | Klassifikation (vorbereitet; wartet auf AP09-Labels) | ◐ | 16.11.2026 |
