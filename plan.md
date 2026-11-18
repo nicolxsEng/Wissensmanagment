@@ -320,7 +320,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 ### AP07 Gruppenvergleich (TF2, Tags)
 
 - **Ziel:** Index Grundlagen gegen Umgebung und seine Absicherung.
-- **Ausgaben:** `data/processed/group_index.csv`, `permutation.csv`, `leave_one_out.csv`, `placebo.csv`, `tag_shift.csv`.
+- **Ausgaben:** `data/processed/group_index.csv`, `permutation.csv` (+ `permutation_draws.parquet` für F10), `leave_one_out.csv`, `placebo.csv`, `tag_shift.csv`, `its_groups.csv` (Trendfortschreibung der Gruppenanteile, AP08 für TF2), Bericht `results/groups.md`.
 - **Umsetzung** (`src/sov/groups.py`):
   1. Anteil und Index je Gruppe und Jahr (K7), auch für die Gegenproben „Score ≥ 1“ und „nur eine Gruppe“.
   2. **Permutationstest:** 10.000-mal zwei nicht überlappende Zufallsgruppen derselben Größe wie G und U aus denselben 269 Tags; Abstand der Indexwerte für 2023, 2024, 2025, 2026. Berichtet: Perzentil des beobachteten Abstands, p = (k + 1)/(N + 1), Median und 95-%-Quantil der Zufallsabstände. Vektorisiert über eine Matrix Tag × Jahr mit Fragezahlen, damit es in Sekunden läuft (Achtung: Fragen mit mehreren Tags einer Gruppe nur einmal zählen; dafür eine dünn besetzte Matrix Frage × Tag nutzen).
@@ -599,7 +599,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP04 | Kodierbögen Tags (Leitfaden finalisieren: Team) | ☑ | 15.11.2026 |
 | AP05 | Kappa Tags, Gruppen (Runde 1 κ 0,37; Runde 2 endgültig κ 0,22; G 155, U 14 aus Konsens, D25; Prüfung 40 Tags offen) | ◐ | 16.11.2026 |
 | AP06 | Stichproben, Kodier-App | ☑ | 15.11.2026 |
-| AP07 | Gruppenvergleich | ☐ | |
+| AP07 | Gruppenvergleich (`scripts/07_groups.py`, `results/groups.md`; Abstand 2024: Runde 2 +44,4, Runde 1 +59,5, Kern +55,1; Permutation p < 0,01 für 2023/2024 in allen Varianten; Placebo ≈ 0; Abbildungen F08–F13 offen) | ☑ | 18.11.2026 |
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
 | AP09 | Doppelkodierung (κ 0,55 < 0,61; Konsens 456 Fragen; Prüfung 100 Fragen offen) | ◐ | 16.11.2026 |
 | AP10 | Klassifikation (vorbereitet; wartet auf AP09-Labels) | ◐ | 16.11.2026 |
