@@ -6,8 +6,8 @@ Gruppenvarianten (D25, D26):
   runde2  Hauptauswertung, data/processed/groups.json (Prompt v3, vorab festgelegt)
   runde1  Gegenprobe, data/processed/groups_v1.json
   kern    Gegenprobe, Tags, die in beiden Runden in derselben Gruppe sind
-  mensch  Gegenprobe, nur von den Autor:innen blind bestätigte Tags (D29;
-          data/processed/groups_mensch.json aus `scripts/17_pruefung.py auswerten`, falls vorhanden)
+  pruef   Gegenprobe, nur Tags, die auch die Prüfinstanz so einordnet (D30;
+          data/processed/groups_pruef.json aus `scripts/17_pruefung.py`, falls vorhanden)
 Populationen: klassisch (Hauptauswertung), score_ge_1; Zählweise: beide (D07), nur_eine.
 
 Ausgaben (data/processed/): group_index.csv, permutation.csv, permutation_draws.parquet,
@@ -54,9 +54,9 @@ def load_variants() -> dict[str, dict[str, list[str]]]:
     r1 = json.loads((P / "groups_v1.json").read_text())
     kern = {g: sorted(set(r2[g]) & set(r1[g])) for g in ("G", "U")}
     out = {"runde2": {g: r2[g] for g in "GU"}, "runde1": {g: r1[g] for g in "GU"}, "kern": kern}
-    if (P / "groups_mensch.json").exists():
-        hm = json.loads((P / "groups_mensch.json").read_text())
-        out["mensch"] = {g: hm[g] for g in "GU"}
+    if (P / "groups_pruef.json").exists():
+        hm = json.loads((P / "groups_pruef.json").read_text())
+        out["pruef"] = {g: hm[g] for g in "GU"}
     return out
 
 
@@ -161,7 +161,7 @@ def report(variants, gi, perm, placebo, loo, ts, its, secs) -> None:
         "runde2": "Runde 2 (Hauptauswertung)",
         "runde1": "Runde 1 (Gegenprobe)",
         "kern": "Kern beider Runden (Gegenprobe)",
-        "mensch": "von Menschen bestätigt (Gegenprobe, D29)",
+        "pruef": "von der Prüfinstanz bestätigt (Gegenprobe, D30)",
     }
     L = [
         "# Gruppenvergleich Grundlagen gegen Umgebung (AP07)",

@@ -34,6 +34,8 @@ Grundlage ist jeweils derselbe Kodierleitfaden wie für Menschen (`docs/kodierle
 | Gemma 3 12B | Google, 2025 | Gemma Terms of Use | 12 Mrd. | keine freie Lizenz im Sinne von K2 → nicht gewählt |
 | **Phi-4 14B** | Microsoft, 2024/25 | MIT | 14 Mrd. | erfüllt K1, K2, K4, K6, K7; größer (9 GB) und langsamer, passt aber noch (K3) → zunächst Reserve, **seit der Kalibrierung Kodierinstanz 2** (D24) |
 | Qwen3.5-27B / 35B-A3B | Alibaba, 2026 | Apache 2.0 | 27 bzw. 35 Mrd. | zu groß für 24 GB mit Spielraum (K3) → nicht gewählt |
+| **Ministral 3 14B Instruct** | Mistral AI, 2025 | Apache 2.0 | 14 Mrd., dicht (≈ 9 GB) | erfüllt K1–K4, K7; dritter Entwickler (K6) → **Prüfinstanz seit 18.11.2026** (D30) |
+| Gemma 4 (E4B / 26B-MoE / 31B) | Google, 2026 | Apache 2.0 | 4 bzw. 26/31 Mrd. | E4B deutlich kleiner als die Kodiermodelle; 26B/31B passen kaum in 24 GB (K3) → nicht gewählt (Stand 18.11.2026) |
 
 Verfügbarkeit geprüft am 16.11.2026: `qwen3.5:9b` und `olmo-3:7b-instruct` in der Ollama-Bibliothek.
 
@@ -45,7 +47,7 @@ Verfügbarkeit geprüft am 16.11.2026: `qwen3.5:9b` und `olmo-3:7b-instruct` in 
 - **Tags:** In eine Gruppe kommen nur Tags, die beide gleich einordnen (wie im Exposé).
 - **Fragen:** Als Referenz („Konsens“) gelten Fragen, die beide gleich einordnen; abweichende Fragen werden gezählt und nicht als Referenz genutzt.
 - **Themen:** Qwen3.5 benennt; beide Modelle prüfen je Thema 10 andere Zufallstitel (bestanden, wenn beide ≥ 8/10).
-- **Menschliche Prüfung (Validierung):** Die Autor:innen prüfen Zufallsstichproben (40 Tags, 100 Fragen) und sehen die Themenliste durch. Berichtet wird die Übereinstimmung Mensch–Modell. Das folgt der Empfehlung, automatische Annotation immer an menschlichen Urteilen zu validieren (Pangakis, Wolken & Fasching 2023; Törnberg 2024).
+- **Menschliche Prüfung (Validierung):** Die Autor:innen prüfen Zufallsstichproben (40 Tags, 100 Fragen) und sehen die Themenliste durch. Berichtet wird die Übereinstimmung Mensch–Modell. Das folgt der Empfehlung, automatische Annotation immer an menschlichen Urteilen zu validieren (Pangakis, Wolken & Fasching 2023; Törnberg 2024). **Seit 18.11.2026 (D30) entfällt die menschliche Prüfung** (Absprache mit der Betreuerin). Stattdessen ordnet eine dritte Modellfamilie (Ministral 3 14B) blind mit denselben Prompts ein; geprüft wird nach den vorab festgelegten Kriterien aus D29. Das zeigt, ob der Konsens unabhängig von den zwei Kodiermodellen gilt, ersetzt aber keine menschlichen Urteile (gemeinsame Verzerrungen von Sprachmodellen möglich) und wird im Paper als Grenze genannt.
 - **Empirische Absicherung der Wahl:** Erreicht ein Modell in der menschlichen Prüfung deutlich schlechtere Werte als das andere, wird das im Paper berichtet. Liegt Kappa unter 0,61, wird der Leitfaden geschärft und ein zweiter Durchlauf dokumentiert (Exposé Abschnitt 6).
 
 ## Einstellungen (Reproduzierbarkeit)

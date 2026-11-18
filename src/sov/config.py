@@ -65,10 +65,10 @@ DOUBLE_CODED_N = 150
 CODING_VIEW_MAX_CHARS = 4000
 KAPPA_MIN = 0.61  # Landis & Koch (1977): substanziell
 MACRO_F1_MIN = 0.70
-# Menschliche Prüfung (D29): Stichproben und Kriterium je Gruppe
+# Prüfung des Modellkonsenses (D29, seit D30 durch LLM_CHECKER): Stichproben, Kriterium
 PRUEF_TAGS_N = 40
 PRUEF_FRAGEN_N = 100
-PRUEF_GRUPPE_MIN = 0.80  # Anteil der Gruppen-Tags, die ein Mensch genauso einordnet
+PRUEF_GRUPPE_MIN = 0.80  # Anteil der Gruppen-Tags, die die Prüfinstanz genauso einordnet
 
 # --- Gruppenvergleich (AP07)
 N_PERMUTATIONS = 10_000
@@ -103,7 +103,9 @@ LLM_MODELS = {
     "qwen": "qwen3.5:9b",
     "olmo": "olmo-3:7b-instruct",  # in der Kalibrierung ausgeschieden (D24), nur dokumentiert
     "phi": "phi4:14b",  # Kodierinstanz 2 seit 16.11.2026 (D24)
+    "ministral": "ministral-3:14b",  # Prüfinstanz statt menschlicher Prüfung (D30)
 }
+LLM_CHECKER = "ministral"  # dritte, unabhängige Modellfamilie; prüft den Konsens (D30)
 # Die zwei Kodierinstanzen (Schlüssel aus LLM_MODELS); per Umgebungsvariable überschreibbar
 LLM_CODERS = tuple(os.environ.get("SOV_LLM_CODERS", "qwen,phi").split(","))
 LLM_PARALLEL = os.environ.get("SOV_LLM_PARALLEL", "0") == "1"  # beide Modelle gleichzeitig?

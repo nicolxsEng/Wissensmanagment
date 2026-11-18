@@ -25,6 +25,14 @@
       "quantisierung": "Q4_K_M",
       "familie": "phi3",
       "rolle": "Kodierinstanz 2 seit 16.11.2026 (D24)"
+    },
+    "ministral-3:14b": {
+      "digest": "4760c35aeb9d9e9c6174c2492562c0b999e80a222804fd96b1915ab72bbcdcf7",
+      "groesse_bytes": 9082537546,
+      "parameter": "13.9B",
+      "quantisierung": "Q4_K_M",
+      "familie": "mistral3",
+      "rolle": "Prüfinstanz seit 18.11.2026 (D30): alle 269 Tags und 600 Fragen, ungültig 0"
     }
   },
   "einstellungen": {

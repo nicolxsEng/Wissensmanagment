@@ -4,6 +4,8 @@ uv run python scripts/16_llm_coding.py kal-tags     # Kalibrierung: 40 Nicht-Kan
 uv run python scripts/16_llm_coding.py kal-fragen   # Kalibrierung: 30 Kalibrierungsfragen
 uv run python scripts/16_llm_coding.py tags         # alle Kandidaten-Tags (269)
 uv run python scripts/16_llm_coding.py fragen       # 600 Stichprobenfragen
+uv run python scripts/16_llm_coding.py pruef-tags   # Prüfinstanz (D30): alle Kandidaten-Tags
+uv run python scripts/16_llm_coding.py pruef-fragen # Prüfinstanz (D30): 600 Stichprobenfragen
 uv run python scripts/16_llm_coding.py themen-namen SATZ   # Qwen benennt die Themen
 uv run python scripts/16_llm_coding.py themen-check SATZ   # beide prüfen je 10 Titel
     (SATZ: probelauf, haupt-bertopic, haupt-nmf)
@@ -165,12 +167,38 @@ def topic_check(set_name: str) -> None:
     print(text)
 
 
+def checker_run(step: str) -> None:
+    """D30: die Prüfinstanz ordnet mit denselben Prompts und Einstellungen unabhängig ein."""
+    k = config.LLM_CHECKER
+    digest = model_digests().get(config.LLM_MODELS[k], "unbekannt")
+    if step == "pruef-tags":
+        df = pl.read_csv(config.PROCESSED_DIR / "tag_wiki.csv")
+        items, prompt, cats, folder, idcol = (
+            tag_items(df),
+            "tags",
+            config.TAG_CATEGORIES,
+            "tags",
+            "tag",
+        )
+    else:
+        items, prompt, cats = question_items("stichprobe"), "fragen", config.QUESTION_CATEGORIES
+        folder, idcol = "questions", "code"
+    res = run_task(prompt, k, items, prompt, cats, digest=digest)
+    out = config.CODING_DIR / folder / f"llm_{prompt}_{k}.csv"
+    res.rename({"id": idcol}).write_csv(out, separator=";", include_bom=True)
+    n_bad = res["kategorie"].is_null().sum()
+    print(f"{config.LLM_MODELS[k]}: {res.height} Einträge, ungültig {n_bad} → {out}")
+
+
 def main() -> None:
     step = sys.argv[1] if len(sys.argv) > 1 else "kal-tags"
     config.LLM_DIR.mkdir(parents=True, exist_ok=True)
     if step in ("themen-namen", "themen-check"):
         set_name = sys.argv[2] if len(sys.argv) > 2 else "probelauf"
         (topic_names if step == "themen-namen" else topic_check)(set_name)
+        return
+    if step in ("pruef-tags", "pruef-fragen"):
+        checker_run(step)
         return
     if step in ("kal-tags", "tags"):
         cats = config.TAG_CATEGORIES

@@ -1,4 +1,5 @@
-"""Prüf-App für die Einordnung der Fragetexte (blind, D29). Start:
+"""Prüf-App für die Einordnung der Fragetexte (blind, D29; seit D30 nicht genutzt, die Prüfung
+übernimmt ein drittes Modell). Start:
 
     uv run marimo run notebooks/kodier_app.py
 

@@ -230,7 +230,7 @@ Für jede TF1-Kennzahl und jeden Gruppenanteil, Jahre als Zeitpunkte t:
 
 Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien**.
 
-> **Umstellung vom 16.11.2026 (Absprache mit der Betreuerin):** Die im Exposé als menschliche Kodierung geplanten Schritte (Tags, Fragetexte, Themen benennen und prüfen) übernehmen **zwei lokale Sprachmodelle** als unabhängige Kodierinstanzen (AP16). Die Autor:innen prüfen nur noch Stichproben. Aufbau und Kriterien des Exposés (Leitfaden, Kappa ≥ 0,61, Konsens, ≥ 8/10, Macro-F1 ≥ 0,70) bleiben. Dokumentation des KI-Einsatzes: `docs/ki_einsatz.md`; Modellwahl: `docs/modellwahl.md`. Die bereits erzeugten Handkodierbögen (`tags_kodierer_*`, `kalibrierung_*`, `kodierer_*`, `themen_benennen_probelauf.csv`) werden nicht mehr ausgefüllt.
+> **Umstellung vom 16.11.2026 (Absprache mit der Betreuerin):** Die im Exposé als menschliche Kodierung geplanten Schritte (Tags, Fragetexte, Themen benennen und prüfen) übernehmen **zwei lokale Sprachmodelle** als unabhängige Kodierinstanzen (AP16). Die Autor:innen prüfen nur noch Stichproben (seit 18.11.2026 auch das nicht mehr: Prüfung durch ein drittes Modell, D30). Aufbau und Kriterien des Exposés (Leitfaden, Kappa ≥ 0,61, Konsens, ≥ 8/10, Macro-F1 ≥ 0,70) bleiben. Dokumentation des KI-Einsatzes: `docs/ki_einsatz.md`; Modellwahl: `docs/modellwahl.md`. Die bereits erzeugten Handkodierbögen (`tags_kodierer_*`, `kalibrierung_*`, `kodierer_*`, `themen_benennen_probelauf.csv`) werden nicht mehr ausgefüllt.
 
 ### AP16 Kodierung durch lokale Sprachmodelle (neu)
 
@@ -241,7 +241,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
   - Anweisungen (Prompts) in `config/prompts/*.md`, erzeugt aus den Kodierleitfäden (Definitionen, Entscheidungsregeln, Ankerbeispiele). Die Prompts werden **nur an den 30 Kalibrierungsfragen bzw. 10 Übungstags** geschärft, nie an den 600 Fragen oder den 269 Tags.
   - Aufgaben: `tags` (269 × 2), `fragen` (630 × 2, Eingabe wie AP10 ohne Tags/Jahr/Score), `themen_namen` (Qwen), `themen_check` (beide, je 10 Titel × Thema).
   - Ausgaben im Format der bisherigen Bögen: `coding/tags/llm_tags_{qwen,phi}.csv`, `coding/questions/llm_fragen_{qwen,phi}.csv`, `coding/topics/llm_themen_*.csv`.
-- **Menschliche Prüfung (Validierung), seit 18.11.2026 blind (D29):** `coding/pruefung/tags_40_A.csv` und `tags_40_B.csv` (alle 14 U-Tags + 26 zufällige G-Tags, beide Autor:innen ordnen unabhängig ein, ohne Urteil der Modelle), `coding/pruefung/fragen_100.csv` (100 zufällige Konsensfragen; Einordnung G/U/S in der Kodier-App), Durchsicht der Themenliste. Bögen: `scripts/17_pruefung.py boegen`; Auswertung mit vorab festgelegten Kriterien: `scripts/17_pruefung.py auswerten` → `results/pruefung.md`, danach AP07 erneut (Gegenprobe „mensch“). Ergebnisse gehen in `docs/ki_einsatz.md`.
+- **Prüfung des Konsenses (Validierung), seit 18.11.2026 durch eine dritte Modellfamilie (D29, D30; keine menschliche Prüfung, Absprache mit der Betreuerin):** Ministral 3 14B ordnet alle 269 Tags und 600 Fragen mit denselben Prompts ein (`scripts/16_llm_coding.py pruef-tags`, `pruef-fragen`); Kriterien aus D29 auf den Stichproben 40 Tags (alle 14 U + 26 zufällige G) und 100 Konsensfragen: `scripts/17_pruefung.py` → `results/pruefung.md`, danach AP07 erneut (Gegenprobe „pruef“). Ergebnisse gehen in `docs/ki_einsatz.md`. **Ergebnis 18.11.2026:** Tags κ = 0,85 (G 88 %, U 100 %), Fragen κ = 0,82 → beide Kriterien erfüllt; Gegenprobe „pruef“ Abstand 2024 +44,7.
 - **Akzeptanz:** Digests und Einstellungen protokolliert; Wiederholung an 20 Einträgen ergibt identische Antworten; < 1 % ungültige Antworten nach Wiederholung; Laufzeit für 630 Fragen × 2 Modelle gemessen und dokumentiert.
 
 
@@ -295,7 +295,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 
 ### AP05 Übereinstimmung Tags und Gruppen festlegen
 
-- **Ziel:** Cohens Kappa zwischen den beiden Modellen (AP16), endgültige Gruppen (nur übereinstimmende Tags), Stichprobe von 40 Tags für die Prüfung durch die Autor:innen.
+- **Ziel:** Cohens Kappa zwischen den beiden Modellen (AP16), endgültige Gruppen (nur übereinstimmende Tags), Stichprobe von 40 Tags für die Prüfung durch das dritte Modell (D29, D30).
 - **Ausgaben:** `results/agreement_tags.md` (Kappa gesamt, Übereinstimmung in Prozent, Kreuztabelle 3×3, Kappa je Kategorie gegen Rest), `data/processed/groups.json` (`{"G": [...], "U": [...]}`), Tabelle T4.
 - **Umsetzung:** `src/sov/agreement.py` (`sklearn.metrics.cohen_kappa_score`, Bootstrap-Konfidenzintervall, 2.000 Wiederholungen).
 - **Akzeptanz:** Kappa ≥ 0,61. Falls darunter: Leitfaden schärfen, zweite Runde nur für die strittigen Tags dokumentieren, Wert im Paper offenlegen (Exposé Abschnitt 6).
@@ -315,7 +315,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
   - Aufteilung für AP10: Die 150 Doppelten sind die **Testmenge** (Konsenslabel nach Klärung), die übrigen 450 die Trainings- und Entwicklungsmenge. Die Testmenge wird in `coding/questions/split.csv` festgeschrieben.
 - **Ergebnis (15.11.2026):** `coding/questions/` enthält `stichprobe_intern.csv` (Code → Frage, Jahr; nicht öffnen), `split.csv`, `ansicht.parquet` (0,4 MB, Titel + Original-HTML, ohne Jahr/Tags/Score – damit kann Gentian ohne Rohdaten kodieren), `kalibrierung_A/B.csv`, `kodierer_A.csv` (600), `kodierer_B.csv` (150), `LIESMICH.md`. Codes F001–F630 in Zufallsreihenfolge. Doppelte je Jahr 12 oder 13. App im Browser getestet (gegen eine Kopie der Bögen).
 - **Akzeptanz:** Stichprobe reproduzierbar (zweimal erzeugen ergibt dieselben IDs); keine Überschneidung von Kalibrierung und Stichprobe; App läuft mit `uv run marimo run notebooks/kodier_app.py`.
-- ~~**Mensch:** Kalibrierung, Kodierung, Konsens.~~ **Seit 16.11.2026:** Alle 630 Fragen ordnen beide Modelle ein (AP16). Die 30 Kalibrierungsfragen dienen zum Schärfen der Prompts. Die Kodier-App bekommt einen Prüfmodus für die 100 Stichprobenfragen.
+- ~~**Mensch:** Kalibrierung, Kodierung, Konsens.~~ **Seit 16.11.2026:** Alle 630 Fragen ordnen beide Modelle ein (AP16). Die 30 Kalibrierungsfragen dienen zum Schärfen der Prompts. Die 100 Stichprobenfragen prüft seit D30 das dritte Modell (keine Kodier-App).
 
 ### AP07 Gruppenvergleich (TF2, Tags)
 
@@ -340,7 +340,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 ### AP09 Doppelkodierung auswerten
 
 - **Ziel:** Kappa zwischen den beiden Modellen über alle 600 Fragen; Konsens = gleiche Einordnung beider Modelle. Abweichende Fragen werden gezählt und nicht als Referenz genutzt.
-- **Ausgaben:** `results/agreement_questions.md`, Tabelle T4 (zweite Zeile), `coding/questions/labels_600.csv` (nur Konsensfragen; Split wie bisher: Testmenge = die 150 markierten, Training = die übrigen 450), Prüfstichprobe `coding/pruefung/fragen_100.csv` (seit D29 aus `scripts/17_pruefung.py`).
+- **Ausgaben:** `results/agreement_questions.md`, Tabelle T4 (zweite Zeile), `coding/questions/labels_600.csv` (nur Konsensfragen; Split wie bisher: Testmenge = die 150 markierten, Training = die übrigen 450), Prüfstichprobe: 100 Konsensfragen (D29/D30, `scripts/17_pruefung.py`).
 - **Akzeptanz:** Kappa ≥ 0,61, sonst wie AP05.
 
 ### AP10 Automatische Einordnung von Fragetexten (TF2 ohne Tags)
@@ -366,7 +366,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 - **Probelauf (1.000 Titel, gleich verteilt über die Jahre):**
   - **A: BERTopic** mit lokalem Embedding-Modell (`config.EMBEDDING_MODEL`, Alternative `config.EMBEDDING_MODEL_ALT`), UMAP mit festem `random_state`, HDBSCAN, c-TF-IDF mit KeyBERTInspired-Darstellung, Reduktion auf 20–40 Themen. BERTopic ist für kurze Texte wie Titel geeignet, weil es mit Satz-Embeddings statt Wortzählungen arbeitet.
   - **B: NMF** (Non-negative Matrix Factorization) auf TF-IDF der Titel (scikit-learn), gleiche Themenzahl. Das ist ein etabliertes klassisches Verfahren als Vergleich und kommt mit kurzen Texten besser zurecht als LDA.
-  - **Themennamen** vergibt Qwen3.5-9B aus den Schlüsselwörtern und 5 typischen Titeln je Thema (AP16; vorher: die Autor:innen). Geprüft wird danach mit **anderen**, zufällig gezogenen Titeln, von beiden Modellen unabhängig; die Autor:innen sehen die Themenliste durch.
+  - **Themennamen** vergibt Qwen3.5-9B aus den Schlüsselwörtern und 5 typischen Titeln je Thema (AP16; vorher: die Autor:innen). Geprüft wird danach mit **anderen**, zufällig gezogenen Titeln, von beiden Modellen unabhängig (keine Durchsicht durch die Autor:innen, D30).
   - Beide Verfahren werden mit der Themenprüfung aus Abschnitt 9 bewertet (10 zufällige Titel je Thema, beide unabhängig). Gewählt wird das Verfahren mit dem höheren Anteil bestandener Themen (≥ 8/10 passend).
 - **Stand Probelauf (16.11.2026):** 1.008 Titel (84 je Oktober). BERTopic: 21 Themen, 48 % Ausreißer vor der Zuordnung; NMF mit 21 Themen. Beide in `coding/topics/themen_benennen_probelauf.csv` gemischt (T01–T42), Ablauf in `coding/topics/LIESMICH.md`. Ein zweiter Lauf ergibt identische Themen. Schritte `pilot-checks` und `pilot-eval` sind mit Testdaten geprüft.
 - **Hauptlauf** mit dem gewählten Verfahren auf allen ~10.600 Titeln (882 je Oktober); danach Themenprüfung erneut.
@@ -498,10 +498,10 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 | Prüfung | AP | Wer | Umfang | Kriterium | Werkzeug |
 |---|---|---|---|---|---|
 | Einordnung der Tags | AP16/05 | zwei Modelle unabhängig | 269 Tags | Kappa ≥ 0,61 | `llm.py` + `agreement.py` |
-| Prüfung Tags (blind, D29) | AP05 | beide Autor:innen | 14 U + 26 zufällige G-Tags | κ ≥ 0,61 und je Gruppe ≥ 80 % | `coding/pruefung/tags_40_{A,B}.csv` |
+| Prüfung Tags (D29, D30) | AP05 | drittes Modell (Ministral 3 14B) | 14 U + 26 zufällige G-Tags | κ ≥ 0,61 und je Gruppe ≥ 80 % | `scripts/17_pruefung.py` |
 | Kalibrierung | AP16 | Claude Code | 30 Fragen außerhalb | Prompt geschärft | `config/prompts/` |
 | Doppelkodierung | AP16/09 | zwei Modelle unabhängig | 600 Fragen | Kappa ≥ 0,61 | `llm.py` + `agreement.py` |
-| Prüfung Fragen (blind, D29) | AP09 | Autor:innen | 100 zufällige Konsensfragen | κ ≥ 0,61 | Kodier-App |
+| Prüfung Fragen (D29, D30) | AP09 | drittes Modell (Ministral 3 14B) | 100 zufällige Konsensfragen | κ ≥ 0,61 | `scripts/17_pruefung.py` |
 | Klassifikation | AP10 | Skript | 150 Konsensfragen | Macro-F1 ≥ 0,70 | `classify/` |
 | Themen | AP11/16 | zwei Modelle unabhängig | 10 Titel je Thema | ≥ 8/10 passen | `llm.py` |
 | Datenabfrage | AP12 | Skript (API) | 20 Fragen | stimmt mit Website | `scripts/12_checks.py` |
@@ -517,7 +517,7 @@ Die menschlichen Aufgaben stehen gesammelt und abhakbar in [AUFGABEN_TEAM.md](AU
 | Zeitraum | Arbeitspakete | Menschliche Arbeit | Meilenstein (Exposé) |
 |---|---|---|---|
 | 16.11.–22.11. | AP00, AP01, AP02, AP03, AP04; Leitfäden finalisieren | Leitfäden lesen und anpassen; Entscheidungen zu Tag-Brüchen | Leitfäden stehen |
-| 16.11.–29.11. | AP16 (Modelle, Prompts, Läufe), AP05, AP09, AP07, AP11 | Stichprobenprüfung: 40 Tags, 100 Fragen, Themenliste (zusammen ca. 1,5 h) | Gruppen festgelegt, Kodierung abgeschlossen |
+| 16.11.–29.11. | AP16 (Modelle, Prompts, Läufe), AP05, AP09, AP07, AP11 | keine Einordnung durch die Autor:innen (D30); Ergebnisse durchsehen | Gruppen festgelegt, Kodierung abgeschlossen |
 | 30.11.–06.12. | AP10, AP12, AP14 (Gruppen), AP13 | Durchsicht der Ergebnisse | Datenerhebung abgeschlossen |
 | 07.12.–14.12. | Puffer, Gegenproben | erste Deutung | – |
 | 15.12.–21.12. | AP13, Gegenproben, ggf. AP15 | Abbildungen ansehen, erste Deutung | Erste Ergebnisse stehen |
@@ -601,15 +601,15 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP02 | Kennzahlen TF1/TF3 | ☑ | 15.11.2026 |
 | AP03 | Tag-Prüfung (D15 angenommen) | ☑ | 15.11.2026 |
 | AP04 | Kodierbögen Tags (Leitfaden finalisieren: Team) | ☑ | 15.11.2026 |
-| AP05 | Kappa Tags, Gruppen (Runde 1 κ 0,37; Runde 2 endgültig κ 0,22; G 155, U 14 aus Konsens, D25; Prüfung 40 Tags offen) | ◐ | 16.11.2026 |
+| AP05 | Kappa Tags, Gruppen (Runde 1 κ 0,37; Runde 2 endgültig κ 0,22; G 155, U 14 aus Konsens, D25; Prüfung 40 Tags durch drittes Modell bestanden, κ 0,85, D30) | ☑ | 18.11.2026 |
 | AP06 | Stichproben, Kodier-App | ☑ | 15.11.2026 |
 | AP07 | Gruppenvergleich (`scripts/07_groups.py`, `results/groups.md`; Abstand 2024: Runde 2 +44,4, Runde 1 +59,5, Kern +55,1; Permutation p < 0,01 für 2023/2024 in allen Varianten; Placebo ≈ 0; Abbildungen F08–F13 fertig) | ☑ | 18.11.2026 |
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
-| AP09 | Doppelkodierung (κ 0,55 < 0,61; Konsens 456 Fragen; Prüfung 100 Fragen offen) | ◐ | 16.11.2026 |
+| AP09 | Doppelkodierung (κ 0,55 < 0,61; Konsens 456 Fragen; Prüfung 100 Fragen durch drittes Modell bestanden, κ 0,82, D30) | ☑ | 18.11.2026 |
 | AP10 | Klassifikation (Gewinner SetFit, Macro-F1 0,76 [0,56; 0,94] auf 121 Testfragen, nur G/U 0,89; 22.829 Fragen eingeordnet; U-Anteil 2021 29 % → 2024 49 %, korrigiert 23 % → 49 %; `results/classify/bericht.md`) | ☑ | 18.11.2026 |
-| AP11 | Themenanalyse (Probelauf unentschieden 1:1; Hauptlauf nach D28: BERTopic 1/30 bestanden, NMF 0/30 → Kriterium 80 % verfehlt, nur als Hinweis; `results/topics/themen.md`; offen: Durchsicht der Themenliste durch die Autor:innen, F19/F20) | ☑ | 18.11.2026 |
+| AP11 | Themenanalyse (Probelauf unentschieden 1:1; Hauptlauf nach D28: BERTopic 1/30 bestanden, NMF 0/30 → Kriterium 80 % verfehlt, nur als Hinweis; `results/topics/themen.md`; offen: F19/F20; keine Durchsicht durch die Autor:innen, D30) | ☑ | 18.11.2026 |
 | AP12 | Datenprüfung, Literatur | ☐ | |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
 | AP14 | Sichtbare Antwortende (A1–A5 und je Gruppe A2/A3 fertig, `results/answerers_groups.md`, F07, F23; 2024 Index U − G: Antwortende +6, Expert:innen +11, als Anteil an allen Antwortenden +21; Tabelle T10 offen) | ☑ | 18.11.2026 |
 | AP15 | KI-Erwähnungen (optional) | ☐ | |
-| AP16 | Kodierung durch lokale Sprachmodelle (Tags, Fragen, Themen benennen und prüfen abgeschlossen; offen: menschliche Prüfung 40 Tags, 100 Fragen, Themenliste; seit D29 blind, Bögen bereit) | ◐ | 18.11.2026 |
+| AP16 | Kodierung durch lokale Sprachmodelle (Tags, Fragen, Themen benennen und prüfen abgeschlossen; Prüfung des Konsenses durch die dritte Modellfamilie bestanden: Tags κ = 0,85, Fragen κ = 0,82, D30; keine menschliche Prüfung) | ☑ | 18.11.2026 |

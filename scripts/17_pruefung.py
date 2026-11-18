@@ -1,84 +1,44 @@
-"""Menschliche Prüfung der Modell-Kodierung (D29): blinde Bögen erzeugen und auswerten.
+"""Prüfung des Modellkonsenses durch eine dritte Modellfamilie (D29, D30).
 
-uv run python scripts/17_pruefung.py boegen      # leere Bögen (nie über Einträge schreiben)
-uv run python scripts/17_pruefung.py auswerten   # nachdem die Autor:innen fertig sind
+uv run python scripts/16_llm_coding.py pruef-tags     # Prüfinstanz ordnet alle 269 Tags ein
+uv run python scripts/16_llm_coding.py pruef-fragen   # ... und die 600 Stichprobenfragen
+uv run python scripts/17_pruefung.py                  # Auswertung
 
-Bögen (coding/pruefung/, füllen nur die Autor:innen aus):
-  tags_40_A.csv, tags_40_B.csv  dieselben 40 Tags in verschiedener Reihenfolge, je Person ein
-                                Bogen; alle U-Tags + zufällige G-Tags (D29), ohne Modell-Urteil
-  fragen_100.csv                100 zufällige Konsensfragen (dieselben wie bisher), Einordnung
-                                in der Kodier-App, ohne Modell-Urteil
-Auswertung: results/pruefung.md; data/processed/groups_mensch.json (Tags, die alle Prüfenden
-wie die Modelle einordnen; Gegenprobe in AP07)
+Kriterien (vorab festgelegt, D29; Prüfinstanz statt Autor:innen seit D30) gelten auf den
+Stichproben aus D29: 40 Tags (alle 14 U + 26 zufällige G, Seed + 70) und 100 zufällige
+Konsensfragen (Seed + 60). Zusätzlich beschreibend: alle Konsens-Tags bzw. -Fragen und Kappa der
+Prüfinstanz mit jedem der beiden Kodiermodelle.
+Ausgaben: results/pruefung.md; data/processed/groups_pruef.json (Tags, die die Prüfinstanz wie
+der Konsens einordnet; Gegenprobe „pruef“ in AP07)
 """
 
 import json
-import sys
 from datetime import datetime
 
 import polars as pl
 
 from sov import config
 from sov.agreement import kappa_ci, landis_koch
-from sov.coding import (
-    build_question_sheet,
-    build_tag_sheet,
-    read_sheet,
-    sheet_has_entries,
-    write_sheet,
-)
+from sov.coding import read_sheet
 from sov.pruefung import compare, questions_confirmed, stratified_tags, tags_confirmed
 
-D = config.CODING_DIR / "pruefung"
 P = config.PROCESSED_DIR
-PERSONS = ("A", "B")
-OLD_CHECK_COLS = ("stimmt", "notiz")  # Form vor D29 (Zustimmung j/n, nicht blind)
-
-
-def tag_path(p: str):
-    return D / f"tags_{config.PRUEF_TAGS_N}_{p}.csv"
-
-
-def question_path():
-    return D / f"fragen_{config.PRUEF_FRAGEN_N}.csv"
+K = config.LLM_CHECKER
+CODERS = list(config.LLM_CODERS)
 
 
 def question_codes() -> list[str]:
-    """Dieselbe Ziehung wie bisher (Seed + 60 auf den nach Code sortierten Konsensfragen)."""
+    """Ziehung aus D29 (Seed + 60 auf den nach Code sortierten Konsensfragen)."""
     lab = pl.read_csv(config.CODING_DIR / "questions" / "labels_600.csv").sort("code")
     s = lab.sample(min(config.PRUEF_FRAGEN_N, lab.height), seed=config.SEED + 60, shuffle=True)
     return s["code"].to_list()
 
 
-def drop_old(path) -> None:
-    """Entfernt einen Bogen in der alten Form, solange niemand etwas eingetragen hat."""
-    if not path.exists() or "stimmt" not in read_sheet(path).columns:
-        return
-    if sheet_has_entries(path, OLD_CHECK_COLS):
-        raise FileExistsError(f"{path} enthält bereits Prüfurteile und bleibt unverändert.")
-    path.unlink()
-    print(f"alter Bogen ohne Einträge entfernt: {path.name}")
+def labels(path, idcol: str) -> dict[str, str | None]:
+    df = read_sheet(path)
+    return dict(zip(df[idcol], df["kategorie"], strict=True))
 
 
-def boegen() -> None:
-    groups = json.loads((P / "groups.json").read_text())
-    tags = stratified_tags(groups, config.PRUEF_TAGS_N, config.SEED + 70)
-    wiki = pl.read_csv(P / "tag_wiki.csv").filter(pl.col("tag").is_in(tags))
-    assert wiki.height == len(tags), "Wiki-Auszug fehlt für einzelne Tags"
-    old_q = question_path()
-    if old_q.exists() and "stimmt" in read_sheet(old_q).columns:
-        assert set(read_sheet(old_q)["code"]) == set(question_codes()), "andere Stichprobe"
-    drop_old(D / f"tags_{config.PRUEF_TAGS_N}.csv")
-    drop_old(old_q)
-    for i, p in enumerate(PERSONS):
-        write_sheet(build_tag_sheet(wiki, config.SEED + 71 + i), tag_path(p))
-    write_sheet(build_question_sheet(question_codes(), config.SEED + 61), old_q)
-    n_u = len(set(tags) & set(groups["U"]))
-    print(f"Tags: {len(tags)} (U {n_u}, G {len(tags) - n_u}) → {', '.join(PERSONS)}")
-    print(f"Fragen: {config.PRUEF_FRAGEN_N} → {old_q.name}")
-
-
-# ----------------------------------------------------------------------------- Auswertung
 def de(x: float, d: int = 2) -> str:
     return f"{x:.{d}f}".replace(".", ",")
 
@@ -87,139 +47,140 @@ def pct(x: float) -> str:
     return f"{100 * x:.0f} %"
 
 
-def filled(path) -> pl.DataFrame | None:
-    """Bogen, falls vollständig ausgefüllt; sonst None (Stand wird ausgegeben)."""
-    if not path.exists():
-        return None
-    df = read_sheet(path)
-    n = df.filter(pl.col("kategorie").fill_null("").str.strip_chars() != "").height
-    if n < df.height:
-        print(f"{path.name}: {n} von {df.height} eingeordnet – noch nicht vollständig")
-        return None
-    return df.with_columns(pl.col("kategorie").str.strip_chars().str.to_uppercase())
-
-
-def result_lines(res: dict, labels: list[str]) -> list[str]:
+def result_lines(res: dict, cats: list[str]) -> list[str]:
     out = [
-        f"- Cohens Kappa Mensch–Modelle: **{de(res['kappa'])}** [{de(res['ci_low'])}; "
+        f"- Cohens Kappa Prüfinstanz–Konsens: **{de(res['kappa'])}** [{de(res['ci_low'])}; "
         f"{de(res['ci_high'])}] ({landis_koch(res['kappa'])}), Übereinstimmung "
         f"{pct(res['uebereinstimmung'])} (n = {res['n']})",
     ]
-    for lab in labels:
-        r = res["je_klasse"].get(lab)
+    for c in cats:
+        r = res["je_klasse"].get(c)
         if r:
             out.append(
-                f"- Modelle {lab}: Mensch gleich bei {r['k']} von {r['n']} ({pct(r['anteil'])}, "
-                f"95-%-KI {pct(r['ci_low'])}–{pct(r['ci_high'])})"
+                f"- Konsens {c}: Prüfinstanz gleich bei {r['k']} von {r['n']} "
+                f"({pct(r['anteil'])}, 95-%-KI {pct(r['ci_low'])}–{pct(r['ci_high'])})"
             )
     return out
 
 
-def auswerten() -> None:
-    groups = json.loads((P / "groups.json").read_text())
-    ref_tag = {t: g for g in ("G", "U") for t in groups[g]}
+def pairwise(folder: str, prefix: str, idcol: str, cats: list[str]) -> list[str]:
+    """Kappa der Prüfinstanz mit jedem Kodiermodell über alle Einträge (beschreibend)."""
+    chk = labels(config.CODING_DIR / folder / f"llm_{prefix}_{K}.csv", idcol)
+    out = []
+    for m in CODERS:
+        other = labels(config.CODING_DIR / folder / f"llm_{prefix}_{m}.csv", idcol)
+        ids = [i for i in chk if chk[i] and other.get(i)]
+        ka = kappa_ci([chk[i] for i in ids], [other[i] for i in ids], cats)
+        out.append(
+            f"- {config.LLM_MODELS[K]} ↔ {config.LLM_MODELS[m]}: κ = {de(ka['kappa'])} "
+            f"[{de(ka['ci_low'])}; {de(ka['ci_high'])}], {pct(ka['uebereinstimmung'])} "
+            f"(n = {ka['n']})"
+        )
+    return out
+
+
+def main() -> None:
+    model = config.LLM_MODELS[K]
     L = [
-        "# Menschliche Prüfung der Modell-Kodierung (D29)",
+        "# Prüfung des Modellkonsenses durch eine dritte Modellfamilie (D29, D30)",
         "",
-        f"Erzeugt: {datetime.now():%d.%m.%Y %H:%M}. Die Autor:innen ordneten blind ein (ohne "
-        "Urteil der Modelle); Vergleich mit dem Konsens beider Modelle. Kriterien vorab "
-        f"festgelegt (D29): Tags κ ≥ {de(config.KAPPA_MIN)} und je Gruppe ≥ "
-        f"{pct(config.PRUEF_GRUPPE_MIN)} gleich eingeordnet; Fragen κ ≥ {de(config.KAPPA_MIN)}.",
+        f"Erzeugt: {datetime.now():%d.%m.%Y %H:%M}. Prüfinstanz: {model} (unabhängig von den "
+        f"Kodiermodellen {', '.join(config.LLM_MODELS[m] for m in CODERS)}; gleiche Prompts und "
+        "Einstellungen, ohne Kenntnis von deren Urteil). **Keine menschliche Prüfung** (D30). "
+        f"Kriterien vorab festgelegt (D29): Tags κ ≥ {de(config.KAPPA_MIN)} und je Gruppe ≥ "
+        f"{pct(config.PRUEF_GRUPPE_MIN)} gleich eingeordnet; Fragen κ ≥ {de(config.KAPPA_MIN)}. "
+        "Maßgeblich sind die Stichproben aus D29; die Werte über alle Einträge sind beschreibend.",
         "",
         "## Tags",
         "",
     ]
-    sheets = {p: filled(tag_path(p)) for p in PERSONS}
-    done = {p: s for p, s in sheets.items() if s is not None}
-    oks = []
-    for p, s in done.items():
-        tags = s["tag"].to_list()
-        res = compare(s["kategorie"].to_list(), [ref_tag[t] for t in tags],
-                      list(config.TAG_CATEGORIES))  # fmt: skip
-        ok = tags_confirmed(res)
-        oks.append(ok)
-        n_uns = s.filter(pl.col("unsicher").fill_null("") != "").height
-        L += [f"**Person {p}** ({n_uns} als unsicher markiert):", "",
-              *result_lines(res, ["G", "U"]),
-              f"- Kriterium: {'erfüllt' if ok else 'NICHT erfüllt'}", ""]  # fmt: skip
-    if len(done) == 2:
-        a, b = (done[p].sort("tag") for p in PERSONS)
-        hh = kappa_ci(a["kategorie"].to_list(), b["kategorie"].to_list(),
-                      list(config.TAG_CATEGORIES))  # fmt: skip
-        L += [
-            f"Übereinstimmung der Autor:innen untereinander: κ = {de(hh['kappa'])} "
-            f"[{de(hh['ci_low'])}; {de(hh['ci_high'])}], {pct(hh['uebereinstimmung'])} "
-            "(zeigt, wie eindeutig die Aufgabe für Menschen ist).",
-            "",
-        ]
-    if done:
-        conf = {
-            g: sorted(
-                t
-                for t in groups[g]
-                if t in set(next(iter(done.values()))["tag"])
-                and all(
-                    s.filter(pl.col("tag") == t)["kategorie"].item() == g for s in done.values()
-                )
-            )  # fmt: skip
-            for g in ("G", "U")
-        }
-        (P / "groups_mensch.json").write_text(json.dumps(
+    groups = json.loads((P / "groups.json").read_text())
+    ref_tag = {t: g for g in ("G", "U") for t in groups[g]}
+    tcats = list(config.TAG_CATEGORIES)
+    chk_t = labels(config.CODING_DIR / "tags" / f"llm_tags_{K}.csv", "tag")
+    sample = stratified_tags(groups, config.PRUEF_TAGS_N, config.SEED + 70)
+    bad = [t for t in sample if not chk_t.get(t)]
+    assert not bad, f"keine gültige Einordnung der Prüfinstanz für {bad}"
+    res = compare([chk_t[t] for t in sample], [ref_tag[t] for t in sample], tcats)
+    ok_t = tags_confirmed(res)
+    allg = [t for t in ref_tag if chk_t.get(t)]
+    res_all = compare([chk_t[t] for t in allg], [ref_tag[t] for t in allg], tcats)
+    conf = {g: sorted(t for t in groups[g] if chk_t.get(t) == g) for g in ("G", "U")}
+    (P / "groups_pruef.json").write_text(
+        json.dumps(
             {**conf, "_meta": {"erzeugt": datetime.now().isoformat(timespec="seconds"),
-                               "personen": sorted(done), "regel": "D29"}},
-            indent=2, ensure_ascii=False))  # fmt: skip
-        verdict = all(oks)
-        L += [
-            f"**Ergebnis Tags: {'bestätigt' if verdict else 'NICHT bestätigt'}** "
-            f"(Kriterium bei {sum(oks)} von {len(oks)} Prüfenden erfüllt; nötig: bei allen). "
-            + (
-                "Die Gruppen gelten als bestätigt."
-                if verdict
-                else "Nach D29 bleibt die Hauptauswertung (Runde 2) unverändert; das Tag-Ergebnis "
-                "zu TF2 wird nur gemeinsam mit der Textanalyse und den Gegenproben gedeutet und "
-                "die Grenze im Paper offengelegt."
-            ),
-            f"Von Menschen bestätigte Tags (Gegenprobe „mensch“ in AP07): G {len(conf['G'])}, "
-            f"U {len(conf['U'])}.",
-            "",
-        ]
-    else:
-        L += ["*Noch kein Tag-Bogen vollständig.*", ""]
-
-    L += ["## Fragen", ""]
-    q = filled(question_path())
-    if q is not None:
-        ref = dict(pl.read_csv(config.CODING_DIR / "questions" / "labels_600.csv")
-                   .select("code", "label").iter_rows())  # fmt: skip
-        res = compare(q["kategorie"].to_list(), [ref[c] for c in q["code"]],
-                      list(config.QUESTION_CATEGORIES))  # fmt: skip
-        ok = questions_confirmed(res)
-        n_uns = q.filter(pl.col("unsicher").fill_null("") != "").height
-        L += [
-            f"{n_uns} Fragen als unsicher markiert.",
-            "",
-            *result_lines(res, list(config.QUESTION_CATEGORIES)),
-            "",
-            f"**Ergebnis Fragen: {'bestätigt' if ok else 'NICHT bestätigt'}.** "
-            + (
-                "Die Referenz für AP10 gilt als bestätigt."
-                if ok
-                else "Nach D29 misst der Macro-F1 aus AP10 nur die Übereinstimmung mit dem "
-                "Modellkonsens; die Textanalyse wird im Paper nur als Hinweis gedeutet."
-            ),
-            "",
-        ]
-    else:
-        L += ["*Fragebogen noch nicht vollständig.*", ""]
+                               "pruefinstanz": model, "regel": "D30"}},
+            indent=2, ensure_ascii=False,
+        )
+    )  # fmt: skip
+    L += [
+        f"**Stichprobe D29** ({len(sample)} Tags: U {sum(ref_tag[t] == 'U' for t in sample)}, "
+        f"G {sum(ref_tag[t] == 'G' for t in sample)}):",
+        "",
+        *result_lines(res, ["G", "U"]),
+        "",
+        f"**Ergebnis Tags: {'bestätigt' if ok_t else 'NICHT bestätigt'}.** "
+        + (
+            "Die Gruppen gelten als durch eine dritte Modellfamilie bestätigt."
+            if ok_t
+            else "Nach D29/D30 bleibt die Hauptauswertung (Runde 2) unverändert; das Tag-Ergebnis "
+            "zu TF2 wird nur gemeinsam mit der Textanalyse und den Gegenproben gedeutet und die "
+            "Grenze im Paper offengelegt."
+        ),
+        "",
+        f"Beschreibend, alle {len(allg)} Gruppen-Tags:",
+        "",
+        *result_lines(res_all, ["G", "U"]),
+        *pairwise("tags", "tags", "tag", tcats),
+        f"- Von der Prüfinstanz bestätigte Tags (Gegenprobe „pruef“ in AP07): "
+        f"G {len(conf['G'])}, U {len(conf['U'])}",
+        "",
+        "## Fragen",
+        "",
+    ]
+    qcats = list(config.QUESTION_CATEGORIES)
+    ref_q = dict(
+        pl.read_csv(config.CODING_DIR / "questions" / "labels_600.csv")
+        .select("code", "label")
+        .iter_rows()
+    )
+    chk_q = labels(config.CODING_DIR / "questions" / f"llm_fragen_{K}.csv", "code")
+    codes = [c for c in question_codes() if chk_q.get(c)]
+    n_bad = config.PRUEF_FRAGEN_N - len(codes)
+    res_q = compare([chk_q[c] for c in codes], [ref_q[c] for c in codes], qcats)
+    ok_q = questions_confirmed(res_q)
+    allq = [c for c in ref_q if chk_q.get(c)]
+    res_qall = compare([chk_q[c] for c in allq], [ref_q[c] for c in allq], qcats)
+    L += [
+        f"**Stichprobe D29** ({config.PRUEF_FRAGEN_N} Fragen"
+        + (f", davon {n_bad} ohne gültige Antwort der Prüfinstanz" if n_bad else "")
+        + "):",
+        "",
+        *result_lines(res_q, qcats),
+        "",
+        f"**Ergebnis Fragen: {'bestätigt' if ok_q else 'NICHT bestätigt'}.** "
+        + (
+            "Die Referenz für AP10 gilt als durch eine dritte Modellfamilie bestätigt."
+            if ok_q
+            else "Nach D29/D30 misst der Macro-F1 aus AP10 nur die Übereinstimmung mit dem "
+            "Modellkonsens; die Textanalyse wird im Paper nur als Hinweis gedeutet."
+        ),
+        "",
+        f"Beschreibend, alle {len(allq)} Konsensfragen:",
+        "",
+        *result_lines(res_qall, qcats),
+        *pairwise("questions", "fragen", "code", qcats),
+        "",
+        "## Einordnung",
+        "",
+        "Die Prüfinstanz zeigt, ob der Konsens auch für ein drittes, unabhängig trainiertes Modell "
+        "gilt, also nicht an zwei bestimmten Modellen hängt. Sie ersetzt keine menschliche "
+        "Prüfung: Sprachmodelle können gemeinsame Verzerrungen haben (ähnliche Trainingsdaten). "
+        "Das wird im Paper als Grenze genannt.",
+    ]
     (config.RESULTS_DIR / "pruefung.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
 
 
 if __name__ == "__main__":
-    cmd = sys.argv[1] if len(sys.argv) > 1 else ""
-    if cmd == "boegen":
-        boegen()
-    elif cmd == "auswerten":
-        auswerten()
-    else:
-        sys.exit(__doc__)
+    main()

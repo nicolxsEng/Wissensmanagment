@@ -1,6 +1,7 @@
-"""Menschliche Prüfung der Modell-Kodierung (D29): blinde Stichproben und Auswertung.
+"""Prüfung des Modellkonsenses (D29, D30): geschichtete Stichprobe und Auswertung.
 
-Die Autor:innen ordnen Tags und Fragen selbst ein, ohne die Einordnung der Modelle zu sehen.
+Ursprünglich für die blinde Prüfung durch die Autor:innen gebaut (D29); seit D30 ordnet eine
+dritte Modellfamilie ein, ohne das Urteil der Kodiermodelle zu kennen.
 Verglichen wird danach mit dem Konsens der beiden Modelle (Referenz der Gruppen bzw. von AP10).
 """
 
@@ -35,7 +36,7 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
 
 
 def compare(human: list[str], ref: list[str], labels: list[str]) -> dict:
-    """Kappa Mensch–Referenz und Übereinstimmung je Referenzklasse (mit Wilson-Intervall)."""
+    """Kappa Prüfende–Referenz und Übereinstimmung je Referenzklasse (mit Wilson-Intervall)."""
     out = kappa_ci(human, ref, labels)
     per = {}
     for lab in labels:
@@ -55,5 +56,5 @@ def tags_confirmed(res: dict, groups: tuple[str, ...] = ("G", "U")) -> bool:
 
 
 def questions_confirmed(res: dict) -> bool:
-    """D29: κ Mensch–Konsens ≥ KAPPA_MIN."""
+    """D29: κ Prüfinstanz–Konsens ≥ KAPPA_MIN."""
     return res["kappa"] >= config.KAPPA_MIN

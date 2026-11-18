@@ -1,6 +1,6 @@
 # Gruppenvergleich Grundlagen gegen Umgebung (AP07)
 
-Erzeugt: 18.11.2026 08:23 (6 s). Klassische Fragen, Synonyme zusammengeführt. Anteil = Fragen mit ≥ 1 Tag der Gruppe / alle Fragen des Oktobers; Index 2022 = 100; Abstand = Index U − Index G. Gruppen: nur Tags, die beide Modelle gleich einordneten (D25, D26).
+Erzeugt: 18.11.2026 22:29 (8 s). Klassische Fragen, Synonyme zusammengeführt. Anteil = Fragen mit ≥ 1 Tag der Gruppe / alle Fragen des Oktobers; Index 2022 = 100; Abstand = Index U − Index G. Gruppen: nur Tags, die beide Modelle gleich einordneten (D25, D26).
 
 ## Index je Gruppe
 
@@ -9,6 +9,7 @@ Erzeugt: 18.11.2026 08:23 (6 s). Klassische Fragen, Synonyme zusammengeführt. A
 | Runde 2 (Hauptauswertung) | 155 / 14 | 89,9 | 83,7 | 119,1 | 128,2 | **+44,4** | +40,9 | +16,3 |
 | Runde 1 (Gegenprobe) | 63 / 28 | 74,6 | 63,2 | 116,6 | 122,7 | **+59,5** | +92,0 | +64,6 |
 | Kern beider Runden (Gegenprobe) | 59 / 12 | 73,4 | 62,6 | 111,9 | 117,8 | **+55,1** | +76,9 | +43,4 |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | 147 / 14 | 89,7 | 83,5 | 119,1 | 128,2 | **+44,7** | +41,5 | +17,2 |
 
 Gegenproben zur Zählweise und Population (Abstand 2024):
 
@@ -17,6 +18,7 @@ Gegenproben zur Zählweise und Population (Abstand 2024):
 | Runde 2 (Hauptauswertung) | +44,4 | +45,5 | +11,4 |
 | Runde 1 (Gegenprobe) | +59,5 | +64,4 | +39,0 |
 | Kern beider Runden (Gegenprobe) | +55,1 | +57,2 | +36,8 |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | +44,7 | +45,9 | +11,5 |
 
 Anteile (in %) in der Hauptauswertung:
 
@@ -51,6 +53,10 @@ Anteile (in %) in der Hauptauswertung:
 | Kern beider Runden (Gegenprobe) | 2024 | +55,1 | +1,6 | +33,8 | +90,7 | 99,8 | 0,0023 |
 | Kern beider Runden (Gegenprobe) | 2025 | +76,9 | -0,4 | +42,6 | +112,4 | 99,8 | 0,0025 |
 | Kern beider Runden (Gegenprobe) | 2026 | +43,4 | -5,2 | +52,6 | +158,3 | 93,0 | 0,0703 |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | 2023 | +29,5 | -0,0 | +17,7 | +39,8 | 99,6 | 0,0039 |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | 2024 | +44,7 | -0,5 | +27,7 | +66,8 | 99,7 | 0,0030 |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | 2025 | +41,5 | -3,7 | +35,5 | +88,7 | 97,1 | 0,0291 |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | 2026 | +17,2 | -10,7 | +39,5 | +130,1 | 86,3 | 0,1373 |
 
 ## Placebo-Test (Basis 2019 = 100, Vergleich 2021, beide vor ChatGPT)
 
@@ -59,6 +65,7 @@ Anteile (in %) in der Hauptauswertung:
 | Runde 2 (Hauptauswertung) | +3,1 | 49,5 | 0,5054 |
 | Runde 1 (Gegenprobe) | -9,1 | 20,2 | 0,7981 |
 | Kern beider Runden (Gegenprobe) | -1,3 | 42,6 | 0,5743 |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | +3,2 | 50,1 | 0,4989 |
 
 ## Weglassen einzelner Tags (Abstand 2024)
 
@@ -67,6 +74,7 @@ Anteile (in %) in der Hauptauswertung:
 | Runde 2 (Hauptauswertung) | +27,3 (azure) | +53,6 (amazon-web-services) |
 | Runde 1 (Gegenprobe) | +56,9 (ios) | +62,2 (.net-6.0) |
 | Kern beider Runden (Gegenprobe) | +50,0 (windows) | +61,6 (.net-6.0) |
+| von der Prüfinstanz bestätigt (Gegenprobe, D30) | +27,6 (azure) | +53,9 (amazon-web-services) |
 
 ## Behaltensquote je Tag (Anteil 2024 / Anteil 2022; 1 = wie Stack Overflow insgesamt), Hauptauswertung
 
