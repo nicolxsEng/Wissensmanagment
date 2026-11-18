@@ -241,7 +241,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
   - Anweisungen (Prompts) in `config/prompts/*.md`, erzeugt aus den Kodierleitfäden (Definitionen, Entscheidungsregeln, Ankerbeispiele). Die Prompts werden **nur an den 30 Kalibrierungsfragen bzw. 10 Übungstags** geschärft, nie an den 600 Fragen oder den 269 Tags.
   - Aufgaben: `tags` (269 × 2), `fragen` (630 × 2, Eingabe wie AP10 ohne Tags/Jahr/Score), `themen_namen` (Qwen), `themen_check` (beide, je 10 Titel × Thema).
   - Ausgaben im Format der bisherigen Bögen: `coding/tags/llm_tags_{qwen,phi}.csv`, `coding/questions/llm_fragen_{qwen,phi}.csv`, `coding/topics/llm_themen_*.csv`.
-- **Menschliche Prüfung (Validierung):** `coding/pruefung/tags_40.csv` (40 zufällige Tags mit Konsenskategorie, Spalte `stimmt` j/n), `coding/pruefung/fragen_100.csv` (100 zufällige der 600; Prüfung in der Kodier-App im Prüfmodus), Durchsicht der Themenliste. Ergebnisse gehen in `docs/ki_einsatz.md`.
+- **Menschliche Prüfung (Validierung), seit 18.11.2026 blind (D29):** `coding/pruefung/tags_40_A.csv` und `tags_40_B.csv` (alle 14 U-Tags + 26 zufällige G-Tags, beide Autor:innen ordnen unabhängig ein, ohne Urteil der Modelle), `coding/pruefung/fragen_100.csv` (100 zufällige Konsensfragen; Einordnung G/U/S in der Kodier-App), Durchsicht der Themenliste. Bögen: `scripts/17_pruefung.py boegen`; Auswertung mit vorab festgelegten Kriterien: `scripts/17_pruefung.py auswerten` → `results/pruefung.md`, danach AP07 erneut (Gegenprobe „mensch“). Ergebnisse gehen in `docs/ki_einsatz.md`.
 - **Akzeptanz:** Digests und Einstellungen protokolliert; Wiederholung an 20 Einträgen ergibt identische Antworten; < 1 % ungültige Antworten nach Wiederholung; Laufzeit für 630 Fragen × 2 Modelle gemessen und dokumentiert.
 
 
@@ -340,7 +340,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 ### AP09 Doppelkodierung auswerten
 
 - **Ziel:** Kappa zwischen den beiden Modellen über alle 600 Fragen; Konsens = gleiche Einordnung beider Modelle. Abweichende Fragen werden gezählt und nicht als Referenz genutzt.
-- **Ausgaben:** `results/agreement_questions.md`, Tabelle T4 (zweite Zeile), `coding/questions/labels_600.csv` (nur Konsensfragen; Split wie bisher: Testmenge = die 150 markierten, Training = die übrigen 450), Stichprobe `coding/pruefung/fragen_100.csv`.
+- **Ausgaben:** `results/agreement_questions.md`, Tabelle T4 (zweite Zeile), `coding/questions/labels_600.csv` (nur Konsensfragen; Split wie bisher: Testmenge = die 150 markierten, Training = die übrigen 450), Prüfstichprobe `coding/pruefung/fragen_100.csv` (seit D29 aus `scripts/17_pruefung.py`).
 - **Akzeptanz:** Kappa ≥ 0,61, sonst wie AP05.
 
 ### AP10 Automatische Einordnung von Fragetexten (TF2 ohne Tags)
@@ -498,10 +498,10 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 | Prüfung | AP | Wer | Umfang | Kriterium | Werkzeug |
 |---|---|---|---|---|---|
 | Einordnung der Tags | AP16/05 | zwei Modelle unabhängig | 269 Tags | Kappa ≥ 0,61 | `llm.py` + `agreement.py` |
-| Prüfung Tags | AP05 | Autor:innen | 40 zufällige Tags | Zustimmung berichten | `coding/pruefung/tags_40.csv` |
+| Prüfung Tags (blind, D29) | AP05 | beide Autor:innen | 14 U + 26 zufällige G-Tags | κ ≥ 0,61 und je Gruppe ≥ 80 % | `coding/pruefung/tags_40_{A,B}.csv` |
 | Kalibrierung | AP16 | Claude Code | 30 Fragen außerhalb | Prompt geschärft | `config/prompts/` |
 | Doppelkodierung | AP16/09 | zwei Modelle unabhängig | 600 Fragen | Kappa ≥ 0,61 | `llm.py` + `agreement.py` |
-| Prüfung Fragen | AP09 | Autor:innen | 100 zufällige Fragen | Zustimmung berichten | Kodier-App (Prüfmodus) |
+| Prüfung Fragen (blind, D29) | AP09 | Autor:innen | 100 zufällige Konsensfragen | κ ≥ 0,61 | Kodier-App |
 | Klassifikation | AP10 | Skript | 150 Konsensfragen | Macro-F1 ≥ 0,70 | `classify/` |
 | Themen | AP11/16 | zwei Modelle unabhängig | 10 Titel je Thema | ≥ 8/10 passen | `llm.py` |
 | Datenabfrage | AP12 | Skript (API) | 20 Fragen | stimmt mit Website | `scripts/12_checks.py` |
@@ -612,4 +612,4 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |
 | AP14 | Sichtbare Antwortende (A1–A5 und je Gruppe A2/A3 fertig, `results/answerers_groups.md`, F07, F23; 2024 Index U − G: Antwortende +6, Expert:innen +11, als Anteil an allen Antwortenden +21; Tabelle T10 offen) | ☑ | 18.11.2026 |
 | AP15 | KI-Erwähnungen (optional) | ☐ | |
-| AP16 | Kodierung durch lokale Sprachmodelle (Tags, Fragen, Themen benennen und prüfen abgeschlossen; offen: menschliche Prüfung 40 Tags, 100 Fragen, Themenliste) | ◐ | 18.11.2026 |
+| AP16 | Kodierung durch lokale Sprachmodelle (Tags, Fragen, Themen benennen und prüfen abgeschlossen; offen: menschliche Prüfung 40 Tags, 100 Fragen, Themenliste; seit D29 blind, Bögen bereit) | ◐ | 18.11.2026 |

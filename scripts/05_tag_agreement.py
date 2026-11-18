@@ -3,8 +3,8 @@
 uv run python scripts/05_tag_agreement.py
 
 Eingabe: coding/tags/llm_tags_<modell>.csv (AP16) für die zwei Modelle aus config.LLM_CODERS
-Ausgaben: results/agreement_tags.md, data/processed/groups.json,
-          coding/pruefung/tags_40.csv (Prüfung durch die Autor:innen, Spalte `stimmt` j/n)
+Ausgaben: results/agreement_tags.md, data/processed/groups.json
+(Prüfbögen für die Autor:innen erzeugt seit D29 `scripts/17_pruefung.py boegen`)
 Runde 1 (Prompt v1) ist gesichert: data/processed/groups_v1.json, coding/tags/llm_tags_*_v1.csv;
 AP07 nutzt sie als Gegenprobe (D25, D26).
 """
@@ -16,9 +16,7 @@ import polars as pl
 
 from sov import config
 from sov.agreement import crosstab, kappa_ci, landis_koch
-from sov.coding import CHECK_COLUMNS, build_check_sheet, read_sheet, write_sheet
-
-N_CHECK = 40
+from sov.coding import read_sheet
 
 
 def main() -> None:
@@ -69,18 +67,6 @@ def main() -> None:
     for r in ct.to_dicts():
         lines.append(f"| {r[k1]} | " + " | ".join(str(r[c]) for c in cats) + " |")
     (config.RESULTS_DIR / "agreement_tags.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-    wiki = pl.read_csv(config.PROCESSED_DIR / "tag_wiki.csv")
-    pool = agree.join(wiki, on="tag").select(
-        "tag", "wiki_auszug", pl.col(f"kategorie_{k1}").alias("kategorie"),
-        pl.col(f"begruendung_{k1}").alias("begruendung"),
-    )  # fmt: skip
-    (config.CODING_DIR / "pruefung").mkdir(parents=True, exist_ok=True)
-    write_sheet(
-        build_check_sheet(pool, "tag", N_CHECK, config.SEED + 50),
-        config.CODING_DIR / "pruefung" / "tags_40.csv",
-        entry_cols=CHECK_COLUMNS,
-    )
     print("\n".join(lines))
 
 

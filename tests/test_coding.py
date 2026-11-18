@@ -39,17 +39,16 @@ def test_never_overwrite_filled_sheet(tmp_path):
         write_sheet(sheet, p)
 
 
-def test_check_sheet_and_save(tmp_path):
-    from sov.coding import CHECK_COLUMNS, build_check_sheet, save_check
+def test_question_sheet_save_entry(tmp_path):
+    from sov.coding import build_question_sheet, save_entry
 
-    df = pl.DataFrame({"code": [f"F{i:03d}" for i in range(50)], "kategorie": ["G"] * 50})
-    sheet = build_check_sheet(df, "code", n=10, seed=1)
-    assert sheet.height == 10 and sheet.columns[-2:] == list(CHECK_COLUMNS)
+    sheet = build_question_sheet([f"F{i:03d}" for i in range(10)], seed=1)
+    assert "kategorie" in sheet.columns and "begruendung" not in sheet.columns  # blind (D29)
     p = tmp_path / "p.csv"
-    write_sheet(sheet, p, entry_cols=CHECK_COLUMNS)
+    write_sheet(sheet, p)
     first = sheet["code"][0]
-    save_check(p, "code", first, stimmt=False, notiz="eher U")
+    save_entry(p, first, "U", unsicher=True, notiz="Version")
     row = read_sheet(p).filter(pl.col("code") == first).row(0, named=True)
-    assert row["stimmt"] == "n" and row["notiz"] == "eher U"
+    assert row["kategorie"] == "U" and row["unsicher"] == "x" and row["notiz"] == "Version"
     with pytest.raises(FileExistsError):
-        write_sheet(sheet, p, entry_cols=CHECK_COLUMNS)
+        write_sheet(sheet, p)

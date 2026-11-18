@@ -65,6 +65,10 @@ DOUBLE_CODED_N = 150
 CODING_VIEW_MAX_CHARS = 4000
 KAPPA_MIN = 0.61  # Landis & Koch (1977): substanziell
 MACRO_F1_MIN = 0.70
+# Menschliche Prüfung (D29): Stichproben und Kriterium je Gruppe
+PRUEF_TAGS_N = 40
+PRUEF_FRAGEN_N = 100
+PRUEF_GRUPPE_MIN = 0.80  # Anteil der Gruppen-Tags, die ein Mensch genauso einordnet
 
 # --- Gruppenvergleich (AP07)
 N_PERMUTATIONS = 10_000

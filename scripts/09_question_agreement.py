@@ -1,10 +1,10 @@
-"""AP09: Übereinstimmung der Kodierinstanzen bei den 600 Fragen, Konsens, Prüfstichprobe.
+"""AP09: Übereinstimmung der Kodierinstanzen bei den 600 Fragen, Konsens.
 
 uv run python scripts/09_question_agreement.py
 
 Eingabe: coding/questions/llm_fragen_<modell>.csv (AP16)
-Ausgaben: results/agreement_questions.md, coding/questions/labels_600.csv (nur Konsens),
-          coding/pruefung/fragen_100.csv (Prüfung in der Kodier-App, Bogen „Prüfung“)
+Ausgaben: results/agreement_questions.md, coding/questions/labels_600.csv (nur Konsens)
+(Prüfbogen für die Autor:innen erzeugt seit D29 `scripts/17_pruefung.py boegen`)
 """
 
 from datetime import datetime
@@ -13,9 +13,7 @@ import polars as pl
 
 from sov import config
 from sov.agreement import crosstab, kappa_ci, landis_koch
-from sov.coding import CHECK_COLUMNS, build_check_sheet, read_sheet, write_sheet
-
-N_CHECK = 100
+from sov.coding import read_sheet
 
 
 def main() -> None:
@@ -61,13 +59,6 @@ def main() -> None:
         lines.append(f"| {r[k1]} | " + " | ".join(str(r[c]) for c in cats) + " |")
     (config.RESULTS_DIR / "agreement_questions.md").write_text("\n".join(lines) + "\n",
                                                               encoding="utf-8")  # fmt: skip
-    pool = agree.select("code", "kategorie", "begruendung")
-    (config.CODING_DIR / "pruefung").mkdir(parents=True, exist_ok=True)
-    write_sheet(
-        build_check_sheet(pool, "code", N_CHECK, config.SEED + 60),
-        config.CODING_DIR / "pruefung" / "fragen_100.csv",
-        entry_cols=CHECK_COLUMNS,
-    )
     print("\n".join(lines))
 
 

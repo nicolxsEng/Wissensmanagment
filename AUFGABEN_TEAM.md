@@ -1,6 +1,6 @@
 # Was wir selbst machen müssen
 
-*Stand 16.11.2026: Die Kodierung (Tags, Fragen, Themen) übernehmen zwei lokale Sprachmodelle (siehe `docs/ki_einsatz.md`). Wir prüfen nur noch Stichproben. Zusammen etwa 1,5 Stunden.*
+*Stand 16.11.2026: Die Kodierung (Tags, Fragen, Themen) übernehmen zwei lokale Sprachmodelle (siehe `docs/ki_einsatz.md`). Wir prüfen nur noch Stichproben, seit 18.11.2026 blind (D29). Zusammen etwa 2 Stunden.*
 
 Abhaken mit `[x]`. Nach jedem Schritt steht, was Claude Code danach ausführt.
 
@@ -12,17 +12,20 @@ Abhaken mit `[x]`. Nach jedem Schritt steht, was Claude Code danach ausführt.
 
 - [ ] `docs/kodierleitfaden_tags.md` und `docs/kodierleitfaden_fragen.md` überfliegen: Passen Kategorien und Beispiele? Die Modelle bekommen genau diese Leitfäden als Anweisung.
 
-## 2 Tags prüfen (eine Person, ca. 15 min)
+**Wichtig für 2 und 3 (blind, D29):** Vorher keine Modell-Einordnungen ansehen (`coding/tags/llm_*`, `coding/questions/llm_*`, `data/processed/groups.json`, `results/agreement_*`) und euch erst nach dem Ausfüllen austauschen. Ihr ordnet selbst ein, verglichen wird danach automatisch.
 
-Voraussetzung: Claude Code hat AP16 (Tags) und AP05 ausgeführt.
+## 2 Tags einordnen (beide, jede Person für sich, ca. 20 min)
 
-- [ ] `coding/pruefung/tags_40.csv`: je Tag die Einordnung der Modelle ansehen, Spalte `stimmt` = `j` oder `n`
+Voraussetzung: erfüllt, die Bögen sind erzeugt.
 
-## 3 Fragen prüfen (eine Person oder aufgeteilt, ca. 45 min)
+- [ ] Person A: `coding/pruefung/tags_40_A.csv`, Spalte `kategorie` = `G`, `U` oder `K` nach `docs/kodierleitfaden_tags.md`; bei Zweifel `unsicher` = `x`
+- [ ] Person B: dasselbe in `coding/pruefung/tags_40_B.csv` (gleiche Tags, andere Reihenfolge)
 
-Voraussetzung: Claude Code hat AP16 (Fragen) und AP09 ausgeführt.
+## 3 Fragen einordnen (eine Person oder aufgeteilt, ca. 60 min)
 
-- [ ] Kodier-App im Prüfmodus (`uv run marimo run notebooks/kodier_app.py`): 100 Fragen, je Frage `stimmt` ja/nein
+- [ ] Kodier-App (`uv run marimo run notebooks/kodier_app.py`): 100 Fragen, je Frage G, U oder S wählen, bei Zweifel „unsicher“ ankreuzen
+
+Danach führt Claude Code `scripts/17_pruefung.py auswerten` und AP07 erneut aus.
 
 ## 4 Themen durchsehen (beide, ca. 15 min)
 
@@ -32,7 +35,7 @@ Voraussetzung: Claude Code hat AP11 mit Benennung und Prüfung durch die Modelle
 
 ## 5 Ergebnisse durchsehen (beide, ca. 15 min)
 
-- [ ] `docs/ki_einsatz.md`: Tabelle „Ergebnisse der Prüfung“ ansehen. Sind Kappa und Zustimmung plausibel?
+- [ ] `docs/ki_einsatz.md`: Tabelle „Ergebnisse der Prüfung“ ansehen. Sind die Kappa-Werte plausibel? (`results/pruefung.md`)
 - [ ] `results/checks.md`: automatischer Abgleich von 20 Fragen mit der API
 
 ## 6 Offene Entscheidungen
