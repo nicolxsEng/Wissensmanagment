@@ -23,6 +23,7 @@ from sov.figures import (  # noqa: E402
     F17_textlaenge,
     F18_ki_bezug,
     gruppen,
+    klassifikation,
 )
 
 FIGURES: dict[str, Callable[[], list[str]]] = {
@@ -39,6 +40,8 @@ FIGURES: dict[str, Callable[[], list[str]]] = {
     "F11": gruppen.make_f11,
     "F12": gruppen.make_f12,
     "F13": gruppen.make_f13,
+    "F14": klassifikation.make_f14,
+    "F15": klassifikation.make_f15,
     "F23": gruppen.make_f23,
     "F17": F17_textlaenge.make,
     "F18": F18_ki_bezug.make,

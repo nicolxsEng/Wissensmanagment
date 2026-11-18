@@ -1,0 +1,20 @@
+{
+  "datum": "2026-11-18T10:31:47",
+  "verfahren": "setfit",
+  "test_macro_f1": 0.7579269332943385,
+  "params": "{\"base_model\": \"sentence-transformers/all-mpnet-base-v2\", \"num_iterations\": 10, \"num_epochs\": 1, \"batch_size\": 16, \"max_seq_length\": 256, \"seed\": 20261116}",
+  "trainiert_auf": 456,
+  "angewendet_auf": 22829,
+  "pakete": {
+    "scikit-learn": "1.9.1",
+    "setfit": "1.2.0",
+    "transformers": "5.23.0",
+    "sentence-transformers": "6.3.0",
+    "torch": "2.15.0"
+  },
+  "hypothesen": {
+    "G": "The solution can be worked out from the code and information given in the question itself.",
+    "U": "The solution depends on the asker's environment, such as the operating system, installed versions, configuration, build tools, servers or cloud services.",
+    "S": "This is not a concrete programming problem but a request for opinions, recommendations or a general explanation."
+  }
+}

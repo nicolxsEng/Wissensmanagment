@@ -356,6 +356,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 - **Anwendung:** 2.000 zufällige klassische Fragen je Jahr 2015–2025, 2026 alle 949, ohne die 600 kodierten. Gegenprobe: Anteile mit der Konfusionsmatrix korrigieren (adjusted classify and count) und neben den Rohanteilen zeigen.
 - **Modelle:** werden einmal von Hugging Face heruntergeladen und danach offline genutzt. Name und Revision stehen in `config.py`, damit der Lauf später exakt wiederholbar ist. Keine Cloud-API.
 - **Stand 16.11.2026 (vorbereitet):** `scripts/10_classify.py` mit den Schritten `prepare` (erledigt: 630 kodierte + 22.829 Anwendungsfragen), `benchmark` (erledigt, `results/classify/laufzeit.md`), `select`, `test`, `apply`. Die Testmenge ist technisch gesperrt (`HoldoutLock`). Mit Platzhalter-Labels geprüft: Zufallsniveau ≈ 0,30, zweiter Testlauf wird abgelehnt. Laufzeit nach der Kodierung: etwa 40 min plus Anwendung (Zero-Shot groß ≈ 7 h).
+- **Stand 18.11.2026 (fertig):** Referenz sind die 456 Konsensfragen aus AP09 (Training 335, Test 121 statt 150, weil nur Konsensfragen zählen). Auswahl per 5-facher Kreuzvalidierung (TF-IDF C = 0,5). Test je Kandidat einmal: SetFit 0,76, TF-IDF 0,58 (S nie vorhergesagt), Zero-Shot 0,51 (ordnet fast alles als U ein). Endmodell SetFit auf allen 456, angewendet auf 22.829 Fragen (Laufzeit ≈ 1 h). Nachbereitung `scripts/10b_classify_report.py`: Korrektur der Anteile über die Konfusionsmatrix (`data/processed/text_group_shares_adjusted.csv`), Modellkarte, Bericht. Einschränkungen: nur 3 S-Testfragen, daher breites Intervall und unsichere S-Korrektur; die Konfusionsmatrix stammt vom Testmodell (335 Fragen), nicht vom Endmodell (456).
 - **Akzeptanz:** Gewinner hat Macro-F1 ≥ 0,70 auf den 150. Falls kein Kandidat das erreicht: Ergebnis trotzdem berichten, Textanalyse nur als Hinweis deuten, im Paper offenlegen.
 
 ### AP11 Themenanalyse (TF3)
@@ -385,7 +386,7 @@ Jedes AP hat: **Ziel · Eingaben · Ausgaben · Umsetzung · Akzeptanzkriterien*
 
 - **Ziel:** alle Abbildungen aus Abschnitt 7 und Tabellen aus Abschnitt 8 mit einem Befehl.
 - **Umsetzung:** `src/sov/figures/<id>.py` mit je einer Funktion `make()`; `scripts/13_figures.py` ruft alle auf. Tabellen als CSV, Markdown und LaTeX. `results/kennzahlen.json` sammelt alle im Text genannten Zahlen (z. B. `tf2.abstand_2024`), damit im Paper keine Zahl von Hand abgeschrieben werden muss.
-- **Stand 15.11.2026:** F01–F06, F17 (erstes Feld) und F18 fertig und angesehen (`scripts/13_figures.py`, Bausteine in `src/sov/figures/common.py`). F21 erst nach der Tag-Kodierung (Blindheit). Gruppenabbildungen (F08–F16, F23) und das zweite Feld von F17 folgen nach AP05/AP07. **Stand 18.11.2026:** F08–F13 fertig und angesehen (`src/sov/figures/gruppen.py`); offen F14–F16, F23, F17 (zweites Feld), F21.
+- **Stand 15.11.2026:** F01–F06, F17 (erstes Feld) und F18 fertig und angesehen (`scripts/13_figures.py`, Bausteine in `src/sov/figures/common.py`). F21 erst nach der Tag-Kodierung (Blindheit). Gruppenabbildungen (F08–F16, F23) und das zweite Feld von F17 folgen nach AP05/AP07. **Stand 18.11.2026:** F08–F13 und F23 fertig und angesehen (`src/sov/figures/gruppen.py`); F14 und F15 fertig und angesehen (`src/sov/figures/klassifikation.py`); offen F16, F17 (zweites Feld), F21.
 - **Akzeptanz:** `make figures tables` läuft ohne Fehler; jede Abbildung einmal angesehen (Beschriftungen überlappen nicht, Farben nach Abschnitt 3.3); `results/ergebnisse.md` fasst die Kernaussagen je Teilfrage mit Verweis auf Abbildung und Tabelle zusammen.
 
 ### AP14 Sichtbare Antwortende: Wer zeigt, dass er sich auskennt? (fest eingeplant)
@@ -603,7 +604,7 @@ Claude Code setzt nach jedem abgeschlossenen AP den Haken und trägt das Datum e
 | AP07 | Gruppenvergleich (`scripts/07_groups.py`, `results/groups.md`; Abstand 2024: Runde 2 +44,4, Runde 1 +59,5, Kern +55,1; Permutation p < 0,01 für 2023/2024 in allen Varianten; Placebo ≈ 0; Abbildungen F08–F13 fertig) | ☑ | 18.11.2026 |
 | AP08 | Unterbrochene Zeitreihe (TF1; Gruppen folgen in AP07) | ☑ | 15.11.2026 |
 | AP09 | Doppelkodierung (κ 0,55 < 0,61; Konsens 456 Fragen; Prüfung 100 Fragen offen) | ◐ | 16.11.2026 |
-| AP10 | Klassifikation (vorbereitet; wartet auf AP09-Labels) | ◐ | 16.11.2026 |
+| AP10 | Klassifikation (Gewinner SetFit, Macro-F1 0,76 [0,56; 0,94] auf 121 Testfragen, nur G/U 0,89; 22.829 Fragen eingeordnet; U-Anteil 2021 29 % → 2024 49 %, korrigiert 23 % → 49 %; `results/classify/bericht.md`) | ☑ | 18.11.2026 |
 | AP11 | Themenanalyse (Probelauf fertig; wartet auf Benennen und Prüfen) | ◐ | 16.11.2026 |
 | AP12 | Datenprüfung, Literatur | ☐ | |
 | AP13 | Abbildungen, Tabellen (Teil TF1/TF3: F01–F06, F17 Feld 1, F18 fertig) | ◐ | 15.11.2026 |

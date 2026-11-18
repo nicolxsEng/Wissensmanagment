@@ -1,0 +1,14 @@
+{
+  "tfidf_logreg": {
+    "datum": "2026-11-18T08:46:50",
+    "notiz": "Trainingsfragen: 335"
+  },
+  "setfit": {
+    "datum": "2026-11-18T09:20:36",
+    "notiz": "Trainingsfragen: 335"
+  },
+  "zero_shot": {
+    "datum": "2026-11-18T09:20:46",
+    "notiz": "Trainingsfragen: 335"
+  }
+}

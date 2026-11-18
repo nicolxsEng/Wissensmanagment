@@ -36,7 +36,7 @@ Alle Sprachmodelle laufen lokal (Ollama), keine Texte wurden an externe KI-Diens
 | Kappa Fragen (Qwen ↔ Phi-4) | **0,55** [0,49; 0,61], Übereinstimmung 76 % (599 Fragen; F306 ohne gültige Antwort von Qwen) – Kriterium 0,61 knapp nicht erfüllt. Konsens: 456 Fragen (G 272, U 168, S 16). `results/agreement_questions.md` |
 | Zustimmung der Autor:innen, 100 Fragen | *folgt* |
 | Themen bestanden (beide Modelle ≥ 8/10) | *folgt (AP11)* |
-| Macro-F1 bestes Klassifikationsverfahren | *folgt (AP10)* |
+| Macro-F1 bestes Klassifikationsverfahren | **SetFit 0,76** [0,56; 0,94], Genauigkeit 88 % (121 Testfragen, je Kandidat einmal ausgewertet); TF-IDF 0,58, Zero-Shot 0,51. Kriterium 0,70 erfüllt, die untere Intervallgrenze liegt aber darunter, weil nur 3 S-Testfragen vorliegen (F1 S 0,50). Nur G/U: 0,89. Angewendet auf 22.829 Fragen. `results/classify/bericht.md`, `results/classify/modell.md` |
 
 ## Textbausteine für die Ausarbeitung
 
@@ -46,7 +46,7 @@ Alle Sprachmodelle laufen lokal (Ollama), keine Texte wurden an externe KI-Diens
 > Die 269 Tags mit mindestens 150 Fragen im Oktober 2022 wurden nach einem Kodierleitfaden (Anhang A) als Grundlagen-, Umgebungs- oder nicht eindeutige Tags eingeordnet. Die Einordnung übernahmen zwei lokal betriebene Sprachmodelle unterschiedlicher Entwickler (Qwen3.5-9B, Phi-4 14B) unabhängig voneinander, mit identischer Anweisung, Temperatur 0 und festem Seed. In die Gruppen gingen nur Tags ein, die beide Modelle gleich einordneten (Cohens κ = [x]). Die Autor:innen prüften eine Zufallsstichprobe von 40 Tags und stimmten in [x] Fällen zu.
 
 **Methode – Einordnung von Fragetexten (3d):**
-> Für den Gruppenvergleich ohne Tags wurden 600 Fragen (50 je Oktober 2015–2026) und 30 weitere Fragen nach einem zweiten Leitfaden (Anhang B) von denselben beiden Modellen eingeordnet (κ = [x]). Übereinstimmend eingeordnete Fragen dienten als Referenz für drei Klassifikationsverfahren. Das Verfahren mit dem besten Macro-F1 ([x]) ordnete anschließend [x] Fragen ein. Die Autor:innen prüften 100 zufällige Fragen (Zustimmung [x] %).
+> Für den Gruppenvergleich ohne Tags wurden 600 Fragen (50 je Oktober 2015–2026) und 30 weitere Fragen nach einem zweiten Leitfaden (Anhang B) von denselben beiden Modellen eingeordnet (κ = 0,55). Übereinstimmend eingeordnete Fragen dienten als Referenz für drei Klassifikationsverfahren. Das Verfahren mit dem besten Macro-F1 (SetFit, 0,76) ordnete anschließend 22.829 Fragen ein. Die Autor:innen prüften 100 zufällige Fragen (Zustimmung [x] %).
 
 **Methode – Themen (3d):**
 > Die Themen der Fragetitel wurden mit [BERTopic/NMF] gebildet. Ein lokales Sprachmodell benannte jedes Thema anhand der Schlüsselwörter und fünf typischer Titel; beide Modelle prüften je Thema zehn weitere, zufällig gezogene Titel auf Passung. Ein Thema galt als bestätigt, wenn beide Modelle mindestens acht von zehn Titeln als passend einstuften ([x] von [y] Themen). Die Autor:innen sahen die Themenliste durch.
